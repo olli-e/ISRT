@@ -283,7 +283,7 @@ class SourceQuery(object):
 
 if __name__ == '__main__':
     try:
-        query = SourceQuery('62.171.147.243', 27231, 1) # Test Server you can use as long as it lives
+        query = SourceQuery('187.72.68.137', 27034, 1) # Test Server you can use as long as it lives
         res = query.get_info()
         print(res['Hostname'])
         print(res['Map'])

@@ -111,11 +111,12 @@ def queryserver(self, serverhost, queryport):  # pylint: disable=unused-argument
         self.ranked = self.serverrules['RankedServer_b']
         self.coop = self.serverrules['Coop_b']
         self.mods = self.serverrules['Mutated_b']
+        self.realmods = self.serverrules['Mods_b']
         self.day = self.serverrules['Day_b']
 
         self.pwcheck = self.serverinfo['Password']
         self.vaccheck = self.serverinfo['Secure']
-
+        
         if self.mods == "true":
             self.mutatorids = self.serverrules['Mutators_s']
         else:
@@ -135,7 +136,7 @@ def queryserver(self, serverhost, queryport):  # pylint: disable=unused-argument
             self.lighting_map = "Day"
         else:
             self.lighting_map = "Night"
-
+        
         self.gui.le_gamemode.setText(
             str(self.serverrules['GameMode_s']) + " (" + str(self.servercoopcheck) + ")")
 
@@ -146,12 +147,14 @@ def queryserver(self, serverhost, queryport):  # pylint: disable=unused-argument
         self.gui.le_mods.setCursorPosition(1)
 
         #Creating a list for mutator-IDs to identify installed maps
-        if self.mods == "true":
+        if self.realmods == "true":
             self.mutator_id_list = (
                 self.serverrules['ModList_s'].split(','))
+            print("rules")
         else:
             self.mutator_id_list = 0
-
+            
+        print(self.mutator_id_list)
         if self.pwcheck == 0:
             self.gui.le_password.setStyleSheet(
                 "border-image: url(:/img/img/lock-unlocked.png);")
@@ -163,7 +166,7 @@ def queryserver(self, serverhost, queryport):  # pylint: disable=unused-argument
             self.servervaccheck = "No"
         else:
             self.servervaccheck = "Yes"
-
+        
         self.gui.le_servername.setText(
             str(self.serverinfo['Hostname']))
 

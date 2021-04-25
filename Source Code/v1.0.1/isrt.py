@@ -1,8 +1,8 @@
 '''
-ISRT - Insurgency Sandstorm RCON Tool; 08.03.2021, Madman
+ISRT - Insurgency Sandstorm RCON Tool; 25.04.2021, Madman
 In case of questions: support@isrt.info
 Website: http://www.isrt.info
-Current Version: v1.0
+Current Version: v1.0.1
 Database: ./db/isrt_data.db
 Monitor: ./isrt_monitor.py/exe
 This is open Source, you may use, copy, modify it as you wish - feel free!

@@ -150,11 +150,9 @@ def queryserver(self, serverhost, queryport):  # pylint: disable=unused-argument
         if self.realmods == "true":
             self.mutator_id_list = (
                 self.serverrules['ModList_s'].split(','))
-            print("rules")
         else:
             self.mutator_id_list = 0
             
-        print(self.mutator_id_list)
         if self.pwcheck == 0:
             self.gui.le_password.setStyleSheet(
                 "border-image: url(:/img/img/lock-unlocked.png);")

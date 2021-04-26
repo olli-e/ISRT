@@ -33,7 +33,6 @@ def action_elements(self):
     self.gui.btn_ban.clicked.connect(lambda: rcon.ban(self))
     self.gui.btn_perm_ban.clicked.connect(lambda: rcon.permban(self))
     self.gui.btn_unban.clicked.connect(lambda: rcon.unban(self))
-    self.gui.btn_lookup_id.clicked.connect(lambda: rcon.lookup_id(self))
     self.gui.btn_get_ids.clicked.connect(lambda: rcon.get_player_ids(self))
     self.gui.btn_main_exec_query.clicked.connect(lambda: query.checkandgoquery(self))
     self.gui.btn_main_clear_rcon.clicked.connect(lambda: rcon.clear_main_rcon(self))

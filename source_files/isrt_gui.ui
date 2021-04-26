@@ -1193,29 +1193,6 @@ color: rgb(47, 47, 47);</string>
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="btn_lookup_id">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>21</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
-</string>
-                 </property>
-                 <property name="text">
-                  <string>Lookup Steam IDs</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLineEdit" name="lineEdit_18">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">

@@ -495,22 +495,29 @@ def rconserver(self, serverhost, rconpassword, rconport, rconcommand):
 def get_player_ids(self):
     rawcommand = "listplayers"
     rawconsole = ""
-    self.raw_playerid_output = []
-    if self.gui.le_players.text().split("/"):
-        players = self.gui.le_players.text().split("/")
-        players = int(players[0])
-    else:
-        players = 0
+    
     if self.gui.entry_ip.text() and self.gui.entry_rconpw.text() and self.gui.entry_rconport.text():
+        self.raw_playerid_output = []
+        if self.gui.le_players.text().split("/"):
+            players = self.gui.le_players.text().split("/")
+            players = int(players[0])
+        else:
+            players = 0
         serverhost = str(self.gui.entry_ip.text())
         rconpassword = str(self.gui.entry_rconpw.text())
         rconport = int(self.gui.entry_rconport.text())
-        console = Console(
-            host=serverhost, password=rconpassword, port=rconport)
-        rawconsole = (console.command(rawcommand))
+        try:
+            console = Console(
+                host=serverhost, password=rconpassword, port=rconport)
+        except Exception:
+            self.gui.label_output_window.append("Connetion timed out - wrong RCON port?")
+        try:
+            rawconsole = (console.command(rawcommand))
+        except Exception:
+            self.gui.label_output_window.append("Error - maybe wrong RCON Password")
         if rawconsole:
             self.raw_playerid_output = rawconsole.split(' | ')
-        console.close()
+            console.close()
         if self.raw_playerid_output != [] and players != 0:
             raw_playerid_output_cut = self.raw_playerid_output[5:]
             namecounter = 0

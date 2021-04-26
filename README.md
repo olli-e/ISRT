@@ -1,5 +1,7 @@
 # ISRT - Insurgency Sandstorm RCon Tool v1.0.1
 
+v1.0.1 has some tiny bug fixings and I removed two function that do not work any longer or are not required.
+
 ISRT is a python 3.8/9-based administrative RCON Tool für Insurgency Sandstorm Servers that runs using PyQT5 and SQLite3.
 
 - Integrated 93 custom maps

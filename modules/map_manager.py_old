@@ -44,11 +44,10 @@ def fill_dropdown_map_box_main(self):
                 for custom_maps in self.mutator_id_list:
                     self.c.execute("select map_alias FROM map_config WHERE modid=:mod_id ORDER by Map_alias", {
                                     'mod_id': custom_maps})
-                    arr_dm2_alias = self.c.fetchall()
-                    for dm2_alias in arr_dm2_alias:
-                        if dm2_alias is not None:
-                            custom_maps_list.append(dm2_alias[0])
-                        self.conn.commit()
+                    dm2_alias = self.c.fetchone()
+                    if dm2_alias is not None:
+                        custom_maps_list.append(dm2_alias[0])
+                    self.conn.commit()
                 custom_maps_list.sort()
                 for cmlist in custom_maps_list:
                     self.gui.dropdown_select_travelscenario.addItem(cmlist)
@@ -66,11 +65,10 @@ def fill_dropdown_map_box_main(self):
                 for custom_maps in self.mutator_id_list:
                     self.c.execute("select map_alias FROM map_config WHERE modid=:mod_id ORDER by Map_alias", {
                                     'mod_id': custom_maps})
-                    arr_dm2_alias = self.c.fetchall()
-                    for dm2_alias in arr_dm2_alias:
-                        if dm2_alias is not None:
-                            custom_maps_list.append(dm2_alias[0])
-                        self.conn.commit()
+                    dm2_alias = self.c.fetchone()
+                    if dm2_alias is not None:
+                        custom_maps_list.append(dm2_alias[0])
+                    self.conn.commit()
                 custom_maps_list.sort()
                 for cmlist in custom_maps_list:
                     self.gui.dropdown_select_travelscenario.addItem(cmlist)

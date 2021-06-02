@@ -440,7 +440,7 @@ def save_it(self):
     new_mutators = self.gui.textbox_mutators.toPlainText()
     res_check_blanks_mut = bool(re.search(r"\s", new_mutators))
     if res_check_blanks_mut is True:
-        self.gui.label_saving_indicator.setText("Error - Mutator List not saved - contians blank spaces - resetting!")
+        self.gui.label_saving_indicator.setText("Error - Mutator List not saved - contains blank spaces - resetting!")
         self.gui.label_saving_indicator.setStyleSheet("color: red;")
     else:
 

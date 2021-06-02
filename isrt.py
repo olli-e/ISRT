@@ -287,17 +287,37 @@ if __name__ == "__main__":
         c.execute("update configuration set startcounter=:newstartcounter", {
                   'newstartcounter': new_startcounter})
         conn.commit()
-
-        if client_id == "" or client_id is None:
+        # Check if running in Dev Mode
+        if running_dev_mode == 1:
+            print("************************************")
+            print("*                                  *")
+            print("* Running in DEVELOPMENT MODE!!!!! *")
+            print("*                                  *")
+            print("************************************")
             client_hash = random.getrandbits(128)
             FORMAT = '%Y%m%d%H%M%S'
             datestamp = datetime.now().strftime(FORMAT)
             client_os = platform.system()
             client_id_new = ("ISRT_" + current_version + "_" +
-                                client_os + "_" + datestamp + "_" + str(client_hash))
-            c.execute("update configuration set client_id=:cid",
-                        {'cid': str(client_id_new)})
+                             client_os + "_" + datestamp + "_" + str(client_hash))
+            c.execute("UPDATE configuration SET client_id=:cid",
+                      {'cid': str(client_id_new)})
             conn.commit()
+            client_id = client_id_new
+
+        else:
+            # Check if Client ID is already existing
+            if client_id == "" or client_id is None:
+                client_hash = random.getrandbits(128)
+                FORMAT = '%Y%m%d%H%M%S'
+                datestamp = datetime.now().strftime(FORMAT)
+                client_os = platform.system()
+                client_id_new = ("ISRT_" + current_version + "_" +
+                                 client_os + "_" + datestamp + "_" + str(client_hash))
+                c.execute("update configuration set client_id=:cid",
+                          {'cid': str(client_id_new)})
+                conn.commit()
+                client_id = client_id_new
 
     else:
         for pid in psutil.pids():
@@ -310,21 +330,128 @@ if __name__ == "__main__":
         runcounter = len(runlist)
         if runcounter >= 2:
             runcheck = 0
+
     # Check if App may run
     if runcheck == 1:
         # Initialize GUIs
         app = QtWidgets.QApplication(sys.argv)
         ISRT_Main_Window = QtWidgets.QWidget()
+        rn_window = QtWidgets.QWidget()
         db_window = QtWidgets.QWidget()
         mgui = maingui()
         mgui.show()
         conn.close()
 
+        # Check for Updates if configuration allows it
+        if check_updates_ok == 1:
 
+            if running_dev_mode == 1:
+                try:
+                    r = urllib.request.urlopen(
+                    "http://www.isrt.info/version/version_check2.txt")
+                    u = urllib.request.urlopen(
+                    "http://www.isrt.info/version/update_message2.txt")
+                except Exception:
+                    r = None
+                    u = None
+                    new_version = current_version
+            else:
+                try:
+                    r = urllib.request.urlopen(
+                    "http://www.isrt.info/version/version_chec2.txt")
+                    u = urllib.request.urlopen(
+                    "http://www.isrt.info/version/update_message.txt")
+                except Exception:
+                    r = None
+                    u = None
+                    new_version = current_version
+
+            if r:
+                for line in r.readlines():
+                    line = line.decode("utf-8")
+                    line = line.strip('\n')
+                    new_version = line
+            if u:
+                for line2 in u.readlines():
+                    line2 = line2.decode("utf-8")
+                    line2 = line2.strip('\n')
+                    new_version_message = line2
+
+
+            if new_version:
+                pass
+            else:
+                new_version = current_version
+
+
+            # If new version available show Messagebox
+            def skip_this_version():
+                installdir2 = Path(__file__).absolute().parent
+                dbfile2 = (str(installdir2 / 'db/isrt_data.db'))
+                conn2 = sqlite3.connect(dbfile2)
+                c2 = conn2.cursor()
+                c2.execute("update configuration set no_reminder=:newno_reminder", {
+                    'newno_reminder': new_version})
+                conn2.commit()
+            def open_website():
+                os.system(
+                    'start %windir%\\explorer.exe "http://www.isrt.info/?page_id=50"')
+            if running_dev_mode_nv == 1:
+                if check_updates_ok == 1 and new_version > current_version and new_version > no_reminder:
+                    icondir = Path(__file__).absolute().parent
+                    updatemsg = QtWidgets.QMessageBox()
+                    updatemsg.setIcon(QtWidgets.QMessageBox.Information)
+                    updatemsg.setWindowTitle("ISRT Update Notification")
+                    updatemsg.setWindowIcon(QtGui.QIcon(
+                        str(icondir / 'img/isrt.ico')))
+                    updatemsg.setText(
+                        f'A new version of ISRT is available\n\nCurrent Version: {current_version}\nLatest Version: {new_version}\n\n{new_version_message}')
+                    skip_button = updatemsg.addButton(
+                        "Skip this update - remind me again next version!", updatemsg.ActionRole)
+                    skip_button.clicked.connect(skip_this_version)
+                    download_button = updatemsg.addButton(
+                        "Download", updatemsg.ActionRole)
+                    download_button.clicked.connect(open_website)
+                    updatemsg.addButton(updatemsg.Ok)
+                    updatemsg.exec_()
+            else:
+                if check_updates_ok == 1 and new_version > current_version and new_version > no_reminder:
+                    icondir = Path(__file__).absolute().parent
+                    updatemsg = QtWidgets.QMessageBox()
+                    updatemsg.setIcon(QtWidgets.QMessageBox.Information)
+                    updatemsg.setWindowTitle("ISRT Update Notification")
+                    updatemsg.setWindowIcon(QtGui.QIcon(
+                        str(icondir / 'img/isrt.ico')))
+                    updatemsg.setText(
+                        f'A new version of ISRT is available\n\nCurrent Version: {current_version}\nLatest Version: {new_version}\n\n{new_version_message}')
+                    skip_button = updatemsg.addButton(
+                        "Skip this update - remind me again next version!", updatemsg.ActionRole)
+                    skip_button.clicked.connect(skip_this_version)
+                    download_button = updatemsg.addButton(
+                        "Download", updatemsg.ActionRole)
+                    download_button.clicked.connect(open_website)
+                    updatemsg.addButton(updatemsg.Ok)
+                    updatemsg.exec_()
+
+
+        if running_dev_mode == 1:
+            if running_dev_mode_dbi == 1:
+                db_gui = dbgui()
+                db_gui.show()
+
+        else:
+            # Check if DB Importer shall be shown or not
+            if show_importer == 1:
+                db_gui = dbgui()
+                db_gui.show()
+
+
+        # Restart on first DB-Import
         def restart_program():
             python = sys.executable
             os.execl(python, python, * sys.argv)
         sys.exit(app.exec_())
+
     else:
         # Show Error that app is already running
         app = QtWidgets.QApplication(sys.argv)

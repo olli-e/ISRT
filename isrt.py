@@ -1,8 +1,8 @@
 '''
-ISRT - Insurgency Sandstorm RCON Tool; 25.04.2021, Madman
+ISRT - Insurgency Sandstorm RCON Tool; 02.06.2021, Madman
 In case of questions: support@isrt.info
 Website: http://www.isrt.info
-Current Version: v1.0.1
+Current Version: v1.1
 Database: ./db/isrt_data.db
 Monitor: ./isrt_monitor.py/exe
 This is open Source, you may use, copy, modify it as you wish - feel free!
@@ -44,7 +44,7 @@ from bin.rn_gui import Ui_rn_window
 ##################################################################################
 ##################################################################################
 running_test_mode = 0
-running_dev_mode = 0
+running_dev_mode = 1
 running_dev_mode_dbi = 0
 running_dev_mode_rn = 0
 running_dev_mode_nv = 0

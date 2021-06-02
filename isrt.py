@@ -34,7 +34,6 @@ import modules.definitions as my_def
 
 from bin.isrt_db_gui import Ui_db_importer_gui
 from bin.isrt_gui import Ui_ISRT_Main_Window
-from bin.rn_gui import Ui_rn_window
 
 
 #
@@ -46,48 +45,9 @@ from bin.rn_gui import Ui_rn_window
 running_test_mode = 0
 running_dev_mode = 1
 running_dev_mode_dbi = 0
-running_dev_mode_rn = 0
 running_dev_mode_nv = 0
 ##################################################################################
 ##################################################################################
-
-
-
-#
-# Release Notes GUI Handler
-#
-class rngui(QtWidgets.QWidget):
-    def __init__(self, *args, **kwargs):
-        # Gui Setup
-        super().__init__(*args, **kwargs)
-        # Database connection setup
-        self.dbdir = Path(__file__).absolute().parent
-        self.conn = sqlite3.connect(str(self.dbdir / 'db/isrt_data.db'))
-        self.c = self.conn.cursor()
-        self.rngui = Ui_rn_window()
-        self.rngui.setupUi(self)
-        # Setup Version number and set in About and Main Title
-        self.c.execute("Select version from configuration")
-        version_temp = self.c.fetchone()
-        self.conn.commit()
-        version = ("v" + version_temp[0])
-        self.rngui.rn_top_layer.setText(QtCore.QCoreApplication.translate("rn_window", f"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">ISRT {version} Release Notes</span></p></body></html>"))
-        self.rngui.btn_rn_close.clicked.connect(self.close_rn)
-
-    # Close RN per Button
-    def close_rn(self):
-        if self.rngui.chkbx_show_rn.isChecked():
-            rnsetoff = 0
-            self.c.execute("UPDATE configuration SET show_rn = :rnset", {
-                           'rnset': rnsetoff})
-            self.conn.commit()
-            self.conn.close()
-        self.close()
-
-    # Close Event Handling
-    def closeEvent(self, event): # pylint: disable=unused-argument
-        self.close()
-
 
 
 #
@@ -316,7 +276,6 @@ if __name__ == "__main__":
     startcounter = startvars[0]
     current_version = str(startvars[1])
     client_id = startvars[2]
-    show_rn = startvars[3]
     show_importer = startvars[4]
     check_updates_ok = startvars[5]
     no_reminder = startvars[6]
@@ -356,7 +315,6 @@ if __name__ == "__main__":
         # Initialize GUIs
         app = QtWidgets.QApplication(sys.argv)
         ISRT_Main_Window = QtWidgets.QWidget()
-        rn_window = QtWidgets.QWidget()
         db_window = QtWidgets.QWidget()
         mgui = maingui()
         mgui.show()

@@ -13,7 +13,6 @@ from pathlib import Path
 from PyQt5 import QtGui, QtWidgets
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, QTimer, Qt
 from bin.isrt_monitor_gui import Ui_UI_Server_Monitor
-from bin.isrt_monitor_gui2 import Ui_UI_Server_Monitor2
 import bin.SourceQuery as sq
 
 class Worker(QObject):
@@ -84,14 +83,16 @@ class mongui(QtWidgets.QWidget):
         self.dbdir = Path(__file__).absolute().parent
         self.conn = sqlite3.connect(str(self.dbdir / 'db/isrt_data.db'))
         self.c = self.conn.cursor()
-        self.c.execute("select show_gamemode, mon_width, mon_height, high_ping from configuration")
+        self.c.execute("select mon_width, mon_height, high_ping, show_gm, show_pn, show_ip from configuration")
         self.conn.commit()
-        self.show_gamemode_temp = self.c.fetchone()
-        self.show_gamemode = self.show_gamemode_temp[0]
+        self.mon_conf = self.c.fetchone()
         self.mogui = Ui_UI_Server_Monitor()
         self.mogui.setupUi(self)
-        self.setGeometry(150, 150, self.show_gamemode_temp[1], self.show_gamemode_temp[2])
-        self.high_ping = self.show_gamemode_temp[3]
+        self.setGeometry(150, 150, self.mon_conf[0], self.mon_conf[1])
+        self.high_ping = self.mon_conf[2]
+        self.show_gamemode = self.mon_conf[3]
+        self.show_playernames = self.mon_conf[4]
+        self.show_ipaddress = self.mon_conf[5]
         self.mogui.mon_progress_bar.setValue(0)
         self.mogui.tbl_server_overview.setRowCount(0)
         
@@ -124,13 +125,6 @@ class mongui(QtWidgets.QWidget):
         self.mogui.dropdown_highping.currentIndexChanged.connect(self.reload_settings)
         self.mogui.dropdown_show_gamemode.currentIndexChanged.connect(self.switch_gm)
 
-        self.c.execute("select progressbar from configuration")
-        self.conn.commit()
-        self.progressbar_check = self.c.fetchone()
-        if self.progressbar_check[0] == 1:
-            self.mogui.chkbx_show_progressbar.setChecked(True)
-        else:
-            self.mogui.chkbx_show_progressbar.setChecked(False)
         self.c.execute("SELECT alias FROM server")
         self.conn.commit()
         for row, form in enumerate(self.c):
@@ -139,7 +133,6 @@ class mongui(QtWidgets.QWidget):
             for column, item in enumerate(form): # pylint: disable=unused-variable
                 self.mogui.tbl_server_overview.setItem(row, 1, QtWidgets.QTableWidgetItem(str(item)))
         self.server_alias_list = self.c.fetchall()
-        self.mogui.chkbx_show_progressbar.stateChanged.connect(self.save_checkbox_state)
         self.start_timer()
 
     def switch_gm(self):
@@ -163,18 +156,6 @@ class mongui(QtWidgets.QWidget):
             self.conn.commit()
             self.start_timer()
 
-
-    def save_checkbox_state(self):
-        if self.mogui.chkbx_show_progressbar.isChecked():
-            checkstate = 1
-        else:
-            checkstate = 0
-        self.c.execute("select progressbar from configuration")
-        self.conn.commit()
-        check_progressbar = self.c.fetchone()
-        if check_progressbar[0] != checkstate:
-            self.c.execute("update configuration set progressbar=:newstate",{'newstate': checkstate})
-            self.conn.commit()
 
     def start_timer(self):
         self.refreshtimer_base = int(self.mogui.dropdown_refresh_timer.currentText())
@@ -210,11 +191,8 @@ class mongui(QtWidgets.QWidget):
         self.prepare_list_query(self.alias_list, rowcount)
 
     def reportProgress(self, n):
-        if self.mogui.chkbx_show_progressbar.isChecked():
-            self.mogui.mon_progress_bar.setValue(n)
-        else:
-            self.mogui.mon_progress_bar.setValue(0)
-
+        self.mogui.mon_progress_bar.setValue(n)
+        
     def prepare_list_query(self, alias_list, rowcount):
         self.alias_list = alias_list
         self.rowcount = rowcount

@@ -8,7 +8,6 @@ Module element of ISRT
 ISRT Monitor
 ------------------------------------------------------------------'''
 import sys
-import os
 import sqlite3
 from pathlib import Path
 from PyQt5 import QtGui, QtWidgets
@@ -180,10 +179,13 @@ class mongui(QtWidgets.QWidget):
     def start_timer(self):
         self.refreshtimer_base = int(self.mogui.dropdown_refresh_timer.currentText())
         self.refreshtimer = self.refreshtimer_base * 1000
+        self.get_server_data()
         self.timer = QTimer()
         self.timer.timeout.connect(self.get_server_data)
         self.timer.start(self.refreshtimer)
-        self.get_server_data()
+        
+        # while self.timer.remainingTime() > 1000:
+        #     print(self.timer.remainingTime()/ 1000)
 
         
 
@@ -345,7 +347,6 @@ class mongui(QtWidgets.QWidget):
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     UI_Server_Monitor = QtWidgets.QWidget()
-    UI_Server_Monitor2 = QtWidgets.QWidget()
     ui = Ui_UI_Server_Monitor()
     mogui = mongui()
     mogui.show()

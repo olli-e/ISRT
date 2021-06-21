@@ -319,6 +319,7 @@ def save_it(self):
         self.gui.btn_cust_3_definition.setText(
             new_btn3_name_var)
         self.gui.label_saving_indicator.setText("Saved!")
+        
     # Check and update new Button 3 command
     if new_btn3_command_var and self.button3_command != new_btn3_command_var:
         new_button_command = new_btn3_command_var
@@ -404,15 +405,15 @@ def save_it(self):
         self.conn.commit()
         self.gui.label_saving_indicator.setText("Saved!")
 
-    # Refresh Timer setting
-    self.c.execute("select timer from configuration")
-    self.conn.commit()
-    timer_result = self.c.fetchone()
-    current_refresh_timer = self.gui.dropdown_refresh_timer.currentText()
-    if timer_result[0] != current_refresh_timer:
-        self.c.execute("UPDATE configuration SET timer=:newtimer", {'newtimer': current_refresh_timer})
-        self.conn.commit()
-        self.gui.label_saving_indicator.setText("Saved!")
+    # # Refresh Timer setting
+    # self.c.execute("select timer from configuration")
+    # self.conn.commit()
+    # timer_result = self.c.fetchone()
+    # current_refresh_timer = self.gui.dropdown_refresh_timer.currentText()
+    # if timer_result[0] != current_refresh_timer:
+    #     self.c.execute("UPDATE configuration SET timer=:newtimer", {'newtimer': current_refresh_timer})
+    #     self.conn.commit()
+    #     self.gui.label_saving_indicator.setText("Saved!")
 
     # Update Pref Server List
     new_pref_server = self.gui.dropdown_pref_server.currentText()
@@ -425,16 +426,16 @@ def save_it(self):
             self.gui.label_saving_indicator.setText("Error - Preferred Server could not be saved - resetting!")
             self.gui.label_saving_indicator.setStyleSheet("color: red;")
 
-    # Update High ping
-    new_high_ping = self.gui.dropdown_highping.currentText()
-    if new_high_ping:
-        try:
-            self.c.execute(
-                "UPDATE configuration SET high_ping=:newhigh_ping", {'newhigh_ping': new_high_ping})
-            self.conn.commit()
-        except Exception:
-            self.gui.label_saving_indicator.setText("Error - High Ping could not be saved - resetting!")
-            self.gui.label_saving_indicator.setStyleSheet("color: red;")
+    # # Update High ping
+    # new_high_ping = self.gui.dropdown_highping.currentText()
+    # if new_high_ping:
+    #     try:
+    #         self.c.execute(
+    #             "UPDATE configuration SET high_ping=:newhigh_ping", {'newhigh_ping': new_high_ping})
+    #         self.conn.commit()
+    #     except Exception:
+    #         self.gui.label_saving_indicator.setText("Error - High Ping could not be saved - resetting!")
+    #         self.gui.label_saving_indicator.setStyleSheet("color: red;")
 
     # Update Mutators List
     new_mutators = self.gui.textbox_mutators.toPlainText()
@@ -472,19 +473,19 @@ def save_it(self):
         self.gui.label_saving_indicator.setText("Saved!")
         self.gui.label_saving_indicator.setStyleSheet("color: green;")
 
+    # # GameMode On/Off in Monitor
+    # new_show_gamemode = self.gui.dropdown_show_gamemode.currentText()
 
-    new_show_gamemode = self.gui.dropdown_show_gamemode.currentText()
-
-    if new_show_gamemode == "Yes":
-        new_gamemode_int = 1
-        self.c.execute(
-            "UPDATE configuration SET show_gamemode=:showgamemode", {'showgamemode': new_gamemode_int})
-        self.conn.commit()
-    else:
-        new_gamemode_int = 0
-        self.c.execute(
-            "UPDATE configuration SET show_gamemode=:showgamemode", {'showgamemode': new_gamemode_int})
-        self.conn.commit()
+    # if new_show_gamemode == "Yes":
+    #     new_gamemode_int = 1
+    #     self.c.execute(
+    #         "UPDATE configuration SET show_gamemode=:showgamemode", {'showgamemode': new_gamemode_int})
+    #     self.conn.commit()
+    # else:
+    #     new_gamemode_int = 0
+    #     self.c.execute(
+    #         "UPDATE configuration SET show_gamemode=:showgamemode", {'showgamemode': new_gamemode_int})
+    #     self.conn.commit()
 
     get_it(self)
 

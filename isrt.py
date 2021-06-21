@@ -1,5 +1,5 @@
 '''
-ISRT - Insurgency Sandstorm RCON Tool; 02.06.2021, Madman
+ISRT - Insurgency Sandstorm RCON Tool; 21.06.2021, Madman
 In case of questions: support@isrt.info
 Website: http://www.isrt.info
 Current Version: v1.1
@@ -11,7 +11,6 @@ Thanks to Helsing, Mamba, Sparkie and Stuermer for the pre-release testing - I a
 Importing required classes and libraries
 ------------------------------------------------------------------'''
 import os
-import subprocess
 import platform
 import random
 import sqlite3
@@ -22,9 +21,8 @@ from datetime import datetime
 from pathlib import Path
 
 import psutil
-import requests
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtGui, QtWidgets
 import modules.map_manager as maps
 import modules.config as conf
 
@@ -45,7 +43,6 @@ from bin.isrt_gui import Ui_ISRT_Main_Window
 running_test_mode = 0
 running_dev_mode = 1
 running_dev_mode_dbi = 0
-running_dev_mode_nv = 1
 ##################################################################################
 ##################################################################################
 

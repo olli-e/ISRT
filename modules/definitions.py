@@ -10,7 +10,6 @@ Definition of GUI and other basic elements
 import os
 import platform
 import subprocess
-from pathlib import Path
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import QTimer
 from modules import config as conf # pylint: disable=import-error

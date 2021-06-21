@@ -8,6 +8,7 @@ Module element of ISRT
 ISRT Monitor
 ------------------------------------------------------------------'''
 import sys
+import os
 import sqlite3
 from pathlib import Path
 from PyQt5 import QtGui, QtWidgets
@@ -116,6 +117,25 @@ class mongui(QtWidgets.QWidget):
             self.mogui.tbl_server_overview.setColumnWidth(4, 50)
             self.mogui.tbl_server_overview.setColumnWidth(5, 50)
             self.mogui.tbl_server_overview.setColumnWidth(6, 100)
+        
+        self.c.execute("select timer from configuration")
+        self.conn.commit()
+        self.refreshtimer_res = self.c.fetchone()
+        self.refreshtimer_base = self.refreshtimer_res[0]
+        self.refreshtimer = self.refreshtimer_base * 1000
+
+        self.mogui.dropdown_highping.setCurrentText(str(self.high_ping))
+        self.mogui.dropdown_refresh_timer.setCurrentText(str(self.refreshtimer_base))
+        if self.show_gamemode == 1:
+            self.mogui.dropdown_show_gamemode.setCurrentText("Yes")
+        else:
+            self.mogui.dropdown_show_gamemode.setCurrentText("No")
+
+
+        self.mogui.dropdown_refresh_timer.currentIndexChanged.connect(self.resrt_prog)
+        self.mogui.dropdown_highping.currentIndexChanged.connect(self.resrt_prog)
+        self.mogui.dropdown_show_gamemode.currentIndexChanged.connect(self.resrt_prog)
+
         self.c.execute("select progressbar from configuration")
         self.conn.commit()
         self.progressbar_check = self.c.fetchone()
@@ -134,6 +154,23 @@ class mongui(QtWidgets.QWidget):
         self.mogui.chkbx_show_progressbar.stateChanged.connect(self.save_checkbox_state)
         self.start_timer()
 
+    def resrt_prog(self):
+        
+        refresh_timer_current = int(self.mogui.dropdown_refresh_timer.currentText())
+        if self.mogui.dropdown_show_gamemode.currentText() == "Yes":
+            show_gamemode_current = 1
+        else:
+            show_gamemode_current = 0
+        highping_current = int(self.mogui.dropdown_highping.currentText())
+        
+        if self.high_ping != highping_current or self.show_gamemode != show_gamemode_current or self.refreshtimer_base != refresh_timer_current:
+
+            self.c.execute("UPDATE configuration SET timer=:newtimer", {'newtimer': refresh_timer_current})
+            self.c.execute("UPDATE configuration SET high_ping=:newhigh_ping", {'newhigh_ping': highping_current})
+            self.c.execute("UPDATE configuration SET show_gamemode=:showgamemode", {'showgamemode': show_gamemode_current})
+            self.conn.commit()
+            restart_program()
+
 
     def save_checkbox_state(self):
         if self.mogui.chkbx_show_progressbar.isChecked():
@@ -149,10 +186,6 @@ class mongui(QtWidgets.QWidget):
             self.conn.commit()
 
     def start_timer(self):
-        self.c.execute("select timer from configuration")
-        self.conn.commit()
-        self.refreshtimer_res = self.c.fetchone()
-        self.refreshtimer = self.refreshtimer_res[0] * 1000
         self.timer = QTimer()
         self.timer.timeout.connect(self.get_server_data)
         self.timer.start(self.refreshtimer)
@@ -245,6 +278,10 @@ class mongui(QtWidgets.QWidget):
                     self.mogui.tbl_server_overview.setItem(self.counter, 5, item2)
 
                 item4 = QtWidgets.QTableWidgetItem(str(self.resinfo['Ping']) + "ms")
+                print(type(self.resinfo['Ping']))
+                print(self.resinfo['Ping'])
+                print(type(self.high_ping))
+                print(self.high_ping)
                 if self.resinfo['Ping'] >= int(self.high_ping):
                     item4 = QtWidgets.QTableWidgetItem(str(self.resinfo['Ping']) + "ms")
                     item4.setForeground(QtGui.QColor(190,0,0))
@@ -286,7 +323,11 @@ class mongui(QtWidgets.QWidget):
                     self.mogui.tbl_server_overview.setItem(self.counter, 4, item2)
 
                 item4 = QtWidgets.QTableWidgetItem(str(self.resinfo['Ping']) + "ms")
-                if self.resinfo['Ping'] >= 80:
+                print(type(self.resinfo['Ping']))
+                print(self.resinfo['Ping'])
+                print(type(self.high_ping))
+                print(self.high_ping)
+                if self.resinfo['Ping'] >= int(self.high_ping):
                     item4 = QtWidgets.QTableWidgetItem(str(self.resinfo['Ping']) + "ms")
                     item4.setForeground(QtGui.QColor(190,0,0))
                 else:
@@ -379,4 +420,8 @@ if __name__ == "__main__":
     ui2 = Ui_UI_Server_Monitor2()
     mogui = mongui()
     mogui.show()
+    # Restart on first DB-Import
+    def restart_program():
+        python = sys.executable
+        os.execl(python, python, * sys.argv)
     sys.exit(app.exec_())

@@ -80,19 +80,20 @@ class mongui(QtWidgets.QWidget):
     timer_requested = pyqtSignal()
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.mogui = Ui_UI_Server_Monitor()
+        self.mogui.setupUi(self)
         self.dbdir = Path(__file__).absolute().parent
         self.conn = sqlite3.connect(str(self.dbdir / 'db/isrt_data.db'))
         self.c = self.conn.cursor()
-        self.c.execute("select mon_width, mon_height, high_ping, show_gm, show_pn, show_ip from configuration")
+        self.c.execute("select mon_width, mon_height, high_ping, show_gm, show_pn, show_ip, timer from configuration")
         self.conn.commit()
         self.mon_conf = self.c.fetchone()
-        self.mogui = Ui_UI_Server_Monitor()
-        self.mogui.setupUi(self)
         self.setGeometry(150, 150, self.mon_conf[0], self.mon_conf[1])
         self.high_ping = self.mon_conf[2]
         self.show_gamemode = self.mon_conf[3]
         self.show_playernames = self.mon_conf[4]
         self.show_ipaddress = self.mon_conf[5]
+        self.refreshtimer_base = self.mon_conf[6]
         self.mogui.mon_progress_bar.setValue(0)
         self.mogui.tbl_server_overview.setRowCount(0)
         
@@ -108,22 +109,33 @@ class mongui(QtWidgets.QWidget):
 
         if self.show_gamemode == 1:
             self.mogui.tbl_server_overview.setColumnHidden(3, 0)
-            self.mogui.dropdown_show_gamemode.setCurrentText("Yes")
+            self.mogui.cb_gamemode.setChecked(True)
         else:
             self.mogui.tbl_server_overview.setColumnHidden(3, 1)
-            self.mogui.dropdown_show_gamemode.setCurrentText("No")
-        
-        self.c.execute("select timer from configuration")
-        self.conn.commit()
-        self.refreshtimer_res = self.c.fetchone()
-        self.refreshtimer_base = self.refreshtimer_res[0]
+            self.mogui.cb_gamemode.setChecked(False)
+    
+        if self.show_playernames == 1:
+            self.mogui.tbl_server_overview.setColumnHidden(7, 0)
+            self.mogui.cb_playernames.setChecked(True)
+        else:
+            self.mogui.tbl_server_overview.setColumnHidden(7, 1)
+            self.mogui.cb_playernames.setChecked(False)
+
+        if self.show_ipaddress == 1:
+            self.mogui.tbl_server_overview.setColumnHidden(2, 0)
+            self.mogui.cb_ipaddress.setChecked(True)
+        else:
+            self.mogui.tbl_server_overview.setColumnHidden(2, 1)
+            self.mogui.cb_ipaddress.setChecked(False)
 
         self.mogui.dropdown_highping.setCurrentText(str(self.high_ping))
         self.mogui.dropdown_refresh_timer.setCurrentText(str(self.refreshtimer_base))
 
         self.mogui.dropdown_refresh_timer.currentIndexChanged.connect(self.reload_settings)
         self.mogui.dropdown_highping.currentIndexChanged.connect(self.reload_settings)
-        self.mogui.dropdown_show_gamemode.currentIndexChanged.connect(self.switch_gm)
+        self.mogui.cb_gamemode.clicked.connect(self.switch_views)
+        self.mogui.cb_playernames.clicked.connect(self.switch_views)
+        self.mogui.cb_ipaddress.clicked.connect(self.switch_views)
 
         self.c.execute("SELECT alias FROM server")
         self.conn.commit()
@@ -135,15 +147,33 @@ class mongui(QtWidgets.QWidget):
         self.server_alias_list = self.c.fetchall()
         self.start_timer()
 
-    def switch_gm(self):
-        if self.mogui.dropdown_show_gamemode.currentText() == "Yes":
+    def switch_views(self):
+        if self.mogui.cb_gamemode.isChecked():
             show_gamemode_current = 1
             self.mogui.tbl_server_overview.setColumnHidden(3, 0)
         else:
             show_gamemode_current = 0
             self.mogui.tbl_server_overview.setColumnHidden(3, 1)
         if self.show_gamemode != show_gamemode_current:
-            self.c.execute("UPDATE configuration SET show_gamemode=:showgamemode", {'showgamemode': show_gamemode_current})
+            self.c.execute("UPDATE configuration SET show_gm=:showgamemode", {'showgamemode': show_gamemode_current})
+            self.conn.commit()
+        if self.mogui.cb_playernames.isChecked():
+            show_playernames_current = 1
+            self.mogui.tbl_server_overview.setColumnHidden(7, 0)
+        else:
+            show_playernames_current = 0
+            self.mogui.tbl_server_overview.setColumnHidden(7, 1)
+        if self.show_playernames != show_playernames_current:
+            self.c.execute("UPDATE configuration SET show_pn=:showpn", {'showpn': show_playernames_current})
+            self.conn.commit()
+        if self.mogui.cb_ipaddress.isChecked():
+            show_ipaddress_current = 1
+            self.mogui.tbl_server_overview.setColumnHidden(2, 0)
+        else:
+            show_ipaddress_current = 0
+            self.mogui.tbl_server_overview.setColumnHidden(2, 1)
+        if self.show_ipaddress != show_ipaddress_current:
+            self.c.execute("UPDATE configuration SET show_ip=:showip", {'showip': show_ipaddress_current})
             self.conn.commit()
 
 

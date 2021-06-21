@@ -74,10 +74,8 @@ class Worker(QObject):
         self.conn.commit()
         self.finished.emit()
 
-
 class mongui(QtWidgets.QWidget):
     server_query_requested = pyqtSignal(int, list)
-    timer_requested = pyqtSignal()
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.mogui = Ui_UI_Server_Monitor()
@@ -176,7 +174,6 @@ class mongui(QtWidgets.QWidget):
             self.c.execute("UPDATE configuration SET show_ip=:showip", {'showip': show_ipaddress_current})
             self.conn.commit()
 
-
     def reload_settings(self):
         refresh_timer_current = int(self.mogui.dropdown_refresh_timer.currentText())
         highping_current = int(self.mogui.dropdown_highping.currentText())
@@ -186,7 +183,6 @@ class mongui(QtWidgets.QWidget):
             self.conn.commit()
             self.start_timer()
 
-
     def start_timer(self):
         self.refreshtimer_base = int(self.mogui.dropdown_refresh_timer.currentText())
         self.refreshtimer = self.refreshtimer_base * 1000
@@ -194,11 +190,6 @@ class mongui(QtWidgets.QWidget):
         self.timer = QTimer()
         self.timer.timeout.connect(self.get_server_data)
         self.timer.start(self.refreshtimer)
-        
-        # while self.timer.remainingTime() > 1000:
-        #     print(self.timer.remainingTime()/ 1000)
-
-        
 
     def get_server_data(self):
         self.mogui.mon_progress_bar.setValue(0)
@@ -260,17 +251,13 @@ class mongui(QtWidgets.QWidget):
             item67.setForeground(QtGui.QColor(0,180,0))
             item67.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
             self.mogui.tbl_server_overview.setItem(self.counter, 0, item67)
-
             self.mogui.tbl_server_overview.setItem(self.counter, 2, QtWidgets.QTableWidgetItem(self.serverhost +":" + str(self.resinfo['GamePort'])))
             item1 = QtWidgets.QTableWidgetItem(self.resinfo['Map'] + " (" + lighting + ")")
             item1.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-
             item5 = QtWidgets.QTableWidgetItem(self.resrules['GameMode_s'])
             item5.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
             self.mogui.tbl_server_overview.setItem(self.counter, 3, item5)
-
             self.mogui.tbl_server_overview.setItem(self.counter, 4, item1)
-
             if self.resinfo['Players'] == 0:
                 item2 = QtWidgets.QTableWidgetItem("%i/%i" % (self.resinfo['Players'], self.resinfo['MaxPlayers']))
                 item2.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
@@ -280,18 +267,14 @@ class mongui(QtWidgets.QWidget):
                 item2.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
                 item2.setFont(QtGui.QFont("MS Shell Dlg 2",weight=QtGui.QFont.Bold))
                 self.mogui.tbl_server_overview.setItem(self.counter, 5, item2)
-
             item4 = QtWidgets.QTableWidgetItem(str(self.resinfo['Ping']) + "ms")
-
             if self.resinfo['Ping'] >= int(self.high_ping):
                 item4 = QtWidgets.QTableWidgetItem(str(self.resinfo['Ping']) + "ms")
                 item4.setForeground(QtGui.QColor(190,0,0))
             else:
                 item4.setForeground(QtGui.QColor(0,150,0))
-
             item4.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
             self.mogui.tbl_server_overview.setItem(self.counter, 6, item4)
-
             playerlist = ()
             counter = 0
             if len(self.players) != 0:
@@ -305,14 +288,10 @@ class mongui(QtWidgets.QWidget):
                     playerlist = playerlist + (("+ " + str(counter) + " unknown"), )
             else:
                 playerlist = playerlist + ("No players", )
-
             result_names = ', '.join([''.join(sub) for sub in playerlist])
             item99 = QtWidgets.QTableWidgetItem(str(result_names))
             self.mogui.tbl_server_overview.setItem(self.counter, 7, item99)
-            
-
         else:
-            
             self.mogui.tbl_server_overview.setItem(self.counter, 2, QtWidgets.QTableWidgetItem(self.serverhost))
             self.mogui.tbl_server_overview.setItem(self.counter, 3, QtWidgets.QTableWidgetItem(""))
             self.mogui.tbl_server_overview.setItem(self.counter, 4, QtWidgets.QTableWidgetItem(""))
@@ -333,8 +312,6 @@ class mongui(QtWidgets.QWidget):
             self.mogui.tbl_server_overview.item(self.counter, 6).setForeground(QtGui.QColor(130,130,130))
             self.mogui.tbl_server_overview.item(self.counter, 7).setBackground(QtGui.QColor(210,210,210))
             self.mogui.tbl_server_overview.item(self.counter, 7).setForeground(QtGui.QColor(130,130,130))
-
-
             item66 = QtWidgets.QTableWidgetItem("Down")
             item66.setFont(QtGui.QFont("MS Shell Dlg 2"))
             item66.setForeground(QtGui.QColor(130,130,130))

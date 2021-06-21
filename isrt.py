@@ -358,7 +358,7 @@ if __name__ == "__main__":
             else:
                 try:
                     r = urllib.request.urlopen(
-                    "http://www.isrt.info/version/version_chec2.txt")
+                    "http://www.isrt.info/version/version_check2.txt")
                     u = urllib.request.urlopen(
                     "http://www.isrt.info/version/update_message.txt")
                 except Exception:

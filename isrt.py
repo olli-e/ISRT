@@ -5,8 +5,8 @@ Website: http://www.isrt.info
 Current Version: v1.1
 Database: ./db/isrt_data.db
 Monitor: ./isrt_monitor.py/exe
-This is open Source, you may use, copy, modify it as you wish - feel free!
-Thanks to Helsing, Mamba, Sparkie and Stuermer for the pre-release testing - I appreciate that very much!
+This is open Source, you may use, copy, modify it as you wish, but you may not create anything from or with my code,
+that will earn you money - no selling of any kind of stuff with my code, not even parts of it!
 ------------------------------------------------------------------
 Importing required classes and libraries
 ------------------------------------------------------------------'''

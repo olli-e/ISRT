@@ -45,7 +45,7 @@ from bin.isrt_gui import Ui_ISRT_Main_Window
 running_test_mode = 0
 running_dev_mode = 1
 running_dev_mode_dbi = 0
-running_dev_mode_nv = 0
+running_dev_mode_nv = 1
 ##################################################################################
 ##################################################################################
 
@@ -396,42 +396,24 @@ if __name__ == "__main__":
             def open_website():
                 os.system(
                     'start %windir%\\explorer.exe "http://www.isrt.info/?page_id=50"')
-            if running_dev_mode_nv == 1:
-                if check_updates_ok == 1 and new_version > current_version and new_version > no_reminder:
-                    icondir = Path(__file__).absolute().parent
-                    updatemsg = QtWidgets.QMessageBox()
-                    updatemsg.setIcon(QtWidgets.QMessageBox.Information)
-                    updatemsg.setWindowTitle("ISRT Update Notification")
-                    updatemsg.setWindowIcon(QtGui.QIcon(
-                        str(icondir / 'img/isrt.ico')))
-                    updatemsg.setText(
-                        f'A new version of ISRT is available\n\nCurrent Version: {current_version}\nLatest Version: {new_version}\n\n{new_version_message}')
-                    skip_button = updatemsg.addButton(
-                        "Skip this update - remind me again next version!", updatemsg.ActionRole)
-                    skip_button.clicked.connect(skip_this_version)
-                    download_button = updatemsg.addButton(
-                        "Download", updatemsg.ActionRole)
-                    download_button.clicked.connect(open_website)
-                    updatemsg.addButton(updatemsg.Ok)
-                    updatemsg.exec_()
-            else:
-                if check_updates_ok == 1 and new_version > current_version and new_version > no_reminder:
-                    icondir = Path(__file__).absolute().parent
-                    updatemsg = QtWidgets.QMessageBox()
-                    updatemsg.setIcon(QtWidgets.QMessageBox.Information)
-                    updatemsg.setWindowTitle("ISRT Update Notification")
-                    updatemsg.setWindowIcon(QtGui.QIcon(
-                        str(icondir / 'img/isrt.ico')))
-                    updatemsg.setText(
-                        f'A new version of ISRT is available\n\nCurrent Version: {current_version}\nLatest Version: {new_version}\n\n{new_version_message}')
-                    skip_button = updatemsg.addButton(
-                        "Skip this update - remind me again next version!", updatemsg.ActionRole)
-                    skip_button.clicked.connect(skip_this_version)
-                    download_button = updatemsg.addButton(
-                        "Download", updatemsg.ActionRole)
-                    download_button.clicked.connect(open_website)
-                    updatemsg.addButton(updatemsg.Ok)
-                    updatemsg.exec_()
+   
+            if check_updates_ok == 1 and new_version > current_version and new_version > no_reminder:
+                icondir = Path(__file__).absolute().parent
+                updatemsg = QtWidgets.QMessageBox()
+                updatemsg.setIcon(QtWidgets.QMessageBox.Information)
+                updatemsg.setWindowTitle("ISRT Update Notification")
+                updatemsg.setWindowIcon(QtGui.QIcon(
+                    str(icondir / 'img/isrt.ico')))
+                updatemsg.setText(
+                    f'A new version of ISRT is available\n\nCurrent Version: {current_version}\nLatest Version: {new_version}\n\n{new_version_message}')
+                skip_button = updatemsg.addButton(
+                    "Skip this update!", updatemsg.ActionRole)
+                skip_button.clicked.connect(skip_this_version)
+                download_button = updatemsg.addButton(
+                    "Download", updatemsg.ActionRole)
+                download_button.clicked.connect(open_website)
+                updatemsg.addButton(updatemsg.Ok)
+                updatemsg.exec_()
 
 
         if running_dev_mode == 1:

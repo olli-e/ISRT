@@ -84,20 +84,20 @@ def get_it(self):
     else:
         self.gui.dropdown_pref_server.setCurrentText(self.personal_pref_server)
 
-    # Get Monitor Refresh Timer
-    self.refreshtimer = qb_cu_to_setting[4]
-    self.gui.dropdown_refresh_timer.setCurrentText(str(self.refreshtimer))
+    # # Get Monitor Refresh Timer
+    # self.refreshtimer = qb_cu_to_setting[4]
+    # self.gui.dropdown_refresh_timer.setCurrentText(str(self.refreshtimer))
 
-    # Get Show Gamemode in Monitor
-    self.show_gamemode_indicator = qb_cu_to_setting[6]
-    if self.show_gamemode_indicator == 1:
-        self.gui.dropdown_show_gamemode.setCurrentText("Yes")
-    else:
-        self.gui.dropdown_show_gamemode.setCurrentText("No")
+    # # Get Show Gamemode in Monitor
+    # self.show_gamemode_indicator = qb_cu_to_setting[6]
+    # if self.show_gamemode_indicator == 1:
+    #     self.gui.dropdown_show_gamemode.setCurrentText("Yes")
+    # else:
+    #     self.gui.dropdown_show_gamemode.setCurrentText("No")
 
-    # Get High Ping setting
-    self.high_ping = qb_cu_to_setting[7]
-    self.gui.dropdown_highping.setCurrentText(str(self.high_ping))
+    # # Get High Ping setting
+    # self.high_ping = qb_cu_to_setting[7]
+    # self.gui.dropdown_highping.setCurrentText(str(self.high_ping))
 
     # Get Map group setting
     self.map_group = qb_cu_to_setting[8]

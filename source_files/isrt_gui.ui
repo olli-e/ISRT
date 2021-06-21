@@ -85,7 +85,7 @@ selection-background-color: rgb(216, 216, 216);</string>
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>4</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
@@ -4368,6 +4368,23 @@ p, li { white-space: pre-wrap; }
           </layout>
          </item>
          <item>
+          <widget class="QLabel" name="lbl_command_copied">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Double-Click on command to copy to Clipboard</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QListWidget" name="list_custom_commands_console">
            <property name="mouseTracking">
             <bool>true</bool>
@@ -4389,23 +4406,6 @@ p, li { white-space: pre-wrap; }
            </property>
            <property name="selectionBehavior">
             <enum>QAbstractItemView::SelectRows</enum>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="lbl_command_copied">
-           <property name="font">
-            <font>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Double-Click on command to copy to Clipboard</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -4449,6 +4449,13 @@ p, li { white-space: pre-wrap; }
         <layout class="QVBoxLayout" name="verticalLayout_42">
          <item>
           <widget class="QPushButton" name="btn_save_settings">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="toolTip">
             <string>Save Settings</string>
            </property>
@@ -4456,11 +4463,40 @@ p, li { white-space: pre-wrap; }
             <string>Save Settings</string>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color:rgb(228, 228, 228)
-</string>
+            <string notr="true">background-color: rgb(255, 117, 53);
+color: rgb(255, 255, 255);</string>
            </property>
            <property name="text">
             <string>Save Settings</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_14">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>5</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_34">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>General</string>
            </property>
           </widget>
          </item>
@@ -4490,16 +4526,6 @@ p, li { white-space: pre-wrap; }
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="chkbox_close_question">
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="text">
-              <string>Show the &quot;Close App&quot; question when trying to close the program?</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <spacer name="horizontalSpacer_22">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -4518,9 +4544,100 @@ p, li { white-space: pre-wrap; }
           </layout>
          </item>
          <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_61">
+           <item>
+            <spacer name="horizontalSpacer_24">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>10</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="chkbox_close_question">
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="text">
+              <string>Show the &quot;Close App&quot; question when trying to close the program?</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_25">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>10</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>10</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <widget class="Line" name="line_14">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_15">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>10</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_33">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Server Info and Query</string>
            </property>
           </widget>
          </item>
@@ -4818,295 +4935,47 @@ p, li { white-space: pre-wrap; }
           </layout>
          </item>
          <item>
-          <widget class="Line" name="line_13">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_24">
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_30">
-             <item>
-              <widget class="QLabel" name="label_19">
-               <property name="text">
-                <string>Monitor - Refresh Intervall in seconds</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_10">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QComboBox" name="dropdown_refresh_timer">
-               <property name="minimumSize">
-                <size>
-                 <width>60</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color:rgb(254, 254, 254);
-</string>
-               </property>
-               <item>
-                <property name="text">
-                 <string>10</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>15</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>20</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>25</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>30</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>35</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>40</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>45</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>50</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>55</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>60</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>90</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>180</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_21">
-             <item>
-              <widget class="QLabel" name="label_20">
-               <property name="text">
-                <string>Monitor - Show Gamemode column?</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_12">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QComboBox" name="dropdown_show_gamemode">
-               <property name="minimumSize">
-                <size>
-                 <width>60</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color:rgb(254, 254, 254);
-</string>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Yes</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>No</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_22">
-             <item>
-              <widget class="QLabel" name="label_21">
-               <property name="text">
-                <string>Monitor - High Ping  in milliseconds - Pings greater this value are marked red</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_20">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QComboBox" name="dropdown_highping">
-               <property name="minimumSize">
-                <size>
-                 <width>60</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color:rgb(254, 254, 254);
-</string>
-               </property>
-               <item>
-                <property name="text">
-                 <string>10</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>20</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>30</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>40</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>50</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>60</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>70</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>80</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>90</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>100</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>110</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>120</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>130</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>140</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>150</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>200</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
-         <item>
           <layout class="QVBoxLayout" name="verticalLayout_41">
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_22">
+             <item>
+              <spacer name="verticalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>10</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
              <item>
               <widget class="Line" name="line">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
               </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_16">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>10</height>
+                </size>
+               </property>
+              </spacer>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_13">
@@ -5118,6 +4987,12 @@ p, li { white-space: pre-wrap; }
                    <height>0</height>
                   </size>
                  </property>
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true"/>
                  </property>
@@ -5125,7 +5000,7 @@ p, li { white-space: pre-wrap; }
                   <enum>QFrame::NoFrame</enum>
                  </property>
                  <property name="text">
-                  <string>Custom Buttons Preview</string>
+                  <string>Custom Buttons</string>
                  </property>
                 </widget>
                </item>
@@ -5363,6 +5238,22 @@ p, li { white-space: pre-wrap; }
               <layout class="QHBoxLayout" name="horizontalLayout_23"/>
              </item>
              <item>
+              <spacer name="verticalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>10</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
               <widget class="Line" name="line_5">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -5370,15 +5261,53 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item>
+              <spacer name="verticalSpacer_18">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>10</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
               <layout class="QHBoxLayout" name="horizontalLayout_58">
                <item>
                 <widget class="QLabel" name="label_32">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="text">
-                  <string>Mutator Preset Buttons (Define your Mutator presets/chains that you can connect with any map changing or travel command)</string>
+                  <string>Mutator Buttons (Define your Mutator presets that you can call while changing a map)</string>
                  </property>
                 </widget>
                </item>
               </layout>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_7">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>5</height>
+                </size>
+               </property>
+              </spacer>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_24">
@@ -5893,7 +5822,23 @@ p, li { white-space: pre-wrap; }
               </layout>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_57">
+              <layout class="QHBoxLayout" name="horizontalLayout_21">
+               <item>
+                <spacer name="horizontalSpacer_26">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Fixed</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>10</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
                <item>
                 <widget class="QPushButton" name="btn_reset_mutator_presets">
                  <property name="styleSheet">
@@ -5906,28 +5851,41 @@ p, li { white-space: pre-wrap; }
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="btn_clear_mutators_list">
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
-</string>
+                <spacer name="horizontalSpacer_27">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
                  </property>
-                 <property name="text">
-                  <string>Clear below Mutators list</string>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Fixed</enum>
                  </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btn_reset_mutators">
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
-</string>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>10</width>
+                   <height>20</height>
+                  </size>
                  </property>
-                 <property name="text">
-                  <string>Reload default Mutators into below list</string>
-                 </property>
-                </widget>
+                </spacer>
                </item>
               </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_57"/>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_9">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -5936,7 +5894,7 @@ p, li { white-space: pre-wrap; }
                  <item>
                   <widget class="QLabel" name="lbl_mutator_header_3">
                    <property name="text">
-                    <string>Put all Mutators you need in the Box below or delete not needed Mutators - all separated with a comma and NO blank spaces!</string>
+                    <string>Put all Mutators you need in the Box below or delete not needed Mutators - all separated with a comma and no blank spaces!</string>
                    </property>
                   </widget>
                  </item>
@@ -5944,6 +5902,18 @@ p, li { white-space: pre-wrap; }
                </item>
                <item>
                 <widget class="QTextEdit" name="textbox_mutators">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">background-color: rgb(255, 255, 255);</string>
                  </property>
@@ -5951,6 +5921,80 @@ p, li { white-space: pre-wrap; }
                   <enum>Qt::ScrollBarAlwaysOff</enum>
                  </property>
                 </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_62">
+                 <item>
+                  <spacer name="horizontalSpacer_29">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Fixed</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>10</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btn_clear_mutators_list">
+                   <property name="styleSheet">
+                    <string notr="true">background-color:rgb(228, 228, 228)
+</string>
+                   </property>
+                   <property name="text">
+                    <string>Clear above Mutators list</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_30">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Fixed</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>10</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btn_reset_mutators">
+                   <property name="styleSheet">
+                    <string notr="true">background-color:rgb(228, 228, 228)
+</string>
+                   </property>
+                   <property name="text">
+                    <string>Reload all default Mutators</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_28">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Fixed</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>10</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
                </item>
                <item>
                 <widget class="QLabel" name="label_saving_indicator">
@@ -6085,29 +6129,7 @@ min-height: 20px;</string>
             <enum>QFrame::NoFrame</enum>
            </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;
-
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=661&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Getting Support using our Ticketing System&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=263#installwin&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Installing ISRT on Windows&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=263#installin&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Installing ISRT on Linux with pre-requisites&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=263#installmac&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Installing ISRT on MacOS with pre-requisites&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=316&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Fix ISRT Desktop Shortcut looking ugly on Windows&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=316#linsc&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Creating a Starter on your Linux Desktop that looks good&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=276&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Using the right ports - What's the difference between Game, Query and RCON ports&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=508&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Gamemode properties you can use with RCON&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=504&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;What RCON commands can I use and what do they do?&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=278&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Known Bugs and Problems with the Software&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-
-
-&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=467&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Is ISRT free of Viruses and Trojans? See the Anti-Virus report!&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=1131&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Watch the Video Tutorials on how to use ISRT!&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=661&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Getting Support using our Ticketing System&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=263#installwin&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Installing ISRT on Windows&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=263#installin&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Installing ISRT on Linux with pre-requisites&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=263#installmac&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Installing ISRT on MacOS with pre-requisites&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=316&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Fix ISRT Desktop Shortcut looking ugly on Windows&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=316#linsc&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Creating a Starter on your Linux Desktop that looks good&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=276&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Using the right ports - What's the difference between Game, Query and RCON ports&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=508&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Gamemode properties you can use with RCON&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=504&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;What RCON commands can I use and what do they do?&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=278&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Known Bugs and Problems with the Software&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=467&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#000000;&quot;&gt;Is ISRT free of Viruses and Trojans? See the Anti-Virus report!&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="openExternalLinks">
             <bool>true</bool>
@@ -6174,7 +6196,7 @@ min-height: 20px;</string>
             <enum>QFrame::StyledPanel</enum>
            </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=661&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline; color:#000000;&quot;&gt;Report issues in our Support Ticket System&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=661&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline; color:#000000;&quot;&gt;Report issues in my Support Ticket System&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="openExternalLinks">
             <bool>true</bool>

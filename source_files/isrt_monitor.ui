@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>920</width>
-    <height>418</height>
+    <height>595</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -234,69 +234,330 @@ selection-background-color: rgb(216, 216, 216);</string>
       </widget>
      </item>
      <item>
-      <widget class="QProgressBar" name="mon_progress_bar">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>15</height>
-        </size>
-       </property>
-       <property name="value">
-        <number>24</number>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="text">
-        <string>Monitor refreshes automatically - you can set the intervall on the ISRT Configuration Page (reload Monitor on change!)</string>
-       </property>
-       <property name="frame">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>10</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QProgressBar" name="mon_progress_bar">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>10</height>
+          </size>
+         </property>
+         <property name="value">
+          <number>24</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="chkbx_show_progressbar">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Show/Hide Progress</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QCheckBox" name="chkbx_show_progressbar">
-       <property name="minimumSize">
-        <size>
-         <width>120</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>120</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Show/Hide Progress</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_19">
+         <property name="text">
+          <string>Refresh Intervall in seconds</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="dropdown_refresh_timer">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(254, 254, 254);
+</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>10</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>15</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>20</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>25</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>30</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>35</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>40</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>45</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>50</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>55</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>60</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>90</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>180</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_20">
+         <property name="text">
+          <string>Show Gamemode column?</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="dropdown_show_gamemode">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(254, 254, 254);
+</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Yes</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>No</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_21">
+         <property name="minimumSize">
+          <size>
+           <width>230</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Pings greater this value (ms) are marked red</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="dropdown_highping">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(254, 254, 254);
+</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>10</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>20</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>30</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>40</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>50</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>60</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>70</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>80</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>90</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>100</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>110</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>120</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>130</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>140</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>150</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>200</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_mon_save_restart">
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(228, 228, 228)
+</string>
+         </property>
+         <property name="text">
+          <string>Save/Restart</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>

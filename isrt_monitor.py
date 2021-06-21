@@ -30,11 +30,11 @@ class Worker(QObject):
         self.c.execute("UPDATE configuration set blocker=1")
         self.conn.commit()
         counter = 0
-        rowcount2 = rowcount
+        rowcount2 = rowcount + 1
         if rowcount2 <= 0:
             rowcount2 += 1
         progress_multiplier = int(100/rowcount2)
-        progress_value = int(progress_multiplier) + int(progress_multiplier)
+        progress_value = int(progress_multiplier)
         while counter <= rowcount:
             server_temp_alias = alias_list[counter]
             self.c.execute("SELECT ipaddress, queryport FROM server where alias=:temp_alias", {'temp_alias': server_temp_alias})
@@ -89,52 +89,41 @@ class mongui(QtWidgets.QWidget):
         self.conn.commit()
         self.show_gamemode_temp = self.c.fetchone()
         self.show_gamemode = self.show_gamemode_temp[0]
-        if self.show_gamemode == 1:
-            self.mogui = Ui_UI_Server_Monitor()
-        else:
-            self.mogui = Ui_UI_Server_Monitor2()
+        self.mogui = Ui_UI_Server_Monitor()
         self.mogui.setupUi(self)
         self.setGeometry(150, 150, self.show_gamemode_temp[1], self.show_gamemode_temp[2])
         self.high_ping = self.show_gamemode_temp[3]
         self.mogui.mon_progress_bar.setValue(0)
         self.mogui.tbl_server_overview.setRowCount(0)
+        
+        self.mogui.tbl_server_overview.setColumnWidth(0, 50)
+        self.mogui.tbl_server_overview.setStyleSheet("padding: 3px;")
+        self.mogui.tbl_server_overview.setColumnWidth(1, 230)
+        self.mogui.tbl_server_overview.setColumnWidth(2, 130)
+        self.mogui.tbl_server_overview.setColumnWidth(3, 130)
+        self.mogui.tbl_server_overview.setColumnWidth(4, 150)
+        self.mogui.tbl_server_overview.setColumnWidth(5, 50)
+        self.mogui.tbl_server_overview.setColumnWidth(6, 50)
+        self.mogui.tbl_server_overview.setColumnWidth(7, 100)
+
         if self.show_gamemode == 1:
-            self.mogui.tbl_server_overview.setColumnWidth(0, 50)
-            self.mogui.tbl_server_overview.setStyleSheet("padding: 3px;")
-            self.mogui.tbl_server_overview.setColumnWidth(1, 230)
-            self.mogui.tbl_server_overview.setColumnWidth(2, 130)
-            self.mogui.tbl_server_overview.setColumnWidth(3, 130)
-            self.mogui.tbl_server_overview.setColumnWidth(4, 150)
-            self.mogui.tbl_server_overview.setColumnWidth(5, 50)
-            self.mogui.tbl_server_overview.setColumnWidth(6, 50)
-            self.mogui.tbl_server_overview.setColumnWidth(7, 100)
+            self.mogui.tbl_server_overview.setColumnHidden(3, 0)
+            self.mogui.dropdown_show_gamemode.setCurrentText("Yes")
         else:
-            self.mogui.tbl_server_overview.setColumnWidth(0, 50)
-            self.mogui.tbl_server_overview.setStyleSheet("padding: 3px;")
-            self.mogui.tbl_server_overview.setColumnWidth(1, 230)
-            self.mogui.tbl_server_overview.setColumnWidth(2, 130)
-            self.mogui.tbl_server_overview.setColumnWidth(3, 150)
-            self.mogui.tbl_server_overview.setColumnWidth(4, 50)
-            self.mogui.tbl_server_overview.setColumnWidth(5, 50)
-            self.mogui.tbl_server_overview.setColumnWidth(6, 100)
+            self.mogui.tbl_server_overview.setColumnHidden(3, 1)
+            self.mogui.dropdown_show_gamemode.setCurrentText("No")
         
         self.c.execute("select timer from configuration")
         self.conn.commit()
         self.refreshtimer_res = self.c.fetchone()
         self.refreshtimer_base = self.refreshtimer_res[0]
-        self.refreshtimer = self.refreshtimer_base * 1000
 
         self.mogui.dropdown_highping.setCurrentText(str(self.high_ping))
         self.mogui.dropdown_refresh_timer.setCurrentText(str(self.refreshtimer_base))
-        if self.show_gamemode == 1:
-            self.mogui.dropdown_show_gamemode.setCurrentText("Yes")
-        else:
-            self.mogui.dropdown_show_gamemode.setCurrentText("No")
 
-
-        self.mogui.dropdown_refresh_timer.currentIndexChanged.connect(self.resrt_prog)
-        self.mogui.dropdown_highping.currentIndexChanged.connect(self.resrt_prog)
-        self.mogui.dropdown_show_gamemode.currentIndexChanged.connect(self.resrt_prog)
+        self.mogui.dropdown_refresh_timer.currentIndexChanged.connect(self.reload_settings)
+        self.mogui.dropdown_highping.currentIndexChanged.connect(self.reload_settings)
+        self.mogui.dropdown_show_gamemode.currentIndexChanged.connect(self.switch_gm)
 
         self.c.execute("select progressbar from configuration")
         self.conn.commit()
@@ -154,22 +143,26 @@ class mongui(QtWidgets.QWidget):
         self.mogui.chkbx_show_progressbar.stateChanged.connect(self.save_checkbox_state)
         self.start_timer()
 
-    def resrt_prog(self):
-        
-        refresh_timer_current = int(self.mogui.dropdown_refresh_timer.currentText())
+    def switch_gm(self):
         if self.mogui.dropdown_show_gamemode.currentText() == "Yes":
             show_gamemode_current = 1
+            self.mogui.tbl_server_overview.setColumnHidden(3, 0)
         else:
             show_gamemode_current = 0
-        highping_current = int(self.mogui.dropdown_highping.currentText())
-        
-        if self.high_ping != highping_current or self.show_gamemode != show_gamemode_current or self.refreshtimer_base != refresh_timer_current:
-
-            self.c.execute("UPDATE configuration SET timer=:newtimer", {'newtimer': refresh_timer_current})
-            self.c.execute("UPDATE configuration SET high_ping=:newhigh_ping", {'newhigh_ping': highping_current})
+            self.mogui.tbl_server_overview.setColumnHidden(3, 1)
+        if self.show_gamemode != show_gamemode_current:
             self.c.execute("UPDATE configuration SET show_gamemode=:showgamemode", {'showgamemode': show_gamemode_current})
             self.conn.commit()
-            restart_program()
+
+
+    def reload_settings(self):
+        refresh_timer_current = int(self.mogui.dropdown_refresh_timer.currentText())
+        highping_current = int(self.mogui.dropdown_highping.currentText())
+        if self.high_ping != highping_current or self.refreshtimer_base != refresh_timer_current:
+            self.c.execute("UPDATE configuration SET timer=:newtimer", {'newtimer': refresh_timer_current})
+            self.c.execute("UPDATE configuration SET high_ping=:newhigh_ping", {'newhigh_ping': highping_current})
+            self.conn.commit()
+            self.start_timer()
 
 
     def save_checkbox_state(self):
@@ -177,7 +170,6 @@ class mongui(QtWidgets.QWidget):
             checkstate = 1
         else:
             checkstate = 0
-
         self.c.execute("select progressbar from configuration")
         self.conn.commit()
         check_progressbar = self.c.fetchone()
@@ -186,13 +178,16 @@ class mongui(QtWidgets.QWidget):
             self.conn.commit()
 
     def start_timer(self):
+        self.refreshtimer_base = int(self.mogui.dropdown_refresh_timer.currentText())
+        self.refreshtimer = self.refreshtimer_base * 1000
         self.timer = QTimer()
         self.timer.timeout.connect(self.get_server_data)
         self.timer.start(self.refreshtimer)
         self.get_server_data()
 
-    def get_server_data(self):
+        
 
+    def get_server_data(self):
         self.mogui.mon_progress_bar.setValue(0)
         self.c.execute("SELECT alias FROM server")
         self.server_alias_checklist = self.c.fetchall()
@@ -235,6 +230,7 @@ class mongui(QtWidgets.QWidget):
         self.server_query_requested.emit(self.rowcount, self.alias_list)
 
     def add_data_to_table(self, n, m, o, p, q, z):
+        self.high_ping = int(self.mogui.dropdown_highping.currentText())
         self.serverhost = o
         self.counter = p
         self.resrules = m
@@ -259,141 +255,75 @@ class mongui(QtWidgets.QWidget):
             item1 = QtWidgets.QTableWidgetItem(self.resinfo['Map'] + " (" + lighting + ")")
             item1.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
 
+            item5 = QtWidgets.QTableWidgetItem(self.resrules['GameMode_s'])
+            item5.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+            self.mogui.tbl_server_overview.setItem(self.counter, 3, item5)
 
-            if self.show_gamemode == 1:
-                item5 = QtWidgets.QTableWidgetItem(self.resrules['GameMode_s'])
-                item5.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-                self.mogui.tbl_server_overview.setItem(self.counter, 3, item5)
+            self.mogui.tbl_server_overview.setItem(self.counter, 4, item1)
 
-                self.mogui.tbl_server_overview.setItem(self.counter, 4, item1)
-
-                if self.resinfo['Players'] == 0:
-                    item2 = QtWidgets.QTableWidgetItem("%i/%i" % (self.resinfo['Players'], self.resinfo['MaxPlayers']))
-                    item2.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-                    self.mogui.tbl_server_overview.setItem(self.counter, 5, item2)
-                else:
-                    item2 = QtWidgets.QTableWidgetItem("%i/%i" % (self.resinfo['Players'], self.resinfo['MaxPlayers']))
-                    item2.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-                    item2.setFont(QtGui.QFont("MS Shell Dlg 2",weight=QtGui.QFont.Bold))
-                    self.mogui.tbl_server_overview.setItem(self.counter, 5, item2)
-
-                item4 = QtWidgets.QTableWidgetItem(str(self.resinfo['Ping']) + "ms")
-                print(type(self.resinfo['Ping']))
-                print(self.resinfo['Ping'])
-                print(type(self.high_ping))
-                print(self.high_ping)
-                if self.resinfo['Ping'] >= int(self.high_ping):
-                    item4 = QtWidgets.QTableWidgetItem(str(self.resinfo['Ping']) + "ms")
-                    item4.setForeground(QtGui.QColor(190,0,0))
-                else:
-                    item4.setForeground(QtGui.QColor(0,150,0))
-
-                item4.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-                self.mogui.tbl_server_overview.setItem(self.counter, 6, item4)
-
-                playerlist = ()
-                counter = 0
-                if len(self.players) != 0:
-                    for player in self.players:
-                        playername = (("{Name}".format(**player)))
-                        if playername != "":
-                            playerlist = playerlist + (playername, )
-                        if playername == "":
-                            counter += 1
-                    if counter != 0:
-                        playerlist = playerlist + (("+ " + str(counter) + " unknown"), )
-                else:
-                    playerlist = playerlist + ("No players", )
-
-                result_names = ', '.join([''.join(sub) for sub in playerlist])
-                item99 = QtWidgets.QTableWidgetItem(str(result_names))
-                self.mogui.tbl_server_overview.setItem(self.counter, 7, item99)
+            if self.resinfo['Players'] == 0:
+                item2 = QtWidgets.QTableWidgetItem("%i/%i" % (self.resinfo['Players'], self.resinfo['MaxPlayers']))
+                item2.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                self.mogui.tbl_server_overview.setItem(self.counter, 5, item2)
             else:
+                item2 = QtWidgets.QTableWidgetItem("%i/%i" % (self.resinfo['Players'], self.resinfo['MaxPlayers']))
+                item2.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+                item2.setFont(QtGui.QFont("MS Shell Dlg 2",weight=QtGui.QFont.Bold))
+                self.mogui.tbl_server_overview.setItem(self.counter, 5, item2)
 
-                self.mogui.tbl_server_overview.setItem(self.counter, 3, item1)
+            item4 = QtWidgets.QTableWidgetItem(str(self.resinfo['Ping']) + "ms")
 
-                if self.resinfo['Players'] == 0:
-                    item2 = QtWidgets.QTableWidgetItem("%i/%i" % (self.resinfo['Players'], self.resinfo['MaxPlayers']))
-                    item2.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-                    self.mogui.tbl_server_overview.setItem(self.counter, 4, item2)
-                else:
-                    item2 = QtWidgets.QTableWidgetItem("%i/%i" % (self.resinfo['Players'], self.resinfo['MaxPlayers']))
-                    item2.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-                    item2.setFont(QtGui.QFont("MS Shell Dlg 2",weight=QtGui.QFont.Bold))
-                    self.mogui.tbl_server_overview.setItem(self.counter, 4, item2)
-
+            if self.resinfo['Ping'] >= int(self.high_ping):
                 item4 = QtWidgets.QTableWidgetItem(str(self.resinfo['Ping']) + "ms")
-                print(type(self.resinfo['Ping']))
-                print(self.resinfo['Ping'])
-                print(type(self.high_ping))
-                print(self.high_ping)
-                if self.resinfo['Ping'] >= int(self.high_ping):
-                    item4 = QtWidgets.QTableWidgetItem(str(self.resinfo['Ping']) + "ms")
-                    item4.setForeground(QtGui.QColor(190,0,0))
-                else:
-                    item4.setForeground(QtGui.QColor(0,150,0))
+                item4.setForeground(QtGui.QColor(190,0,0))
+            else:
+                item4.setForeground(QtGui.QColor(0,150,0))
 
-                item4.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
-                self.mogui.tbl_server_overview.setItem(self.counter, 5, item4)
+            item4.setTextAlignment(Qt.AlignHCenter | Qt.AlignVCenter)
+            self.mogui.tbl_server_overview.setItem(self.counter, 6, item4)
 
-                playerlist = ()
-                counter = 0
-                if len(self.players) != 0:
-                    for player in self.players:
-                        playername = (("{Name}".format(**player)))
-                        if playername != "":
-                            playerlist = playerlist + (playername, )
-                        if playername == "":
-                            counter += 1
-                    if counter != 0:
-                        playerlist = playerlist + (("+ " + str(counter) + " unknown"), )
-                else:
-                    playerlist = playerlist + ("No players", )
+            playerlist = ()
+            counter = 0
+            if len(self.players) != 0:
+                for player in self.players:
+                    playername = (("{Name}".format(**player)))
+                    if playername != "":
+                        playerlist = playerlist + (playername, )
+                    if playername == "":
+                        counter += 1
+                if counter != 0:
+                    playerlist = playerlist + (("+ " + str(counter) + " unknown"), )
+            else:
+                playerlist = playerlist + ("No players", )
 
-                result_names = ', '.join([''.join(sub) for sub in playerlist])
-                item99 = QtWidgets.QTableWidgetItem(str(result_names))
-                self.mogui.tbl_server_overview.setItem(self.counter, 6, item99)
+            result_names = ', '.join([''.join(sub) for sub in playerlist])
+            item99 = QtWidgets.QTableWidgetItem(str(result_names))
+            self.mogui.tbl_server_overview.setItem(self.counter, 7, item99)
+            
 
         else:
-            if self.show_gamemode == 1:
-                self.mogui.tbl_server_overview.setItem(self.counter, 2, QtWidgets.QTableWidgetItem(self.serverhost))
-                self.mogui.tbl_server_overview.setItem(self.counter, 3, QtWidgets.QTableWidgetItem(""))
-                self.mogui.tbl_server_overview.setItem(self.counter, 4, QtWidgets.QTableWidgetItem(""))
-                self.mogui.tbl_server_overview.setItem(self.counter, 5, QtWidgets.QTableWidgetItem(""))
-                self.mogui.tbl_server_overview.setItem(self.counter, 6, QtWidgets.QTableWidgetItem(""))
-                self.mogui.tbl_server_overview.setItem(self.counter, 7, QtWidgets.QTableWidgetItem(""))
-                self.mogui.tbl_server_overview.item(self.counter, 1).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 1).setForeground(QtGui.QColor(130,130,130))
-                self.mogui.tbl_server_overview.item(self.counter, 2).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 2).setForeground(QtGui.QColor(130,130,130))
-                self.mogui.tbl_server_overview.item(self.counter, 3).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 3).setForeground(QtGui.QColor(130,130,130))
-                self.mogui.tbl_server_overview.item(self.counter, 4).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 4).setForeground(QtGui.QColor(130,130,130))
-                self.mogui.tbl_server_overview.item(self.counter, 5).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 5).setForeground(QtGui.QColor(130,130,130))
-                self.mogui.tbl_server_overview.item(self.counter, 6).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 6).setForeground(QtGui.QColor(130,130,130))
-                self.mogui.tbl_server_overview.item(self.counter, 7).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 7).setForeground(QtGui.QColor(130,130,130))
-            else:
-                self.mogui.tbl_server_overview.setItem(self.counter, 2, QtWidgets.QTableWidgetItem(self.serverhost))
-                self.mogui.tbl_server_overview.setItem(self.counter, 3, QtWidgets.QTableWidgetItem(""))
-                self.mogui.tbl_server_overview.setItem(self.counter, 4, QtWidgets.QTableWidgetItem(""))
-                self.mogui.tbl_server_overview.setItem(self.counter, 5, QtWidgets.QTableWidgetItem(""))
-                self.mogui.tbl_server_overview.setItem(self.counter, 6, QtWidgets.QTableWidgetItem(""))
-                self.mogui.tbl_server_overview.item(self.counter, 1).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 1).setForeground(QtGui.QColor(130,130,130))
-                self.mogui.tbl_server_overview.item(self.counter, 2).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 2).setForeground(QtGui.QColor(130,130,130))
-                self.mogui.tbl_server_overview.item(self.counter, 3).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 3).setForeground(QtGui.QColor(130,130,130))
-                self.mogui.tbl_server_overview.item(self.counter, 4).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 4).setForeground(QtGui.QColor(130,130,130))
-                self.mogui.tbl_server_overview.item(self.counter, 5).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 5).setForeground(QtGui.QColor(130,130,130))
-                self.mogui.tbl_server_overview.item(self.counter, 6).setBackground(QtGui.QColor(210,210,210))
-                self.mogui.tbl_server_overview.item(self.counter, 6).setForeground(QtGui.QColor(130,130,130))
+            
+            self.mogui.tbl_server_overview.setItem(self.counter, 2, QtWidgets.QTableWidgetItem(self.serverhost))
+            self.mogui.tbl_server_overview.setItem(self.counter, 3, QtWidgets.QTableWidgetItem(""))
+            self.mogui.tbl_server_overview.setItem(self.counter, 4, QtWidgets.QTableWidgetItem(""))
+            self.mogui.tbl_server_overview.setItem(self.counter, 5, QtWidgets.QTableWidgetItem(""))
+            self.mogui.tbl_server_overview.setItem(self.counter, 6, QtWidgets.QTableWidgetItem(""))
+            self.mogui.tbl_server_overview.setItem(self.counter, 7, QtWidgets.QTableWidgetItem(""))
+            self.mogui.tbl_server_overview.item(self.counter, 1).setBackground(QtGui.QColor(210,210,210))
+            self.mogui.tbl_server_overview.item(self.counter, 1).setForeground(QtGui.QColor(130,130,130))
+            self.mogui.tbl_server_overview.item(self.counter, 2).setBackground(QtGui.QColor(210,210,210))
+            self.mogui.tbl_server_overview.item(self.counter, 2).setForeground(QtGui.QColor(130,130,130))
+            self.mogui.tbl_server_overview.item(self.counter, 3).setBackground(QtGui.QColor(210,210,210))
+            self.mogui.tbl_server_overview.item(self.counter, 3).setForeground(QtGui.QColor(130,130,130))
+            self.mogui.tbl_server_overview.item(self.counter, 4).setBackground(QtGui.QColor(210,210,210))
+            self.mogui.tbl_server_overview.item(self.counter, 4).setForeground(QtGui.QColor(130,130,130))
+            self.mogui.tbl_server_overview.item(self.counter, 5).setBackground(QtGui.QColor(210,210,210))
+            self.mogui.tbl_server_overview.item(self.counter, 5).setForeground(QtGui.QColor(130,130,130))
+            self.mogui.tbl_server_overview.item(self.counter, 6).setBackground(QtGui.QColor(210,210,210))
+            self.mogui.tbl_server_overview.item(self.counter, 6).setForeground(QtGui.QColor(130,130,130))
+            self.mogui.tbl_server_overview.item(self.counter, 7).setBackground(QtGui.QColor(210,210,210))
+            self.mogui.tbl_server_overview.item(self.counter, 7).setForeground(QtGui.QColor(130,130,130))
+
 
             item66 = QtWidgets.QTableWidgetItem("Down")
             item66.setFont(QtGui.QFont("MS Shell Dlg 2"))
@@ -417,11 +347,6 @@ if __name__ == "__main__":
     UI_Server_Monitor = QtWidgets.QWidget()
     UI_Server_Monitor2 = QtWidgets.QWidget()
     ui = Ui_UI_Server_Monitor()
-    ui2 = Ui_UI_Server_Monitor2()
     mogui = mongui()
     mogui.show()
-    # Restart on first DB-Import
-    def restart_program():
-        python = sys.executable
-        os.execl(python, python, * sys.argv)
     sys.exit(app.exec_())

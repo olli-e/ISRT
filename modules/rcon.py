@@ -230,63 +230,6 @@ def adminsay(self):
         self.gui.label_output_window.setText(
             "You have to enter an IP-address and an RCON Port at least!")
 
-# Lookup Steam ID
-def lookup_id(self):
-    lid = QtWidgets.QInputDialog.getText(
-        self, "Input Dialog", 'Enter the Steam64 NetID, you want to lookup:\n(Example from "List Bans": 76561197961263369)')
-    lookupid = lid[0]
-    lretval = lid[1]
-    playername = []
-    profileurl = []
-    self.gui.progressbar_map_changer.setValue(33)
-
-    lookupid_check_blanks_mut = bool(re.search(r"\s", lookupid))
-
-    if lookupid_check_blanks_mut is True:
-        self.gui.label_output_window.setText(
-                "Error, Player ID contains blanks, please check and retry!")
-    elif lookupid.isnumeric() and len(lookupid) == 17:
-        if lretval is True and lookupid:
-            url = f"https://www.isrt.info/steamapi/steamid.php?steamid={lookupid}"
-            steamid = urllib.request.urlopen(url)
-            self.gui.progressbar_map_changer.setValue(66)
-            for steamrequest in steamid.readlines():
-                steamrequest = steamrequest.decode("utf-8")
-                steamrequest = steamrequest.strip('\n')
-                if "personaname" in steamrequest:
-                    playername_raw = steamrequest.split('": "')
-                    playername = playername_raw[1].split('"')
-                else:
-                    self.gui.label_output_window.setText(
-                        "No Player name could be identified!")
-                    break
-                if "profileurl" in steamrequest:
-                    profileurl_raw = steamrequest.split('": "')
-                    profileurl = profileurl_raw[1].split('"')
-                    break
-            self.gui.progressbar_map_changer.setValue(100)
-
-            if lookupid and playername and profileurl:
-
-                self.gui.label_output_window.setText(
-                    f"Steam64-ID: {lookupid}")
-                self.gui.label_output_window.append(
-                    f"Name: {playername[0]}")
-                self.gui.label_output_window.append(
-                    f"Profile-URL: {profileurl[0]}")
-            else:
-                self.gui.label_output_window.setText(
-                        "No Player and ID name could be identified - check the validity of the Steam ID!")
-
-        else:
-            self.gui.label_output_window.setText(
-                "No Player NetID given, ignoring!")
-    else:
-        self.gui.label_output_window.setText(
-                "Error, Player ID is not fully numeric or not 17 numbers long - please check and retry!")
-
-    self.gui.progressbar_map_changer.setValue(0)
-
 # Prepare user kick/ban
 def prepare_user_kick_ban(self):
     self.selected_user_row = self.gui.tbl_player_output.currentRow()
@@ -303,6 +246,9 @@ def kick(self):
             retval = qid[1]
             if retval is True and kickmessage:
                 saycommand = (f'kick "{self.username_kick_ban}" "{kickmessage}"')
+                rcon.direct_rcon_command(self, saycommand)
+            elif retval is True:
+                saycommand = (f'kick "{self.username_kick_ban}" "No reason given!"')
                 rcon.direct_rcon_command(self, saycommand)
             self.username_kick_ban = ""
             waittimer = QTimer()
@@ -333,7 +279,10 @@ def ban(self):
             bretval = bid[1]
 
             if retval is True and banmessage and bretval is True and bantime:
-                saycommand = (f'ban "{self.username_kick_ban}" "{bantime}" "{banmessage}')
+                saycommand = (f'ban "{self.username_kick_ban}" "{bantime}" "{banmessage}"')
+                rcon.direct_rcon_command(self, saycommand)
+            elif retval is True and bretval is True and bantime:
+                saycommand = (f'ban "{self.username_kick_ban}" "{bantime}" "No reason given!"')
                 rcon.direct_rcon_command(self, saycommand)
             self.username_kick_ban = ""
             waittimer = QTimer()
@@ -357,6 +306,9 @@ def permban(self):
 
             if retval is True and banmessage:
                 saycommand = (f'permban "{self.username_kick_ban}" "{banmessage}"')
+                rcon.direct_rcon_command(self, saycommand)
+            elif retval is True:
+                saycommand = (f'permban "{self.username_kick_ban}" "No reason given!"')
                 rcon.direct_rcon_command(self, saycommand)
             self.username_kick_ban = ""
             waittimer = QTimer()

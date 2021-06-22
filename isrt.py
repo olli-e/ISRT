@@ -91,7 +91,7 @@ class dbgui(QtWidgets.QWidget):
                 except Exception:
                     old_db_version = None
                 if old_db_version:
-                    if old_db_version == "0.8" or old_db_version == "0.8.1" or old_db_version == "0.9" or old_db_version == "0.9.1":
+                    if old_db_version == "0.8" or old_db_version == "0.8.1" or old_db_version == "0.9" or old_db_version == "0.9.1" or old_db_version == "1.0" or old_db_version == "1.0.1" or old_db_version == "1.1":
                         self.c.execute("DELETE FROM server")
                         self.conn.commit()
                         for import_result in dbimport_result:

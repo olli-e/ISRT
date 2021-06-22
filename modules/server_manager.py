@@ -523,7 +523,7 @@ def DB_import(self, db_action):
             try:
                 cidb.execute("select version FROM configuration")
                 dbi_result = cidb.fetchone()
-                old_db_version = float(dbi_result[0])
+                old_db_version = str(dbi_result[0])
                 connimport.commit()
             except Exception:
                 old_db_version = None
@@ -550,7 +550,7 @@ def DB_import(self, db_action):
             def delete_and_import_db(i):
                 if i.text() == "&Yes":
                     if old_db_version:
-                        if old_db_version >= 0.8:
+                        if old_db_version == "0.8" or old_db_version == "0.8.1" or old_db_version == "0.9" or old_db_version == "0.9.1" or old_db_version == "1.0" or old_db_version == "1.0.1" or old_db_version == "1.1":
                             self.c.execute("DELETE FROM server")
                             self.conn.commit()
                             for import_result in dbimport_result:

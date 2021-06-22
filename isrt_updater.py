@@ -89,15 +89,15 @@ class Updater_GUI(QtWidgets.QWidget):
     # Setup all GUI elements and Paths
     def definitions(self):
         # Create variables
-        self.update_url = "http://www.isrt.info/version/update/"
+        self.update_url = "https://www.isrt.info/version/update/"
         # Create buttons
         self.ugui.btn_update_check.clicked.connect(self.get_versions)
         self.ugui.btn_update_backup.clicked.connect(self.create_db_backup)
         self.ugui.btn_update_install.clicked.connect(self.check_running_progs)
         # File and directory setup
         self.installdir = Path(__file__).absolute().parent
-        self.dbdir = str(self.installdir / '../db/')
-        self.dbfile = str(self.installdir / '../db/isrt_data.db')
+        self.dbdir = str(self.installdir / 'db/')
+        self.dbfile = str(self.installdir / 'db/isrt_data.db')
         # Database connection setup
         self.conn = sqlite3.connect(self.dbfile)
         self.c = self.conn.cursor()

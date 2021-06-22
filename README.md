@@ -20,3 +20,5 @@ ISRT is a python 3.9-based administrative RCON Tool für Insurgency Sandstorm Se
 ![Alt text](img/1.1.JPG?raw=true "ISRT Image")
 
 
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?hosted_button_id=RLSPYUNWLYA9Y)
+

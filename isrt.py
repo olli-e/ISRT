@@ -40,7 +40,6 @@ from bin.isrt_gui import Ui_ISRT_Main_Window
 
 ##################################################################################
 ##################################################################################
-running_test_mode = 0
 running_dev_mode = 1
 running_dev_mode_dbi = 0
 ##################################################################################
@@ -202,9 +201,8 @@ class dbgui(QtWidgets.QWidget):
 class maingui(QtWidgets.QWidget):
     def __init__(self, *args, **kwargs):
         # Global variable setup
-        global running_dev_mode, running_test_mode
+        global running_dev_mode
         self.running_dev_mode = running_dev_mode
-        self.running_test_mode = running_test_mode
         # Gui Setup
         super().__init__(*args, **kwargs)
         self.gui = Ui_ISRT_Main_Window()
@@ -266,16 +264,16 @@ if __name__ == "__main__":
     c = conn.cursor()
     # Grep or define start variables
     c.execute(
-        "select startcounter, version, client_id, show_rn, import, check_updates, no_reminder from configuration")
+        "select startcounter, version, client_id, import, check_updates, no_reminder from configuration")
     check_startvars = c.fetchall()
     startvars = check_startvars[0]
     conn.commit()
     startcounter = startvars[0]
     current_version = str(startvars[1])
     client_id = startvars[2]
-    show_importer = startvars[4]
-    check_updates_ok = startvars[5]
-    no_reminder = startvars[6]
+    show_importer = startvars[3]
+    check_updates_ok = startvars[4]
+    no_reminder = startvars[5]
     runcheck = 1
     runlist = []
     # Decide if self-restart is okay at first start and exempted from runcheck

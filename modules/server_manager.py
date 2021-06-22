@@ -255,12 +255,13 @@ def add_server_directly(self):
         self.gui.label_output_window.append(
             "At least IP-Adress and Query Port have to contain a value!")
         go_addserver_check = 0
+
+
     if go_addserver_check == 1 and go_addserver_ipcheck == 1 and go_addserver_qpcheck == 1:
         asd_alias = None
         try:
             self.gui.progressbar_map_changer.setProperty("value", 33)
-            asd_server = sq.SourceQuery(
-                asd_transferip, int(asd_transferqport), int(self.timeout))
+            asd_server = sq.SourceQuery(asd_transferip, int(asd_transferqport), float(self.timeout))
             asd_serverinfo = asd_server.get_info()
             self.gui.progressbar_map_changer.setProperty("value", 66)
             asd_alias = (asd_serverinfo['Hostname'])
@@ -270,7 +271,6 @@ def add_server_directly(self):
             self.conn.commit()
             val_id = raw_table_counter[0] + 1
             alias_exists = 0
-            alias_not_existing = 0
             if asd_alias:
                 self.c.execute("SELECT alias from server")
                 check_alias_list = self.c.fetchall()
@@ -279,9 +279,8 @@ def add_server_directly(self):
                     for item in checkalias:
                         if asd_alias == item:
                             alias_exists = 1
-                        else:
-                            alias_not_existing = 1
-                if asd_transferip and asd_transferqport and alias_exists == 0 and alias_not_existing == 1:
+                            break
+                if asd_transferip and asd_transferqport and alias_exists == 0:
                     self.c.execute("INSERT INTO server VALUES (:id, :alias, :ipaddress, :queryport, :rconport, :rconpw)", {
                                     'id': val_id, 'alias': asd_alias, 'ipaddress': asd_transferip, 'queryport': asd_transferqport, 'rconport': asd_transferrport, 'rconpw': asd_transferrpw})
                     self.conn.commit()

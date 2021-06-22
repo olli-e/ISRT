@@ -28,7 +28,7 @@ def get_it(self):
     self.gui.label_command_button_3.setText(dbbutton_conf_strip[5])
 
     # Get relevant infos from DB for the next settings
-    self.c.execute("select quitbox, check_updates, timeout, pref_mode, timer, pref_server, show_gamemode, high_ping, map_group from configuration")
+    self.c.execute("select quitbox, check_updates, timeout, pref_mode, pref_server, map_group from configuration")
     qb_cu_to_setting = self.c.fetchone()
     self.conn.commit()
 
@@ -76,7 +76,7 @@ def get_it(self):
 
     for uh in alias_list_res:
         self.gui.dropdown_pref_server.addItem(uh[0])
-    self.personal_pref_server = qb_cu_to_setting[5]
+    self.personal_pref_server = qb_cu_to_setting[4]
 
     if self.personal_pref_server == "" or self.personal_pref_server is None or self.personal_pref_server == " ":
         self.gui.dropdown_pref_server.setCurrentText("Select favourite Server")
@@ -84,23 +84,8 @@ def get_it(self):
     else:
         self.gui.dropdown_pref_server.setCurrentText(self.personal_pref_server)
 
-    # # Get Monitor Refresh Timer
-    # self.refreshtimer = qb_cu_to_setting[4]
-    # self.gui.dropdown_refresh_timer.setCurrentText(str(self.refreshtimer))
-
-    # # Get Show Gamemode in Monitor
-    # self.show_gamemode_indicator = qb_cu_to_setting[6]
-    # if self.show_gamemode_indicator == 1:
-    #     self.gui.dropdown_show_gamemode.setCurrentText("Yes")
-    # else:
-    #     self.gui.dropdown_show_gamemode.setCurrentText("No")
-
-    # # Get High Ping setting
-    # self.high_ping = qb_cu_to_setting[7]
-    # self.gui.dropdown_highping.setCurrentText(str(self.high_ping))
-
     # Get Map group setting
-    self.map_group = qb_cu_to_setting[8]
+    self.map_group = qb_cu_to_setting[5]
     self.gui.dropdown_pref_maps.setCurrentText(str(self.map_group))
 
     # Get Mutator Settings

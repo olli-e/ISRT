@@ -3,12 +3,10 @@ ISRT - Insurgency Sandstorm RCON Tool Updater, Madman
 In case of questions: support@isrt.info
 Website: http://www.isrt.info
 This is open Source, you may use, copy, modify it as you wish - feel free!
-Thanks to Helsing, Mamba, Sparkie and Stuermer for the pre-release testing - I appreciate that very much!
 ------------------------------------------------------------------
 Importing required classes and libraries
 ------------------------------------------------------------------'''
 import os
-import ssl
 import sys
 import time
 import sqlite3
@@ -90,7 +88,6 @@ class Updater_GUI(QtWidgets.QWidget):
     # Setup all GUI elements and Paths
     def definitions(self):
         # Create variables
-        ssl._create_default_https_context = ssl._create_unverified_context
         self.update_url = "https://www.isrt.info/version/update/"
         # Create buttons
         self.ugui.btn_update_check.clicked.connect(self.get_versions)

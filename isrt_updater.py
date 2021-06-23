@@ -2,7 +2,8 @@
 ISRT - Insurgency Sandstorm RCON Tool Updater, Madman
 In case of questions: support@isrt.info
 Website: http://www.isrt.info
-This is open Source, you may use, copy, modify it as you wish - feel free!
+This is open Source, you may use, copy, modify it as you wish, but you may not create anything from or with my code,
+that will earn you money - no selling of any kind of stuff with my code, not even parts of it!
 ------------------------------------------------------------------
 Importing required classes and libraries
 ------------------------------------------------------------------'''

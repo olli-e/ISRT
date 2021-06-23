@@ -2163,7 +2163,7 @@ class Ui_ISRT_Main_Window(object):
         self.verticalLayout_17.addWidget(self.TabWidget_Main_overall)
 
         self.retranslateUi(ISRT_Main_Window)
-        self.TabWidget_Main_overall.setCurrentIndex(0)
+        self.TabWidget_Main_overall.setCurrentIndex(4)
         self.dropdown_select_server.setCurrentIndex(-1)
         QtCore.QMetaObject.connectSlotsByName(ISRT_Main_Window)
 

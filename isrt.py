@@ -331,7 +331,6 @@ if __name__ == "__main__":
         # Initialize GUIs
         app = QtWidgets.QApplication(sys.argv)
         ISRT_Main_Window = QtWidgets.QWidget()
-        rn_window = QtWidgets.QWidget()
         db_window = QtWidgets.QWidget()
         mgui = maingui()
         mgui.show()

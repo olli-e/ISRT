@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_db_importer_gui(object):
     def setupUi(self, db_importer_gui):
         db_importer_gui.setObjectName("db_importer_gui")
-        db_importer_gui.resize(600, 190)
+        db_importer_gui.resize(690, 250)
         db_importer_gui.setMinimumSize(QtCore.QSize(600, 190))
-        db_importer_gui.setMaximumSize(QtCore.QSize(690, 190))
+        db_importer_gui.setMaximumSize(QtCore.QSize(690, 250))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/img/img/isrt.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         db_importer_gui.setWindowIcon(icon)
@@ -24,6 +24,12 @@ class Ui_db_importer_gui(object):
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
+        self.label_4 = QtWidgets.QLabel(db_importer_gui)
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout.addWidget(self.label_4)
         self.label = QtWidgets.QLabel(db_importer_gui)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -42,9 +48,13 @@ class Ui_db_importer_gui(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.btn_dbi_select_database = QtWidgets.QToolButton(db_importer_gui)
-        self.btn_dbi_select_database.setMinimumSize(QtCore.QSize(135, 0))
-        self.btn_dbi_select_database.setStyleSheet("background-color:rgb(228, 228, 228)\n"
-"")
+        self.btn_dbi_select_database.setMinimumSize(QtCore.QSize(180, 0))
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_dbi_select_database.setFont(font)
+        self.btn_dbi_select_database.setStyleSheet("background-color: rgb(0, 85, 127);\n"
+"color: rgb(255, 255, 255);")
         self.btn_dbi_select_database.setObjectName("btn_dbi_select_database")
         self.horizontalLayout_2.addWidget(self.btn_dbi_select_database)
         self.label_dbi_selected_db = QtWidgets.QLabel(db_importer_gui)
@@ -60,10 +70,14 @@ class Ui_db_importer_gui(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.btn_dbi_import_database = QtWidgets.QPushButton(db_importer_gui)
-        self.btn_dbi_import_database.setMinimumSize(QtCore.QSize(150, 0))
+        self.btn_dbi_import_database.setMinimumSize(QtCore.QSize(180, 0))
         self.btn_dbi_import_database.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.btn_dbi_import_database.setStyleSheet("background-color:rgb(228, 228, 228)\n"
-"")
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_dbi_import_database.setFont(font)
+        self.btn_dbi_import_database.setStyleSheet("background-color: rgb(255, 117, 53);\n"
+"color: rgb(255, 255, 255);")
         self.btn_dbi_import_database.setObjectName("btn_dbi_import_database")
         self.horizontalLayout.addWidget(self.btn_dbi_import_database)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -71,8 +85,12 @@ class Ui_db_importer_gui(object):
         self.btn_dbg_close = QtWidgets.QPushButton(db_importer_gui)
         self.btn_dbg_close.setMinimumSize(QtCore.QSize(150, 0))
         self.btn_dbg_close.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.btn_dbg_close.setStyleSheet("background-color:rgb(228, 228, 228)\n"
-"")
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_dbg_close.setFont(font)
+        self.btn_dbg_close.setStyleSheet("background-color: rgb(0, 85, 127);\n"
+"color: rgb(255, 255, 255);")
         self.btn_dbg_close.setObjectName("btn_dbg_close")
         self.horizontalLayout.addWidget(self.btn_dbg_close)
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -84,11 +102,12 @@ class Ui_db_importer_gui(object):
     def retranslateUi(self, db_importer_gui):
         _translate = QtCore.QCoreApplication.translate
         db_importer_gui.setWindowTitle(_translate("db_importer_gui", "DB Importer"))
+        self.label_4.setText(_translate("db_importer_gui", "Server & Map Importer for the Insurgency Sandstorm RCON Tool"))
         self.label.setText(_translate("db_importer_gui", "This the first start of ISRT - if you have a database from another version, you can import the servers now. If you don\'t want to do that now, you may any time later in the Server Manager!"))
         self.label_2.setText(_translate("db_importer_gui", "Step 1 - Select DB (Look for the \"db\" folder in your old ISRT directory)"))
         self.btn_dbi_select_database.setText(_translate("db_importer_gui", "Browse for old Database"))
         self.label_dbi_selected_db.setText(_translate("db_importer_gui", "Selected DB File"))
         self.label_3.setText(_translate("db_importer_gui", "Step 2 - Start importing by hitting the \"Import DB\" Button)"))
-        self.btn_dbi_import_database.setText(_translate("db_importer_gui", "Import DB"))
+        self.btn_dbi_import_database.setText(_translate("db_importer_gui", "Start Import"))
         self.btn_dbg_close.setText(_translate("db_importer_gui", "Close"))
-import res_rc # pylint: disable=import-error
+import res_rc

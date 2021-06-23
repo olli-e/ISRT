@@ -85,7 +85,7 @@ selection-background-color: rgb(216, 216, 216);</string>
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>0</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
@@ -104,7 +104,7 @@ selection-background-color: rgb(216, 216, 216);</string>
      </property>
      <widget class="QWidget" name="Tab_Main">
       <attribute name="title">
-       <string>Server Info</string>
+       <string>Control Center</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_23">
        <item>
@@ -354,6 +354,12 @@ selection-background-color: rgb(216, 216, 216);</string>
                        <height>20</height>
                       </size>
                      </property>
+                     <property name="font">
+                      <font>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
                      <property name="toolTip">
                       <string>Open the ISRT Server Monitor</string>
                      </property>
@@ -361,8 +367,8 @@ selection-background-color: rgb(216, 216, 216);</string>
                       <string>Open the ISRT Server Monitor</string>
                      </property>
                      <property name="styleSheet">
-                      <string notr="true">background-color:rgb(228, 228, 228)
-</string>
+                      <string notr="true">background-color: rgb(0, 85, 127);
+color: rgb(255, 255, 255);</string>
                      </property>
                      <property name="text">
                       <string>Open Server Monitor</string>
@@ -410,8 +416,8 @@ selection-background-color: rgb(216, 216, 216);</string>
                     <enum>Qt::LeftToRight</enum>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color:rgb(228, 228, 228)
-</string>
+                    <string notr="true">background-color: rgb(255, 117, 53);
+color: rgb(255, 255, 255);</string>
                    </property>
                    <property name="text">
                     <string>Refresh Server Info</string>
@@ -6068,7 +6074,7 @@ min-height: 20px;</string>
      </widget>
      <widget class="QWidget" name="Tab_Help">
       <attribute name="title">
-       <string>Help</string>
+       <string>Help Center</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_12">
        <item>
@@ -6097,7 +6103,7 @@ min-height: 20px;</string>
             </font>
            </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Help Center - Tutorials and HowTos about ISRT Usage&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;FAQs, Tutorials and HowTos about ISRT Usage&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -6147,7 +6153,7 @@ min-height: 20px;</string>
            <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
-             <height>40</height>
+             <height>30</height>
             </size>
            </property>
           </spacer>
@@ -6157,7 +6163,13 @@ min-height: 20px;</string>
            <property name="minimumSize">
             <size>
              <width>0</width>
-             <height>200</height>
+             <height>140</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>140</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -6176,7 +6188,27 @@ min-height: 20px;</string>
            <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
-             <height>40</height>
+             <height>30</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Support the continuous development of ISRT!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://www.paypal.com/donate?hosted_button_id=RLSPYUNWLYA9Y&quot;&gt;&lt;img src=&quot;:/img/img/paypal.png&quot;/&gt;&lt;/a&gt;&lt;/p&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_19">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>30</height>
             </size>
            </property>
           </spacer>
@@ -6196,7 +6228,7 @@ min-height: 20px;</string>
             <enum>QFrame::StyledPanel</enum>
            </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=661&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline; color:#000000;&quot;&gt;Report issues in my Support Ticket System&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=661&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline; color:#000000;&quot;&gt;Click here, to get help in my Support Ticket System&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="openExternalLinks">
             <bool>true</bool>
@@ -6207,35 +6239,6 @@ min-height: 20px;</string>
           </widget>
          </item>
         </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="Tab_About">
-      <attribute name="title">
-       <string>About</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_11">
-       <item>
-        <widget class="QLabel" name="aboutbody">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-image: url(:/img/img/sbck.jpg);
-background-color: #f0f0f0;
-background-position: center;
-background-repeat: no-repeat;</string>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:600;&quot;&gt;ISRT {version}&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Insurgency Sandstorm RCON/Query Tool&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;by Madman &lt;/span&gt;&lt;a href=&quot;mailto:support@isrt.info&quot;&gt;&lt;span style=&quot; font-size:18pt; text-decoration: underline; color:#0000ff;&quot;&gt;support@isrt.info&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Get Support: &lt;/span&gt;&lt;a href=&quot;http://www.isrt.info&quot;&gt;&lt;span style=&quot; font-size:16pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.isrt.info&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Donate for the development of ISRT!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://www.paypal.com/donate?hosted_button_id=RLSPYUNWLYA9Y&quot;&gt;&lt;img src=&quot;:/img/img/paypal.png&quot;/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Report issues &lt;/span&gt;&lt;a href=&quot;https://www.isrt.info/?page_id=661&quot;&gt;&lt;span style=&quot; font-size:16pt; text-decoration: underline; color:#0000ff;&quot;&gt;here&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://github.com/olli-e/ISRT-Insurgency-Sandstorm-RCON-Query-Tool/blob/main/LICENSE&quot;&gt;&lt;span style=&quot; font-size:14pt; text-decoration: underline; color:#0000ff;&quot;&gt;GNU/Public License Software&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="openExternalLinks">
-          <bool>true</bool>
-         </property>
-         <property name="textInteractionFlags">
-          <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-         </property>
-        </widget>
        </item>
       </layout>
      </widget>

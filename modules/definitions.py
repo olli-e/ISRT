@@ -200,18 +200,23 @@ def reload_default_mutators(self):
 # Make the chosen server the default server
 def make_default_server(self):
 
-    select from db alias where IP ist gleich das feld  entry_ip
-    wenn is in DB, go, if not error!
+    new_pref_server_ip = self.gui.entry_ip.text()
+
+    select from db alias where new_pref_server_ip
+    
+    if is in DB, go, if not error!
+
 
     new_pref_server_directly = selected alias
-
-    if new_pref_server_directly:
+    
+    if new_pref_server_directly and new_pref_server_directly is not None:
         try:
             self.c.execute(
                 "UPDATE configuration SET pref_server=:nprefserver", {'nprefserver': new_pref_server_directly})
             self.conn.commit()
         except Exception:
-            self.gui.label_saving_indicator.setText("Error - Preferred Server could not be saved - resetting!")
-            self.gui.label_saving_indicator.setStyleSheet("color: red;")
+            self.gui.label_output_window.setStyleSheet("color: red;")
+            self.gui.label_output_window.setText("Error - Preferred Server could not be saved - resetting!")
+            self.gui.label_output_window.setStyleSheet("color: black;")
     
     conf.save_it()

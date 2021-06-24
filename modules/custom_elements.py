@@ -14,6 +14,7 @@ from PyQt5 import QtWidgets, QtGui
 import modules.rcon as rcon # pylint: disable=import-error
 import modules.custom_elements as custom # pylint: disable=import-error
 
+# Re-get the custom commands list and put in dropdown
 def refill_cust_dropdown_list(self):
     self.c.execute("select distinct commands FROM cust_commands")
     dh_alias = self.c.fetchall()
@@ -29,6 +30,7 @@ def refill_cust_dropdown_list(self):
         self.gui.list_custom_commands_console.addItems(row)
     self.conn.commit()
 
+# Fill the dropdown for custom commands once
 def fill_dropdown_and_list(self):
     self.c.execute("select distinct commands FROM cust_commands")
     dh_alias = self.c.fetchall()

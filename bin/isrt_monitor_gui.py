@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_UI_Server_Monitor(object):
     def setupUi(self, UI_Server_Monitor):
         UI_Server_Monitor.setObjectName("UI_Server_Monitor")
-        UI_Server_Monitor.resize(920, 607)
+        UI_Server_Monitor.resize(920, 348)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/img/img/isrt.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         UI_Server_Monitor.setWindowIcon(icon)

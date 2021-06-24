@@ -71,6 +71,7 @@ def action_elements(self):
     self.gui.btn_mutator_preset_4.clicked.connect(lambda: mutator.set_presets(self))
     self.gui.btn_clear_mutators_list.clicked.connect(lambda: clear_default_mutators(self))
     self.gui.btn_reset_mutators.clicked.connect(lambda: reload_default_mutators(self))
+    self.gui.btn_main_make_default.clicked.connect(lambda: make_default_server(self))
     self.gui.chkbx_disable_mutators.stateChanged.connect(lambda: mutator.set_disable_all(self))
     # DB Import Buttons and fields
     self.gui.btn_select_database.clicked.connect(
@@ -178,12 +179,14 @@ def copy_ip_port(self):
         wait_timer.singleShot(2000, clear_it_up)
         wait_timer.start()
 
+# Clear the Mutators list
 def clear_default_mutators(self):
     self.gui.textbox_mutators.clear()
     mutator.reset_presets(self)
     conf.save_it(self)
     conf.get_it(self)
 
+# Reget the mutators list from the DB
 def reload_default_mutators(self):
     self.gui.textbox_mutators.clear()
     self.c.execute("select default_mutators from mutators")
@@ -194,3 +197,21 @@ def reload_default_mutators(self):
     conf.save_it(self)
     conf.get_it(self)
 
+# Make the chosen server the default server
+def make_default_server(self):
+
+    select from db alias where IP ist gleich das feld  entry_ip
+    wenn is in DB, go, if not error!
+
+    new_pref_server_directly = selected alias
+
+    if new_pref_server_directly:
+        try:
+            self.c.execute(
+                "UPDATE configuration SET pref_server=:nprefserver", {'nprefserver': new_pref_server_directly})
+            self.conn.commit()
+        except Exception:
+            self.gui.label_saving_indicator.setText("Error - Preferred Server could not be saved - resetting!")
+            self.gui.label_saving_indicator.setStyleSheet("color: red;")
+    
+    conf.save_it()

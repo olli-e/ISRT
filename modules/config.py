@@ -11,6 +11,7 @@ Configuration Settings
 import re
 from PyQt5 import QtGui, QtWidgets
 
+# Set all standard settings from DB
 def get_it(self):
     # Define the custom buttons
     self.username_kick_ban = ""
@@ -197,7 +198,6 @@ def get_it(self):
     else:
         self.gui.btn_mutator_preset_4.setEnabled(True)
         self.btn_preset4_active = "1"
-
 
 # Save changed settings
 def save_it(self):
@@ -440,7 +440,6 @@ def save_it(self):
 
 
     get_it(self)
-
 
 # Reload pref_server
 def reload_pref_server(self):

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>720</width>
-    <height>890</height>
+    <height>880</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,7 +19,7 @@
   <property name="minimumSize">
    <size>
     <width>720</width>
-    <height>850</height>
+    <height>880</height>
    </size>
   </property>
   <property name="contextMenuPolicy">
@@ -110,59 +110,135 @@ selection-background-color: rgb(216, 216, 216);</string>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_21">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
            <item>
-            <layout class="QVBoxLayout" name="verticalLayout_10">
+            <layout class="QVBoxLayout" name="verticalLayout_11">
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <layout class="QHBoxLayout" name="horizontalLayout_7">
                <item>
                 <layout class="QVBoxLayout" name="verticalLayout_2">
                  <item>
-                  <widget class="QComboBox" name="dropdown_select_server">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>100</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>2500</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                   <property name="toolTip">
-                    <string>Select Server from DB</string>
-                   </property>
-                   <property name="statusTip">
-                    <string>Select Server from DB</string>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color:rgb(254, 254, 254);
+                  <layout class="QHBoxLayout" name="horizontalLayout_4">
+                   <item>
+                    <widget class="QComboBox" name="dropdown_select_server">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>100</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>2500</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>Select Server from Database</string>
+                     </property>
+                     <property name="statusTip">
+                      <string>Select Server from Database</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color:rgb(254, 254, 254);
 </string>
-                   </property>
-                   <property name="editable">
-                    <bool>false</bool>
-                   </property>
-                   <property name="currentText">
-                    <string>Select Server</string>
-                   </property>
-                   <property name="currentIndex">
-                    <number>-1</number>
-                   </property>
-                   <property name="maxVisibleItems">
-                    <number>20</number>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Select Server</string>
-                   </property>
-                  </widget>
+                     </property>
+                     <property name="editable">
+                      <bool>false</bool>
+                     </property>
+                     <property name="currentText">
+                      <string>Select Server</string>
+                     </property>
+                     <property name="currentIndex">
+                      <number>-1</number>
+                     </property>
+                     <property name="maxVisibleItems">
+                      <number>20</number>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Select Server</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="btn_main_add_server_db">
+                     <property name="minimumSize">
+                      <size>
+                       <width>20</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>20</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>10</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="toolTip">
+                      <string>Add below Server to Database</string>
+                     </property>
+                     <property name="statusTip">
+                      <string>Add below Server to Database</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color:rgb(228, 228, 228)
+</string>
+                     </property>
+                     <property name="text">
+                      <string>+</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="btn_main_make_default">
+                     <property name="minimumSize">
+                      <size>
+                       <width>20</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>20</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <pointsize>10</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="toolTip">
+                      <string>Make the selected my default preferred server</string>
+                     </property>
+                     <property name="statusTip">
+                      <string>Make the selected my default preferred server</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color:rgb(228, 228, 228)
+</string>
+                     </property>
+                     <property name="text">
+                      <string>!</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -310,72 +386,61 @@ selection-background-color: rgb(216, 216, 216);</string>
                   </layout>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_7">
-                   <item>
-                    <widget class="QPushButton" name="btn_main_add_server_db">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                     <property name="toolTip">
-                      <string>Add Server to Database by Servername</string>
-                     </property>
-                     <property name="statusTip">
-                      <string>Add Server to Database by Servername</string>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">background-color:rgb(228, 228, 228)
-</string>
-                     </property>
-                     <property name="text">
-                      <string>Add Server to DB</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="btn_main_open_server_monitor">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <weight>75</weight>
-                       <bold>true</bold>
-                      </font>
-                     </property>
-                     <property name="toolTip">
-                      <string>Open the ISRT Server Monitor</string>
-                     </property>
-                     <property name="statusTip">
-                      <string>Open the ISRT Server Monitor</string>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">background-color: rgb(0, 85, 127);
+                  <widget class="QProgressBar" name="progressbar_map_changer">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>5</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>5</height>
+                    </size>
+                   </property>
+                   <property name="value">
+                    <number>0</number>
+                   </property>
+                   <property name="textVisible">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btn_main_open_server_monitor">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="toolTip">
+                    <string>Open the ISRT Server Monitor</string>
+                   </property>
+                   <property name="statusTip">
+                    <string>Open the ISRT Server Monitor</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 85, 127);
 color: rgb(255, 255, 255);</string>
-                     </property>
-                     <property name="text">
-                      <string>Open Server Monitor</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                   </property>
+                   <property name="text">
+                    <string>Open Server Monitor</string>
+                   </property>
+                  </widget>
                  </item>
                  <item>
                   <widget class="QPushButton" name="btn_main_exec_query">
@@ -407,7 +472,7 @@ color: rgb(255, 255, 255);</string>
                     <string>Execute query command to the defined server</string>
                    </property>
                    <property name="statusTip">
-                    <string>Execute query command to the defined server</string>
+                    <string>Execute query command to the selected server</string>
                    </property>
                    <property name="whatsThis">
                     <string/>
@@ -423,28 +488,6 @@ color: rgb(255, 255, 255);</string>
                     <string>Refresh Server Info</string>
                    </property>
                    <property name="checkable">
-                    <bool>false</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QProgressBar" name="progressbar_map_changer">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>8</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>16777215</width>
-                     <height>8</height>
-                    </size>
-                   </property>
-                   <property name="value">
-                    <number>0</number>
-                   </property>
-                   <property name="textVisible">
                     <bool>false</bool>
                    </property>
                   </widget>
@@ -1025,934 +1068,941 @@ color: rgb(47, 47, 47);</string>
                </property>
               </widget>
              </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <property name="spacing">
+              <number>3</number>
+             </property>
              <item>
-              <layout class="QVBoxLayout" name="verticalLayout_9">
-               <property name="spacing">
-                <number>3</number>
+              <widget class="QPushButton" name="btn_main_adminsay">
+               <property name="minimumSize">
+                <size>
+                 <width>110</width>
+                 <height>21</height>
+                </size>
                </property>
-               <item>
-                <widget class="QPushButton" name="btn_main_adminsay">
-                 <property name="minimumSize">
-                  <size>
-                   <width>110</width>
-                   <height>21</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>140</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>Admin Say to Server</string>
-                 </property>
-                 <property name="statusTip">
-                  <string>Admin Say to Server</string>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
+               <property name="maximumSize">
+                <size>
+                 <width>140</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Admin Say to Server</string>
+               </property>
+               <property name="statusTip">
+                <string>Admin Say to Server</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:rgb(228, 228, 228)
 </string>
-                 </property>
-                 <property name="text">
-                  <string>Admin Say</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btn_kick">
-                 <property name="minimumSize">
-                  <size>
-                   <width>110</width>
-                   <height>21</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>140</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>Kick a player from playerlist</string>
-                 </property>
-                 <property name="statusTip">
-                  <string>Kick a player from playerlist</string>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
+               </property>
+               <property name="text">
+                <string>Admin Say</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_kick">
+               <property name="minimumSize">
+                <size>
+                 <width>110</width>
+                 <height>21</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>140</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Kick a player from playerlist</string>
+               </property>
+               <property name="statusTip">
+                <string>Kick a player from playerlist</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:rgb(228, 228, 228)
 </string>
-                 </property>
-                 <property name="text">
-                  <string>Kick Player</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btn_ban">
-                 <property name="minimumSize">
-                  <size>
-                   <width>110</width>
-                   <height>21</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>Ban a player from playerlist</string>
-                 </property>
-                 <property name="statusTip">
-                  <string>Ban a player from playerlist</string>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
+               </property>
+               <property name="text">
+                <string>Kick Player</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_ban">
+               <property name="minimumSize">
+                <size>
+                 <width>110</width>
+                 <height>21</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>140</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Ban a player from playerlist</string>
+               </property>
+               <property name="statusTip">
+                <string>Ban a player from playerlist</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:rgb(228, 228, 228)
 </string>
-                 </property>
-                 <property name="text">
-                  <string>Ban Player</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btn_perm_ban">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>21</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>PermBan a player from playerlist</string>
-                 </property>
-                 <property name="statusTip">
-                  <string>PermBan a player from playerlist</string>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
+               </property>
+               <property name="text">
+                <string>Ban Player</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_perm_ban">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>21</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>140</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>PermBan a player from playerlist</string>
+               </property>
+               <property name="statusTip">
+                <string>Permanently Ban a player from playerlist</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:rgb(228, 228, 228)
 </string>
-                 </property>
-                 <property name="text">
-                  <string>Perm Ban Player</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btn_unban">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>21</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>Unban a player from playerlist</string>
-                 </property>
-                 <property name="statusTip">
-                  <string>Unban a player from playerlist</string>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
+               </property>
+               <property name="text">
+                <string>Perm Ban Player</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_unban">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>21</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>140</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Unban a player from playerlist</string>
+               </property>
+               <property name="statusTip">
+                <string>Unban a player from playerlist</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:rgb(228, 228, 228)
 </string>
-                 </property>
-                 <property name="text">
-                  <string>Unban Player</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btn_get_ids">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>21</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
+               </property>
+               <property name="text">
+                <string>Unban Player</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_get_ids">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>21</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>140</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="statusTip">
+                <string>Get the Steam IDs of players (requires RCON Access)</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:rgb(228, 228, 228)
 </string>
-                 </property>
-                 <property name="text">
-                  <string>Get Steam IDs</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="lineEdit_18">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>8</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>8</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <pointsize>7</pointsize>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">color: rgb(134, 134, 134);</string>
-                 </property>
-                 <property name="text">
-                  <string>Custom Buttons</string>
-                 </property>
-                 <property name="frame">
-                  <bool>false</bool>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btn_cust_1">
-                 <property name="minimumSize">
-                  <size>
-                   <width>110</width>
-                   <height>21</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>Custom Button 1</string>
-                 </property>
-                 <property name="statusTip">
-                  <string>Custom Button 1</string>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
+               </property>
+               <property name="text">
+                <string>Get Steam IDs</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_18">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>8</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>8</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>7</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(134, 134, 134);</string>
+               </property>
+               <property name="text">
+                <string>Custom Buttons</string>
+               </property>
+               <property name="frame">
+                <bool>false</bool>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_cust_1">
+               <property name="minimumSize">
+                <size>
+                 <width>110</width>
+                 <height>21</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>140</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Custom Button 1</string>
+               </property>
+               <property name="statusTip">
+                <string>Custom Button 1</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:rgb(228, 228, 228)
 </string>
-                 </property>
-                 <property name="text">
-                  <string>Cust Btn 1</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btn_cust_2">
-                 <property name="minimumSize">
-                  <size>
-                   <width>110</width>
-                   <height>21</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>140</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>Custom Button 2</string>
-                 </property>
-                 <property name="statusTip">
-                  <string>Custom Button 2</string>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
+               </property>
+               <property name="text">
+                <string>Cust Btn 1</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_cust_2">
+               <property name="minimumSize">
+                <size>
+                 <width>110</width>
+                 <height>21</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>140</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Custom Button 2</string>
+               </property>
+               <property name="statusTip">
+                <string>Custom Button 2</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:rgb(228, 228, 228)
 </string>
-                 </property>
-                 <property name="text">
-                  <string>Cust Btn 2</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btn_cust_3">
-                 <property name="minimumSize">
-                  <size>
-                   <width>110</width>
-                   <height>21</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>140</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>Custom Button 3</string>
-                 </property>
-                 <property name="statusTip">
-                  <string>Custom Button 3</string>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
+               </property>
+               <property name="text">
+                <string>Cust Btn 2</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_cust_3">
+               <property name="minimumSize">
+                <size>
+                 <width>110</width>
+                 <height>21</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>140</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Custom Button 3</string>
+               </property>
+               <property name="statusTip">
+                <string>Custom Button 3</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:rgb(228, 228, 228)
 </string>
-                 </property>
-                 <property name="text">
-                  <string>Cust Btn 3</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
+               </property>
+               <property name="text">
+                <string>Cust Btn 3</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
           </layout>
          </item>
          <item>
-          <widget class="Line" name="line_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_17">
+          <layout class="QVBoxLayout" name="verticalLayout_10">
            <item>
-            <widget class="QComboBox" name="dropdown_select_travelscenario">
-             <property name="minimumSize">
-              <size>
-               <width>140</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string>Choose a map first for the other options to appear depending on the map</string>
-             </property>
-             <property name="statusTip">
-              <string>Choose the Scenario the server should travel to</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:rgb(248, 248, 248);</string>
-             </property>
-             <property name="currentText">
-              <string>Select Map first</string>
-             </property>
-             <property name="placeholderText">
-              <string>Select Map first</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QComboBox" name="dropdown_select_gamemode">
-             <property name="minimumSize">
-              <size>
-               <width>180</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string>Available Gamemodes will appear once you selected a map</string>
-             </property>
-             <property name="statusTip">
-              <string>Select Gamemode to run</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:rgb(248, 248, 248);</string>
-             </property>
-             <property name="currentText">
-              <string>Select Gamemode and Side</string>
-             </property>
-             <property name="placeholderText">
-              <string>Select Gamemode and Side</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QComboBox" name="dropdown_select_lighting">
-             <property name="minimumSize">
-              <size>
-               <width>60</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>60</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string>Available Lighint Scenarios appear once you selected a map, gamemode and side selection</string>
-             </property>
-             <property name="statusTip">
-              <string>Select Lighting for Scenario</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:rgb(248, 248, 248);</string>
-             </property>
-             <property name="currentText">
-              <string>Light</string>
-             </property>
-             <property name="placeholderText">
-              <string>Light</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="btn_mutator_preset_1">
-             <property name="minimumSize">
-              <size>
-               <width>20</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>20</width>
-               <height>23</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string>Mutator Preset 1 - activated if Mutators are assigned</string>
-             </property>
-             <property name="statusTip">
-              <string>Mutator Preset 1 - activated if Mutators are assigned</string>
-             </property>
-             <property name="text">
-              <string>1</string>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="btn_mutator_preset_2">
-             <property name="minimumSize">
-              <size>
-               <width>20</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>20</width>
-               <height>23</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string>Mutator Preset 2 - activated if Mutators are assigned</string>
-             </property>
-             <property name="statusTip">
-              <string>Mutator Preset 2 - activated if Mutators are assigned</string>
-             </property>
-             <property name="text">
-              <string>2</string>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="btn_mutator_preset_3">
-             <property name="minimumSize">
-              <size>
-               <width>20</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>20</width>
-               <height>23</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string>Mutator Preset 3 - activated if Mutators are assigned</string>
-             </property>
-             <property name="statusTip">
-              <string>Mutator Preset 3 - activated if Mutators are assigned</string>
-             </property>
-             <property name="text">
-              <string>3</string>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="btn_mutator_preset_4">
-             <property name="minimumSize">
-              <size>
-               <width>20</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>20</width>
-               <height>23</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string>Mutator Preset 4 - activated if Mutators are assigned</string>
-             </property>
-             <property name="statusTip">
-              <string>Mutator Preset 4 - activated if Mutators are assigned</string>
-             </property>
-             <property name="text">
-              <string>4</string>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_11">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Fixed</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>5</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="chkbx_disable_mutators">
-             <property name="minimumSize">
-              <size>
-               <width>80</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>80</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>7</pointsize>
-              </font>
-             </property>
-             <property name="statusTip">
-              <string>Disable all Mutators</string>
-             </property>
-             <property name="whatsThis">
-              <string>Disable all Mutators</string>
-             </property>
-             <property name="text">
-              <string>Mutators Off</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="btn_main_drcon_changemap">
-             <property name="minimumSize">
-              <size>
-               <width>90</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="toolTip">
-              <string>Change Map with before defined Travel command</string>
-             </property>
-             <property name="statusTip">
-              <string>Change Map with before defined Travel command</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:rgb(228, 228, 228)
-</string>
-             </property>
-             <property name="text">
-              <string>Change Map</string>
-             </property>
-             <property name="autoDefault">
-              <bool>false</bool>
-             </property>
-             <property name="default">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_8">
-           <item>
-            <widget class="Line" name="line_8">
+            <widget class="Line" name="line_2">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QTableWidget" name="tbl_player_output">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>260</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>8</pointsize>
-              </font>
-             </property>
-             <property name="mouseTracking">
-              <bool>true</bool>
-             </property>
-             <property name="contextMenuPolicy">
-              <enum>Qt::DefaultContextMenu</enum>
-             </property>
-             <property name="verticalScrollBarPolicy">
-              <enum>Qt::ScrollBarAsNeeded</enum>
-             </property>
-             <property name="horizontalScrollBarPolicy">
-              <enum>Qt::ScrollBarAlwaysOff</enum>
-             </property>
-             <property name="sizeAdjustPolicy">
-              <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
-             </property>
-             <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
-             </property>
-             <property name="alternatingRowColors">
-              <bool>true</bool>
-             </property>
-             <property name="selectionMode">
-              <enum>QAbstractItemView::ExtendedSelection</enum>
-             </property>
-             <property name="selectionBehavior">
-              <enum>QAbstractItemView::SelectRows</enum>
-             </property>
-             <attribute name="horizontalHeaderCascadingSectionResizes">
-              <bool>true</bool>
-             </attribute>
-             <attribute name="horizontalHeaderMinimumSectionSize">
-              <number>15</number>
-             </attribute>
-             <attribute name="horizontalHeaderDefaultSectionSize">
-              <number>175</number>
-             </attribute>
-             <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-              <bool>true</bool>
-             </attribute>
-             <attribute name="horizontalHeaderStretchLastSection">
-              <bool>true</bool>
-             </attribute>
-             <attribute name="verticalHeaderVisible">
-              <bool>false</bool>
-             </attribute>
-             <attribute name="verticalHeaderCascadingSectionResizes">
-              <bool>false</bool>
-             </attribute>
-             <attribute name="verticalHeaderMinimumSectionSize">
-              <number>12</number>
-             </attribute>
-             <attribute name="verticalHeaderDefaultSectionSize">
-              <number>15</number>
-             </attribute>
-             <column>
-              <property name="text">
-               <string>#</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Name</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>XP collected</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Online Time</string>
-              </property>
-             </column>
-            </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_29">
+            <layout class="QHBoxLayout" name="horizontalLayout_17">
              <item>
-              <widget class="QComboBox" name="dropdown_custom_commands">
+              <widget class="QComboBox" name="dropdown_select_travelscenario">
+               <property name="minimumSize">
+                <size>
+                 <width>140</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Choose a map first for the other options to appear depending on the map</string>
+               </property>
+               <property name="statusTip">
+                <string>Choose the Scenario the server should travel to</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:rgb(248, 248, 248);</string>
+               </property>
+               <property name="currentText">
+                <string>Select Map first</string>
+               </property>
+               <property name="placeholderText">
+                <string>Select Map first</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="dropdown_select_gamemode">
                <property name="minimumSize">
                 <size>
                  <width>180</width>
                  <height>20</height>
                 </size>
                </property>
-               <property name="toolTip">
-                <string>Select from Command history</string>
-               </property>
-               <property name="statusTip">
-                <string>Select from Command history</string>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color:rgb(248, 248, 248);</string>
-               </property>
-               <property name="editable">
-                <bool>false</bool>
-               </property>
-               <property name="currentText">
-                <string>Command history</string>
-               </property>
-               <property name="placeholderText">
-                <string>Command history</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="label_rconcommand">
-               <property name="minimumSize">
-                <size>
-                 <width>350</width>
-                 <height>20</height>
-                </size>
-               </property>
                <property name="maximumSize">
                 <size>
-                 <width>2560</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="statusTip">
-                <string>Enter RCON commands</string>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color:rgb(254, 254, 254);</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-               </property>
-               <property name="placeholderText">
-                <string>Type in RCON Command or select from History, then hit &quot;Submit&quot;</string>
-               </property>
-               <property name="clearButtonEnabled">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btn_main_clear_rcon">
-               <property name="minimumSize">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>40</width>
+                 <width>16777215</width>
                  <height>16777215</height>
                 </size>
                </property>
                <property name="toolTip">
-                <string>Clear RCON Windows</string>
+                <string>Available Gamemodes will appear once you selected a map</string>
                </property>
                <property name="statusTip">
-                <string>Clear RCON Windows</string>
+                <string>Select Gamemode to run</string>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color:rgb(228, 228, 228)
-</string>
+                <string notr="true">background-color:rgb(248, 248, 248);</string>
                </property>
-               <property name="text">
-                <string>Clear</string>
+               <property name="currentText">
+                <string>Select Gamemode and Side</string>
+               </property>
+               <property name="placeholderText">
+                <string>Select Gamemode and Side</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btn_main_exec_rcon">
+              <widget class="QComboBox" name="dropdown_select_lighting">
                <property name="minimumSize">
                 <size>
-                 <width>70</width>
+                 <width>60</width>
                  <height>20</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>70</width>
+                 <width>60</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Available Lighint Scenarios appear once you selected a map, gamemode and side selection</string>
+               </property>
+               <property name="statusTip">
+                <string>Select Lighting for Scenario</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:rgb(248, 248, 248);</string>
+               </property>
+               <property name="currentText">
+                <string>Light</string>
+               </property>
+               <property name="placeholderText">
+                <string>Light</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_mutator_preset_1">
+               <property name="minimumSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>20</width>
                  <height>23</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Mutator Preset 1 - activated if Mutators are assigned</string>
+               </property>
+               <property name="statusTip">
+                <string>Mutator Preset 1 - activated if Mutators are assigned</string>
+               </property>
+               <property name="text">
+                <string>1</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_mutator_preset_2">
+               <property name="minimumSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>20</width>
+                 <height>23</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Mutator Preset 2 - activated if Mutators are assigned</string>
+               </property>
+               <property name="statusTip">
+                <string>Mutator Preset 2 - activated if Mutators are assigned</string>
+               </property>
+               <property name="text">
+                <string>2</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_mutator_preset_3">
+               <property name="minimumSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>20</width>
+                 <height>23</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Mutator Preset 3 - activated if Mutators are assigned</string>
+               </property>
+               <property name="statusTip">
+                <string>Mutator Preset 3 - activated if Mutators are assigned</string>
+               </property>
+               <property name="text">
+                <string>3</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_mutator_preset_4">
+               <property name="minimumSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>20</width>
+                 <height>23</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Mutator Preset 4 - activated if Mutators are assigned</string>
+               </property>
+               <property name="statusTip">
+                <string>Mutator Preset 4 - activated if Mutators are assigned</string>
+               </property>
+               <property name="text">
+                <string>4</string>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_11">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>5</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="chkbx_disable_mutators">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>80</width>
+                 <height>16777215</height>
                 </size>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>9</pointsize>
+                 <pointsize>7</pointsize>
+                </font>
+               </property>
+               <property name="statusTip">
+                <string>Disable all Mutators</string>
+               </property>
+               <property name="whatsThis">
+                <string>Disable all Mutators</string>
+               </property>
+               <property name="text">
+                <string>Mutators Off</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_main_drcon_changemap">
+               <property name="minimumSize">
+                <size>
+                 <width>90</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
                  <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
                <property name="toolTip">
-                <string>Execute the before defined RCON command</string>
+                <string>Change Map with before defined Travel command</string>
                </property>
                <property name="statusTip">
-                <string>Execute the before defined RCON command</string>
-               </property>
-               <property name="layoutDirection">
-                <enum>Qt::LeftToRight</enum>
+                <string>Change Map with before defined Travel command</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">background-color:rgb(228, 228, 228)
 </string>
                </property>
                <property name="text">
-                <string>Submit</string>
+                <string>Change Map</string>
                </property>
-               <property name="shortcut">
-                <string>Ctrl+R</string>
+               <property name="autoDefault">
+                <bool>false</bool>
+               </property>
+               <property name="default">
+                <bool>false</bool>
                </property>
               </widget>
              </item>
             </layout>
            </item>
            <item>
-            <widget class="QTextEdit" name="label_output_window">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>150</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>2500</width>
-               <height>1400</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>10</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="contextMenuPolicy">
-              <enum>Qt::DefaultContextMenu</enum>
-             </property>
-             <property name="toolTip">
-              <string>Console output</string>
-             </property>
-             <property name="statusTip">
-              <string>Console output</string>
-             </property>
-             <property name="autoFillBackground">
-              <bool>true</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border-image:url(:/img/img/rcon-bck.jpg);
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <item>
+              <widget class="Line" name="line_8">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTableWidget" name="tbl_player_output">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>260</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>8</pointsize>
+                </font>
+               </property>
+               <property name="mouseTracking">
+                <bool>true</bool>
+               </property>
+               <property name="contextMenuPolicy">
+                <enum>Qt::DefaultContextMenu</enum>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarAsNeeded</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="sizeAdjustPolicy">
+                <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+               </property>
+               <property name="editTriggers">
+                <set>QAbstractItemView::NoEditTriggers</set>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::ExtendedSelection</enum>
+               </property>
+               <property name="selectionBehavior">
+                <enum>QAbstractItemView::SelectRows</enum>
+               </property>
+               <attribute name="horizontalHeaderCascadingSectionResizes">
+                <bool>true</bool>
+               </attribute>
+               <attribute name="horizontalHeaderMinimumSectionSize">
+                <number>15</number>
+               </attribute>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>175</number>
+               </attribute>
+               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                <bool>true</bool>
+               </attribute>
+               <attribute name="horizontalHeaderStretchLastSection">
+                <bool>true</bool>
+               </attribute>
+               <attribute name="verticalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="verticalHeaderCascadingSectionResizes">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="verticalHeaderMinimumSectionSize">
+                <number>12</number>
+               </attribute>
+               <attribute name="verticalHeaderDefaultSectionSize">
+                <number>15</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>#</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Name</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>XP collected</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>Online Time</string>
+                </property>
+               </column>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_29">
+               <item>
+                <widget class="QComboBox" name="dropdown_custom_commands">
+                 <property name="minimumSize">
+                  <size>
+                   <width>180</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Select from Command history</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>Select from Command history</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(248, 248, 248);</string>
+                 </property>
+                 <property name="editable">
+                  <bool>false</bool>
+                 </property>
+                 <property name="currentText">
+                  <string>Command history</string>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Command history</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="label_rconcommand">
+                 <property name="minimumSize">
+                  <size>
+                   <width>350</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>2560</width>
+                   <height>21</height>
+                  </size>
+                 </property>
+                 <property name="statusTip">
+                  <string>Enter RCON commands</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(254, 254, 254);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Type in RCON Command or select from History, then hit &quot;Submit&quot;</string>
+                 </property>
+                 <property name="clearButtonEnabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btn_main_clear_rcon">
+                 <property name="minimumSize">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>40</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>Clear RCON Windows</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>Clear RCON Windows</string>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(228, 228, 228)
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Clear</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btn_main_exec_rcon">
+                 <property name="minimumSize">
+                  <size>
+                   <width>70</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>70</width>
+                   <height>23</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="toolTip">
+                  <string>Execute the before defined RCON command</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>Execute the before defined RCON command</string>
+                 </property>
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(228, 228, 228)
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Submit</string>
+                 </property>
+                 <property name="shortcut">
+                  <string>Ctrl+R</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="label_output_window">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>150</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>2500</width>
+                 <height>1400</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="contextMenuPolicy">
+                <enum>Qt::DefaultContextMenu</enum>
+               </property>
+               <property name="toolTip">
+                <string>Console output</string>
+               </property>
+               <property name="statusTip">
+                <string>Console output</string>
+               </property>
+               <property name="autoFillBackground">
+                <bool>true</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border-image:url(:/img/img/rcon-bck.jpg);
 background-color: #f0f0f0;
 background-position: center;
 background-repeat: no-repeat;
 
 </string>
-             </property>
-             <property name="inputMethodHints">
-              <set>Qt::ImhNone</set>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Plain</enum>
-             </property>
-             <property name="lineWidth">
-              <number>1</number>
-             </property>
-             <property name="verticalScrollBarPolicy">
-              <enum>Qt::ScrollBarAsNeeded</enum>
-             </property>
-             <property name="horizontalScrollBarPolicy">
-              <enum>Qt::ScrollBarAsNeeded</enum>
-             </property>
-             <property name="readOnly">
-              <bool>true</bool>
-             </property>
-             <property name="html">
-              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+               </property>
+               <property name="inputMethodHints">
+                <set>Qt::ImhNone</set>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Plain</enum>
+               </property>
+               <property name="lineWidth">
+                <number>1</number>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarAsNeeded</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarAsNeeded</enum>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+               <property name="html">
+                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; font-weight:600;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <property name="cursorWidth">
-              <number>0</number>
-             </property>
-             <property name="textInteractionFlags">
-              <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-             </property>
-             <property name="placeholderText">
-              <string>RCON Console Output</string>
-             </property>
-            </widget>
+               </property>
+               <property name="cursorWidth">
+                <number>0</number>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+               </property>
+               <property name="placeholderText">
+                <string>RCON Console Output</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
@@ -2154,7 +2204,7 @@ p, li { white-space: pre-wrap; }
              <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
-               <height>13</height>
+               <height>10</height>
               </size>
              </property>
             </spacer>
@@ -2322,7 +2372,7 @@ color: rgb(255, 255, 255);</string>
              <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
-               <height>13</height>
+               <height>10</height>
               </size>
              </property>
             </spacer>
@@ -2332,7 +2382,7 @@ color: rgb(255, 255, 255);</string>
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>450</height>
+               <height>550</height>
               </size>
              </property>
              <property name="mouseTracking">
@@ -2459,7 +2509,7 @@ color: rgb(255, 255, 255);</string>
               </font>
              </property>
              <property name="text">
-              <string>Import Database</string>
+              <string>Import Server from Database File</string>
              </property>
             </widget>
            </item>
@@ -2471,7 +2521,7 @@ color: rgb(255, 255, 255);</string>
                 <widget class="QToolButton" name="btn_select_database">
                  <property name="minimumSize">
                   <size>
-                   <width>70</width>
+                   <width>100</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -2480,7 +2530,7 @@ color: rgb(255, 255, 255);</string>
 </string>
                  </property>
                  <property name="text">
-                  <string>Browse</string>
+                  <string>Select DB File</string>
                  </property>
                 </widget>
                </item>
@@ -2525,7 +2575,7 @@ color: rgb(255, 255, 255);</string>
 </string>
                  </property>
                  <property name="text">
-                  <string>Add Servers to Database</string>
+                  <string>Add Servers</string>
                  </property>
                 </widget>
                </item>
@@ -2548,86 +2598,7 @@ color: rgb(255, 255, 255);</string>
 </string>
                  </property>
                  <property name="text">
-                  <string>Replace existing Servers</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <widget class="Line" name="line_10">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_31">
-               <item>
-                <widget class="QLabel" name="label_2">
-                 <property name="font">
-                  <font>
-                   <pointsize>9</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>Database Backup</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Expanding</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>200</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btn_exec_db_backup">
-                 <property name="minimumSize">
-                  <size>
-                   <width>150</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>15616</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
-</string>
-                 </property>
-                 <property name="text">
-                  <string>Create Database  Backup</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btn_exec_open_bck_dir">
-                 <property name="minimumSize">
-                  <size>
-                   <width>150</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)
-</string>
-                 </property>
-                 <property name="text">
-                  <string>Open Database Folder</string>
+                  <string>Replace Servers</string>
                  </property>
                 </widget>
                </item>
@@ -2698,13 +2669,6 @@ p, li { white-space: pre-wrap; }
              </property>
              <property name="placeholderText">
               <string>Database connection console output</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="Line" name="line_6">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
@@ -4446,6 +4410,91 @@ p, li { white-space: pre-wrap; }
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Backup</string>
+      </attribute>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>220</y>
+         <width>613</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_63">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Database Backup</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_10">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>200</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_exec_db_backup">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>15616</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:rgb(228, 228, 228)
+</string>
+          </property>
+          <property name="text">
+           <string>Create Database  Backup</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_exec_open_bck_dir">
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:rgb(228, 228, 228)
+</string>
+          </property>
+          <property name="text">
+           <string>Open Database Folder</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
      <widget class="QWidget" name="Tab_Configure">
       <attribute name="title">
        <string>Configure</string>
@@ -5830,22 +5879,6 @@ color: rgb(255, 255, 255);</string>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_21">
                <item>
-                <spacer name="horizontalSpacer_26">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Fixed</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>10</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
                 <widget class="QPushButton" name="btn_reset_mutator_presets">
                  <property name="styleSheet">
                   <string notr="true">background-color:rgb(228, 228, 228)
@@ -5855,22 +5888,6 @@ color: rgb(255, 255, 255);</string>
                   <string>Reset all above Mutator Presets</string>
                  </property>
                 </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_27">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Fixed</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>10</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
                </item>
               </layout>
              </item>
@@ -5931,22 +5948,6 @@ color: rgb(255, 255, 255);</string>
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_62">
                  <item>
-                  <spacer name="horizontalSpacer_29">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeType">
-                    <enum>QSizePolicy::Fixed</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>10</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item>
                   <widget class="QPushButton" name="btn_clear_mutators_list">
                    <property name="styleSheet">
                     <string notr="true">background-color:rgb(228, 228, 228)
@@ -5983,22 +5984,6 @@ color: rgb(255, 255, 255);</string>
                     <string>Reload all default Mutators</string>
                    </property>
                   </widget>
-                 </item>
-                 <item>
-                  <spacer name="horizontalSpacer_28">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeType">
-                    <enum>QSizePolicy::Fixed</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>10</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
                  </item>
                 </layout>
                </item>
@@ -6159,44 +6144,9 @@ min-height: 20px;</string>
           </spacer>
          </item>
          <item>
-          <widget class="QLabel" name="label_4">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>140</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>140</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">image: url(:/img/img/help.png);</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="verticalSpacer_4">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>30</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
           <widget class="QLabel" name="label_3">
            <property name="text">
-            <string>&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Support the continuous development of ISRT!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://www.paypal.com/donate?hosted_button_id=RLSPYUNWLYA9Y&quot;&gt;&lt;img src=&quot;:/img/img/paypal.png&quot;/&gt;&lt;/a&gt;&lt;/p&gt;</string>
+            <string>&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Support the continuous development of ISRT!&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://www.paypal.com/donate?hosted_button_id=RLSPYUNWLYA9Y&quot;&gt;&lt;img src=&quot;:/img/img/paypal.png&quot;/&gt;&lt;/a&gt;&lt;/p&gt;</string>
            </property>
           </widget>
          </item>

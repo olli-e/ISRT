@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>920</width>
-    <height>348</height>
+    <width>967</width>
+    <height>383</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,7 +35,7 @@ selection-background-color: rgb(216, 216, 216);</string>
        </property>
        <property name="minimumSize">
         <size>
-         <width>900</width>
+         <width>500</width>
          <height>120</height>
         </size>
        </property>
@@ -240,14 +240,20 @@ selection-background-color: rgb(216, 216, 216);</string>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QLabel" name="label_19">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
-           <width>145</width>
+           <width>0</width>
            <height>0</height>
           </size>
          </property>
          <property name="text">
-          <string>Refresh Intervall in seconds</string>
+          <string>Refresh Intervall</string>
          </property>
         </widget>
        </item>
@@ -345,14 +351,20 @@ selection-background-color: rgb(216, 216, 216);</string>
        </item>
        <item>
         <widget class="QLabel" name="label_21">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
-           <width>170</width>
+           <width>0</width>
            <height>0</height>
           </size>
          </property>
          <property name="text">
-          <string>Red Marking for Pings higher than</string>
+          <string>Mark Pings higher</string>
          </property>
         </widget>
        </item>
@@ -464,9 +476,31 @@ selection-background-color: rgb(216, 216, 216);</string>
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="label">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Show:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QCheckBox" name="cb_ipaddress">
          <property name="text">
-          <string>Show IP-Address:Port</string>
+          <string>IP-Address:Port</string>
          </property>
         </widget>
        </item>
@@ -480,7 +514,7 @@ selection-background-color: rgb(216, 216, 216);</string>
        <item>
         <widget class="QCheckBox" name="cb_gamemode">
          <property name="text">
-          <string>Show Gamemode</string>
+          <string>Gamemode</string>
          </property>
         </widget>
        </item>
@@ -494,7 +528,7 @@ selection-background-color: rgb(216, 216, 216);</string>
        <item>
         <widget class="QCheckBox" name="cb_playernames">
          <property name="text">
-          <string>Show Playernames</string>
+          <string>Playernames</string>
          </property>
         </widget>
        </item>

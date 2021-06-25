@@ -224,10 +224,10 @@ selection-background-color: rgb(216, 216, 216);</string>
                       </font>
                      </property>
                      <property name="toolTip">
-                      <string>Make the selected server my default preferred server</string>
+                      <string>Make the selected server my default selected server</string>
                      </property>
                      <property name="statusTip">
-                      <string>Make the selected server my default preferred server</string>
+                      <string>Make the selected server my default selected server</string>
                      </property>
                      <property name="styleSheet">
                       <string notr="true">background-color:rgb(228, 228, 228)
@@ -2613,6 +2613,8 @@ color: rgb(255, 255, 255);</string>
                <property name="font">
                 <font>
                  <pointsize>9</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
                 </font>
                </property>
                <property name="text">
@@ -2768,6 +2770,12 @@ p, li { white-space: pre-wrap; }
               <layout class="QHBoxLayout" name="horizontalLayout_9">
                <item>
                 <widget class="QComboBox" name="dropdown_mapmgr_selector">
+                 <property name="minimumSize">
+                  <size>
+                   <width>170</width>
+                   <height>0</height>
+                  </size>
+                 </property>
                  <property name="toolTip">
                   <string>Select existing Map from Register</string>
                  </property>
@@ -2835,6 +2843,12 @@ p, li { white-space: pre-wrap; }
                </item>
                <item>
                 <widget class="QPushButton" name="btn_mapmgr_delete">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="toolTip">
                   <string>Delete the Map from Map register</string>
                  </property>
@@ -2842,7 +2856,8 @@ p, li { white-space: pre-wrap; }
                   <string>Delete the Map from Map register</string>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:rgb(228, 228, 228)</string>
+                  <string notr="true">background-color: rgb(255, 117, 53);
+color: rgb(255, 255, 255);</string>
                  </property>
                  <property name="text">
                   <string>Delete Map</string>
@@ -4443,6 +4458,12 @@ p, li { white-space: pre-wrap; }
            </item>
            <item>
             <widget class="QPushButton" name="btn_cust_delete_all">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="toolTip">
               <string>Delete all Custom Commands</string>
              </property>
@@ -4450,8 +4471,8 @@ p, li { white-space: pre-wrap; }
               <string>Delete all Custom Commands</string>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color:rgb(228, 228, 228)
-</string>
+              <string notr="true">background-color: rgb(255, 117, 53);
+color: rgb(255, 255, 255);</string>
              </property>
              <property name="text">
               <string>Clear entire History</string>

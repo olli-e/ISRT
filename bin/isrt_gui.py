@@ -1685,7 +1685,7 @@ class Ui_ISRT_Main_Window(object):
         spacerItem23 = QtWidgets.QSpacerItem(130, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_11.addItem(spacerItem23)
         self.dropdown_pref_mode = QtWidgets.QComboBox(self.Tab_Configure)
-        self.dropdown_pref_mode.setMinimumSize(QtCore.QSize(200, 20))
+        self.dropdown_pref_mode.setMinimumSize(QtCore.QSize(250, 20))
         self.dropdown_pref_mode.setMaximumSize(QtCore.QSize(250, 16777215))
         self.dropdown_pref_mode.setStyleSheet("background-color:rgb(254, 254, 254);\n"
 "")
@@ -1713,7 +1713,7 @@ class Ui_ISRT_Main_Window(object):
         spacerItem24 = QtWidgets.QSpacerItem(130, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_55.addItem(spacerItem24)
         self.dropdown_pref_server = QtWidgets.QComboBox(self.Tab_Configure)
-        self.dropdown_pref_server.setMinimumSize(QtCore.QSize(200, 20))
+        self.dropdown_pref_server.setMinimumSize(QtCore.QSize(250, 20))
         self.dropdown_pref_server.setMaximumSize(QtCore.QSize(250, 16777215))
         self.dropdown_pref_server.setStyleSheet("background-color:rgb(254, 254, 254);\n"
 "")
@@ -1729,7 +1729,7 @@ class Ui_ISRT_Main_Window(object):
         spacerItem25 = QtWidgets.QSpacerItem(130, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_60.addItem(spacerItem25)
         self.dropdown_pref_maps = QtWidgets.QComboBox(self.Tab_Configure)
-        self.dropdown_pref_maps.setMinimumSize(QtCore.QSize(200, 20))
+        self.dropdown_pref_maps.setMinimumSize(QtCore.QSize(250, 20))
         self.dropdown_pref_maps.setMaximumSize(QtCore.QSize(250, 16777215))
         self.dropdown_pref_maps.setStyleSheet("background-color:rgb(254, 254, 254);\n"
 "")

@@ -4772,7 +4772,7 @@ color: rgb(255, 255, 255);</string>
               <widget class="QComboBox" name="dropdown_pref_mode">
                <property name="minimumSize">
                 <size>
-                 <width>200</width>
+                 <width>250</width>
                  <height>20</height>
                 </size>
                </property>
@@ -4887,7 +4887,7 @@ color: rgb(255, 255, 255);</string>
               <widget class="QComboBox" name="dropdown_pref_server">
                <property name="minimumSize">
                 <size>
-                 <width>200</width>
+                 <width>250</width>
                  <height>20</height>
                 </size>
                </property>
@@ -4942,7 +4942,7 @@ color: rgb(255, 255, 255);</string>
             <widget class="QComboBox" name="dropdown_pref_maps">
              <property name="minimumSize">
               <size>
-               <width>200</width>
+               <width>250</width>
                <height>20</height>
               </size>
              </property>

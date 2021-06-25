@@ -9,19 +9,25 @@ Module element of ISRT
 Mutator Manager
 ------------------------------------------------------------------'''
 
-def reset_presets(self):
+def reset_preset1(self):
     self.gui.dropdown_mutator_1_1.setCurrentText("None")
     self.gui.dropdown_mutator_1_2.setCurrentText("None")
     self.gui.dropdown_mutator_1_3.setCurrentText("None")
     self.gui.dropdown_mutator_1_4.setCurrentText("None")
+
+def reset_preset2(self):
     self.gui.dropdown_mutator_2_1.setCurrentText("None")
     self.gui.dropdown_mutator_2_2.setCurrentText("None")
     self.gui.dropdown_mutator_2_3.setCurrentText("None")
     self.gui.dropdown_mutator_2_4.setCurrentText("None")
+
+def reset_preset3(self):
     self.gui.dropdown_mutator_3_1.setCurrentText("None")
     self.gui.dropdown_mutator_3_2.setCurrentText("None")
     self.gui.dropdown_mutator_3_3.setCurrentText("None")
     self.gui.dropdown_mutator_3_4.setCurrentText("None")
+
+def reset_preset4(self):
     self.gui.dropdown_mutator_4_1.setCurrentText("None")
     self.gui.dropdown_mutator_4_2.setCurrentText("None")
     self.gui.dropdown_mutator_4_3.setCurrentText("None")

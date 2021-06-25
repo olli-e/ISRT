@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>720</width>
-    <height>880</height>
+    <height>892</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -224,10 +224,10 @@ selection-background-color: rgb(216, 216, 216);</string>
                       </font>
                      </property>
                      <property name="toolTip">
-                      <string>Make the selected my default preferred server</string>
+                      <string>Make the selected server my default preferred server</string>
                      </property>
                      <property name="statusTip">
-                      <string>Make the selected my default preferred server</string>
+                      <string>Make the selected server my default preferred server</string>
                      </property>
                      <property name="styleSheet">
                       <string notr="true">background-color:rgb(228, 228, 228)
@@ -3133,6 +3133,19 @@ p, li { white-space: pre-wrap; }
               </layout>
              </item>
              <item>
+              <spacer name="verticalSpacer_20">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
               <widget class="Line" name="line_15">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -3140,6 +3153,19 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
             </layout>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_21">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
            </item>
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_33">
@@ -4183,6 +4209,12 @@ color: rgb(255, 255, 255);</string>
                      <property name="styleSheet">
                       <string notr="true">border-image: url(:/img/img/day.jpg);</string>
                      </property>
+                     <property name="frameShape">
+                      <enum>QFrame::NoFrame</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Plain</enum>
+                     </property>
                     </widget>
                    </item>
                   </layout>
@@ -4219,6 +4251,12 @@ color: rgb(255, 255, 255);</string>
                      <property name="styleSheet">
                       <string notr="true">border-image: url(:/img/img/night.jpg);
 </string>
+                     </property>
+                     <property name="frameShape">
+                      <enum>QFrame::NoFrame</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Plain</enum>
                      </property>
                     </widget>
                    </item>
@@ -4257,6 +4295,19 @@ color: rgb(255, 255, 255);</string>
                   <bool>true</bool>
                  </property>
                 </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
                </item>
                <item>
                 <widget class="QTextEdit" name="label_db_console_2">
@@ -4642,7 +4693,7 @@ color: rgb(255, 255, 255);</string>
            <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
-             <height>10</height>
+             <height>20</height>
             </size>
            </property>
           </spacer>
@@ -4665,7 +4716,7 @@ color: rgb(255, 255, 255);</string>
            <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
-             <height>10</height>
+             <height>20</height>
             </size>
            </property>
           </spacer>
@@ -4991,7 +5042,7 @@ color: rgb(255, 255, 255);</string>
                <property name="sizeHint" stdset="0">
                 <size>
                  <width>20</width>
-                 <height>10</height>
+                 <height>20</height>
                 </size>
                </property>
               </spacer>
@@ -5014,10 +5065,23 @@ color: rgb(255, 255, 255);</string>
                <property name="sizeHint" stdset="0">
                 <size>
                  <width>20</width>
-                 <height>10</height>
+                 <height>20</height>
                 </size>
                </property>
               </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_36">
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Custom RCON Buttons</string>
+               </property>
+              </widget>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_13">
@@ -5042,7 +5106,7 @@ color: rgb(255, 255, 255);</string>
                   <enum>QFrame::NoFrame</enum>
                  </property>
                  <property name="text">
-                  <string>Custom Buttons</string>
+                  <string/>
                  </property>
                 </widget>
                </item>
@@ -5080,7 +5144,7 @@ color: rgb(255, 255, 255);</string>
                   <enum>QFrame::NoFrame</enum>
                  </property>
                  <property name="text">
-                  <string>Button Command</string>
+                  <string>RCON Command</string>
                  </property>
                 </widget>
                </item>
@@ -5290,7 +5354,7 @@ color: rgb(255, 255, 255);</string>
                <property name="sizeHint" stdset="0">
                 <size>
                  <width>20</width>
-                 <height>10</height>
+                 <height>20</height>
                 </size>
                </property>
               </spacer>
@@ -5313,7 +5377,7 @@ color: rgb(255, 255, 255);</string>
                <property name="sizeHint" stdset="0">
                 <size>
                  <width>20</width>
-                 <height>10</height>
+                 <height>20</height>
                 </size>
                </property>
               </spacer>
@@ -5321,17 +5385,34 @@ color: rgb(255, 255, 255);</string>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_58">
                <item>
-                <widget class="QLabel" name="label_32">
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>Mutator Buttons (Define your Mutator presets that you can call while changing a map)</string>
-                 </property>
-                </widget>
+                <layout class="QHBoxLayout" name="horizontalLayout_22">
+                 <item>
+                  <widget class="QLabel" name="label_35">
+                   <property name="font">
+                    <font>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Mutator Buttons (Define your Mutator presets that you can call while changing a map)</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
                </item>
               </layout>
              </item>
@@ -5477,6 +5558,23 @@ color: rgb(255, 255, 255);</string>
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="QPushButton" name="btn_delete_presets_1">
+                 <property name="minimumSize">
+                  <size>
+                   <width>90</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(228, 228, 228)
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Delete Preset</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </item>
              <item>
@@ -5602,6 +5700,23 @@ color: rgb(255, 255, 255);</string>
                  </property>
                  <property name="placeholderText">
                   <string>Mutator 4</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btn_delete_presets_2">
+                 <property name="minimumSize">
+                  <size>
+                   <width>90</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(228, 228, 228)
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Delete Preset</string>
                  </property>
                 </widget>
                </item>
@@ -5733,6 +5848,23 @@ color: rgb(255, 255, 255);</string>
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="QPushButton" name="btn_delete_presets_3">
+                 <property name="minimumSize">
+                  <size>
+                   <width>90</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(228, 228, 228)
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Delete Preset</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </item>
              <item>
@@ -5861,33 +5993,68 @@ color: rgb(255, 255, 255);</string>
                  </property>
                 </widget>
                </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_21">
                <item>
-                <widget class="QPushButton" name="btn_reset_mutator_presets">
+                <widget class="QPushButton" name="btn_delete_presets_4">
+                 <property name="minimumSize">
+                  <size>
+                   <width>90</width>
+                   <height>0</height>
+                  </size>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">background-color:rgb(228, 228, 228)
 </string>
                  </property>
                  <property name="text">
-                  <string>Reset all above Mutator Presets</string>
+                  <string>Delete Preset</string>
                  </property>
                 </widget>
                </item>
               </layout>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_57"/>
-             </item>
-             <item>
-              <spacer name="verticalSpacer_9">
+              <spacer name="verticalSpacer_22">
                <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
                <property name="sizeType">
                 <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>10</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbl_mutator_header_3">
+               <property name="text">
+                <string>Add your custom Mutators below - if more than one, all separated with a comma and no blank spaces! Hit Save or Enter afterwards!</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="textbox_add_mutators">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:rgb(254, 254, 254);</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_62"/>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_24">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
@@ -5900,79 +6067,20 @@ color: rgb(255, 255, 255);</string>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_15">
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_59">
-                 <item>
-                  <widget class="QLabel" name="lbl_mutator_header_3">
-                   <property name="text">
-                    <string>Put all Mutators you need in the Box below or delete not needed Mutators - all separated with a comma and no blank spaces!</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+                <layout class="QHBoxLayout" name="horizontalLayout_59"/>
                </item>
                <item>
-                <widget class="QTextEdit" name="textbox_mutators">
-                 <property name="minimumSize">
+                <spacer name="verticalSpacer_9">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
                   <size>
-                   <width>0</width>
-                   <height>0</height>
+                   <width>20</width>
+                   <height>50</height>
                   </size>
                  </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgb(255, 255, 255);</string>
-                 </property>
-                 <property name="horizontalScrollBarPolicy">
-                  <enum>Qt::ScrollBarAlwaysOff</enum>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_62">
-                 <item>
-                  <widget class="QPushButton" name="btn_clear_mutators_list">
-                   <property name="styleSheet">
-                    <string notr="true">background-color:rgb(228, 228, 228)
-</string>
-                   </property>
-                   <property name="text">
-                    <string>Clear above Mutators list</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="horizontalSpacer_30">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeType">
-                    <enum>QSizePolicy::Fixed</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>10</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="btn_reset_mutators">
-                   <property name="styleSheet">
-                    <string notr="true">background-color:rgb(228, 228, 228)
-</string>
-                   </property>
-                   <property name="text">
-                    <string>Reload all default Mutators</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+                </spacer>
                </item>
                <item>
                 <widget class="QLabel" name="label_saving_indicator">
@@ -6046,7 +6154,7 @@ min-height: 20px;</string>
      </widget>
      <widget class="QWidget" name="Tab_Help">
       <attribute name="title">
-       <string>Help Center</string>
+       <string>Help</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_12">
        <item>

@@ -95,7 +95,6 @@ def get_it(self):
         "select mutators FROM mutators ORDER by mutators")
     mutators_set = self.c.fetchone()
     self.conn.commit()
-    self.gui.textbox_mutators.setText(mutators_set[0])
 
     self.gui.dropdown_mutator_1_1.clear()
     self.gui.dropdown_mutator_1_2.clear()
@@ -150,6 +149,33 @@ def get_it(self):
             self.gui.dropdown_mutator_4_2.addItem(muta)
             self.gui.dropdown_mutator_4_3.addItem(muta)
             self.gui.dropdown_mutator_4_4.addItem(muta)
+    
+    self.c.execute(
+        "select custom_mutators FROM mutators ORDER by custom_mutators")
+    custom_mutators_set = self.c.fetchone()
+    self.conn.commit()
+    self.gui.textbox_add_mutators.clear()
+    self.gui.textbox_add_mutators.setText(custom_mutators_set[0])
+
+    self.custom_mutator_list = custom_mutators_set[0].split(",")
+    if self.custom_mutator_list and self.custom_mutator_list[0] != "":
+        for mutat in self.custom_mutator_list:
+            self.gui.dropdown_mutator_1_1.addItem(mutat)
+            self.gui.dropdown_mutator_1_2.addItem(mutat)
+            self.gui.dropdown_mutator_1_3.addItem(mutat)
+            self.gui.dropdown_mutator_1_4.addItem(mutat)
+            self.gui.dropdown_mutator_2_1.addItem(mutat)
+            self.gui.dropdown_mutator_2_2.addItem(mutat)
+            self.gui.dropdown_mutator_2_3.addItem(mutat)
+            self.gui.dropdown_mutator_2_4.addItem(mutat)
+            self.gui.dropdown_mutator_3_1.addItem(mutat)
+            self.gui.dropdown_mutator_3_2.addItem(mutat)
+            self.gui.dropdown_mutator_3_3.addItem(mutat)
+            self.gui.dropdown_mutator_3_4.addItem(mutat)
+            self.gui.dropdown_mutator_4_1.addItem(mutat)
+            self.gui.dropdown_mutator_4_2.addItem(mutat)
+            self.gui.dropdown_mutator_4_3.addItem(mutat)
+            self.gui.dropdown_mutator_4_4.addItem(mutat)
 
     self.c.execute(
         "select p11, p12, p13, p14, p21, p22, p23, p24, p31, p32, p33, p34, p41, p42, p43, p44 FROM mutators")
@@ -247,6 +273,7 @@ def save_it(self):
         self.gui.btn_cust_1_definition.setText(
             new_btn1_name_var)
         self.gui.label_saving_indicator.setText("Saved!")
+    
     # Check and update new Button 1 command
     if new_btn1_command_var and self.button2_command != new_btn1_command_var:
         new_button_command = new_btn1_command_var
@@ -276,6 +303,7 @@ def save_it(self):
         self.gui.btn_cust_2_definition.setText(
             new_btn2_name_var)
         self.gui.label_saving_indicator.setText("Saved!")
+    
     # Check and update new Button 2 command
     if new_btn2_command_var and self.button2_command != new_btn2_command_var:
         new_button_command = new_btn2_command_var
@@ -370,7 +398,6 @@ def save_it(self):
         self.conn.commit()
         self.gui.label_saving_indicator.setText("Saved!")
 
-
     # Preferred Gamemode setting
     self.c.execute("select pref_mode from configuration")
     self.conn.commit()
@@ -402,16 +429,17 @@ def save_it(self):
             self.gui.label_saving_indicator.setText("Error - Preferred Server could not be saved - resetting!")
             self.gui.label_saving_indicator.setStyleSheet("color: red;")
 
-    # Update Mutators List
-    new_mutators = self.gui.textbox_mutators.toPlainText()
+    # Add to Mutators List
+    new_mutators = self.gui.textbox_add_mutators.text()
     res_check_blanks_mut = bool(re.search(r"\s", new_mutators))
     if res_check_blanks_mut is True:
-        self.gui.label_saving_indicator.setText("Error - Mutator List not saved - contains blank spaces - resetting!")
+        self.gui.label_saving_indicator.setText("Error - Mutator not added - contains blank spaces - resetting!")
         self.gui.label_saving_indicator.setStyleSheet("color: red;")
     else:
 
+
         self.c.execute(
-            "UPDATE mutators SET mutators=:mutators", {'mutators': new_mutators})
+            "UPDATE mutators SET custom_mutators=:mutators", {'mutators': new_mutators})
         self.conn.commit()
 
         new_11 = self.gui.dropdown_mutator_1_1.currentText()

@@ -656,7 +656,7 @@ class Ui_ISRT_Main_Window(object):
         self.label_output_window.setMinimumSize(QtCore.QSize(0, 150))
         self.label_output_window.setMaximumSize(QtCore.QSize(2500, 1400))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setPointSize(11)
         font.setBold(False)
         font.setWeight(50)
         self.label_output_window.setFont(font)
@@ -2290,8 +2290,8 @@ class Ui_ISRT_Main_Window(object):
         self.label_output_window.setHtml(_translate("ISRT_Main_Window", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt; font-weight:600;\"><br /></p></body></html>"))
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p></body></html>"))
         self.label_output_window.setPlaceholderText(_translate("ISRT_Main_Window", "RCON Console Output"))
         self.TabWidget_Main_overall.setTabText(self.TabWidget_Main_overall.indexOf(self.Tab_Main), _translate("ISRT_Main_Window", "Control Center"))
         self.server_alias.setToolTip(_translate("ISRT_Main_Window", "Alias Name of the server"))

@@ -202,21 +202,22 @@ def make_default_server(self):
 
     new_pref_server_ip = self.gui.entry_ip.text()
 
-    select from db alias where new_pref_server_ip
-    
-    if is in DB, go, if not error!
+    if self.gui.dropdown_select_server.currentText() == "Select Server" or self.gui.entry_ip.text() is "" or self.gui.entry_queryport.text() is "":
 
+        self.gui.label_output_window.setText("Error - Please select a server or save the server to database first!")
+    else:
+        self.c.execute("select alias from server where ipaddress=:newprefip", {'newprefip': new_pref_server_ip})
+        self.conn.commit()
+        newpref_result = self.c.fetchone()
+        if newpref_result is not None:
+            try:
+                self.c.execute("UPDATE configuration SET pref_server=:nprefserver", {'nprefserver': newpref_result[0]})
+                self.conn.commit()
+                self.gui.dropdown_pref_server.setCurrentText(newpref_result[0])
+                self.gui.label_output_window.setText("Server successfully marked as Preferred Server!")
+            except Exception:
+                self.gui.label_output_window.setText("Error - Preferred Server could not be saved - resetting!")
+        else:
+            self.gui.label_output_window.setText("Error - Server is not in Database - please save it first!")  
+        conf.save_it(self)
 
-    new_pref_server_directly = selected alias
-    
-    if new_pref_server_directly and new_pref_server_directly is not None:
-        try:
-            self.c.execute(
-                "UPDATE configuration SET pref_server=:nprefserver", {'nprefserver': new_pref_server_directly})
-            self.conn.commit()
-        except Exception:
-            self.gui.label_output_window.setStyleSheet("color: red;")
-            self.gui.label_output_window.setText("Error - Preferred Server could not be saved - resetting!")
-            self.gui.label_output_window.setStyleSheet("color: black;")
-    
-    conf.save_it()

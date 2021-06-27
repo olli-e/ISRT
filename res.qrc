@@ -22,6 +22,8 @@
     <file>img/maps/map_views.jpg</file>
   </qresource>
   <qresource prefix="map_thumbs">
+    <file>img/maps/thumbs/citadel.jpg</file>
+    <file>img/maps/thumbs/citadel_night.jpg</file>
     <file>img/maps/thumbs/assault.jpg</file>
     <file>img/maps/thumbs/operationa.jpg</file>
     <file>img/maps/thumbs/abadhills.jpg</file>

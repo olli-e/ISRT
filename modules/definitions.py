@@ -204,7 +204,7 @@ def make_default_server(self):
 
     new_pref_server_ip = self.gui.entry_ip.text()
 
-    if self.gui.dropdown_select_server.currentText() == "Select Server" or self.gui.entry_ip.text() is "" or self.gui.entry_queryport.text() is "":
+    if self.gui.dropdown_select_server.currentText() == "Select Server" or self.gui.entry_ip.text() == "" or self.gui.entry_queryport.text() == "":
 
         self.gui.label_output_window.setText("Error - Please select a server or save the server to database first!")
     else:

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="img">
+    <file>img/maps/thumbs/drycanal.jpg</file>
     <file>img/ausrufe-20.png</file>
     <file>img/day.jpg</file>
     <file>img/night.jpg</file>
@@ -54,14 +55,10 @@
     <file>img/maps/thumbs/derbunker.jpg</file>
     <file>img/maps/thumbs/derriese.jpg</file>
     <file>img/maps/thumbs/diplomacy.jpg</file>
-    <file>img/maps/thumbs/drycanal (Custom).jpg</file>
-    <file>img/maps/thumbs/drycanal_night (Custom).jpg</file>
     <file>img/maps/thumbs/dunes.jpg</file>
     <file>img/maps/thumbs/dunes_night.jpg</file>
     <file>img/maps/thumbs/dust2.jpg</file>
     <file>img/maps/thumbs/dust2_night.jpg</file>
-    <file>img/maps/thumbs/embassy (Custom).jpg</file>
-    <file>img/maps/thumbs/embassy_night (Custom).jpg</file>
     <file>img/maps/thumbs/factory.jpg</file>
     <file>img/maps/thumbs/farmhouse.jpg</file>
     <file>img/maps/thumbs/farmhouse_night.jpg</file>
@@ -76,8 +73,6 @@
     <file>img/maps/thumbs/gateway.jpg</file>
     <file>img/maps/thumbs/glassdome.jpg</file>
     <file>img/maps/thumbs/glassdome_night.jpg</file>
-    <file>img/maps/thumbs/heights (Custom).jpg</file>
-    <file>img/maps/thumbs/heights_night (Custom).jpg</file>
     <file>img/maps/thumbs/hideout.jpg</file>
     <file>img/maps/thumbs/hideout_night.jpg</file>
     <file>img/maps/thumbs/highlands.jpg</file>
@@ -91,15 +86,11 @@
     <file>img/maps/thumbs/ismcdesmall.jpg</file>
     <file>img/maps/thumbs/junkyard.jpg</file>
     <file>img/maps/thumbs/junkyard_night.jpg</file>
-    <file>img/maps/thumbs/kandagal (Custom).jpg</file>
-    <file>img/maps/thumbs/kandagal_night (Custom).jpg</file>
     <file>img/maps/thumbs/last_light.jpg</file>
     <file>img/maps/thumbs/liberationtower.jpg</file>
     <file>img/maps/thumbs/macedonia.jpg</file>
     <file>img/maps/thumbs/macedonia_night.jpg</file>
     <file>img/maps/thumbs/mallconflict.jpg</file>
-    <file>img/maps/thumbs/market (Custom).jpg</file>
-    <file>img/maps/thumbs/market_night (Custom).jpg</file>
     <file>img/maps/thumbs/metro.jpg</file>
     <file>img/maps/thumbs/metro_night.jpg</file>
     <file>img/maps/thumbs/ministry.jpg</file>
@@ -121,13 +112,9 @@
     <file>img/maps/thumbs/outskirts.jpg</file>
     <file>img/maps/thumbs/outskirts_night.jpg</file>
     <file>img/maps/thumbs/paluja.jpeg</file>
-    <file>img/maps/thumbs/panj (Custom).jpg</file>
-    <file>img/maps/thumbs/panj_night (Custom).jpg</file>
     <file>img/maps/thumbs/panzerschlacht.jpg</file>
     <file>img/maps/thumbs/panzerschlacht_night.jpg</file>
     <file>img/maps/thumbs/payout.jpg</file>
-    <file>img/maps/thumbs/peak (Custom).jpg</file>
-    <file>img/maps/thumbs/peak_night (Custom).jpg</file>
     <file>img/maps/thumbs/powerplant.jpg</file>
     <file>img/maps/thumbs/powerplant_night.jpg</file>
     <file>img/maps/thumbs/precinct.jpg</file>
@@ -143,8 +130,6 @@
     <file>img/maps/thumbs/refinery.jpg</file>
     <file>img/maps/thumbs/refinery_night.jpg</file>
     <file>img/maps/thumbs/return.jpg</file>
-    <file>img/maps/thumbs/revolt (Custom).jpg</file>
-    <file>img/maps/thumbs/revolt_night (Custom).jpg</file>
     <file>img/maps/thumbs/road_to_sandstorm.jpg</file>
     <file>img/maps/thumbs/safehouse.jpg</file>
     <file>img/maps/thumbs/saltmine.jpg</file>
@@ -162,8 +147,6 @@
     <file>img/maps/thumbs/snowworld_night.jpg</file>
     <file>img/maps/thumbs/somodag.jpg</file>
     <file>img/maps/thumbs/somodag_night.jpg</file>
-    <file>img/maps/thumbs/station (Custom).jpg</file>
-    <file>img/maps/thumbs/station_night (Custom).jpg</file>
     <file>img/maps/thumbs/stork_castle.jpg</file>
     <file>img/maps/thumbs/stork_castle_night.jpg</file>
     <file>img/maps/thumbs/sultan.jpg</file>
@@ -186,9 +169,27 @@
     <file>img/maps/thumbs/trenches.jpg</file>
     <file>img/maps/thumbs/unknown.jpg</file>
     <file>img/maps/thumbs/vacant.jpg</file>
-    <file>img/maps/thumbs/verticality (Custom).jpg</file>
-    <file>img/maps/thumbs/verticality_night-(Custom).jpg</file>
     <file>img/maps/thumbs/west.jpg</file>
+    <file>img/maps/thumbs/verticality_night.jpg</file>
+    <file>img/maps/thumbs/verticality.jpg</file>
+    <file>img/maps/thumbs/peak.jpg</file>
+    <file>img/maps/thumbs/panj.jpg</file>
+    <file>img/maps/thumbs/embassy.jpg</file>
+    <file>img/maps/thumbs/heights.jpg</file>
+    <file>img/maps/thumbs/kandagal.jpg</file>
+    <file>img/maps/thumbs/market.jpg</file>
+    <file>img/maps/thumbs/panj_night.jpg</file>
+    <file>img/maps/thumbs/revolt_night.jpg</file>
+    <file>img/maps/thumbs/station_night.jpg</file>
+    <file>img/maps/thumbs/station.jpg</file>
+    <file>img/maps/thumbs/revolt.jpg</file>
+    <file>img/maps/thumbs/peak_night.jpg</file>
+    <file>img/maps/thumbs/market_night.jpg</file>
+    <file>img/maps/thumbs/kandagal_night.jpg</file>
+    <file>img/maps/thumbs/heights_night.jpg</file>
+    <file>img/maps/thumbs/embassy_night.jpg</file>
+    <file>img/maps/thumbs/drycanal.jpg</file>
+    <file>img/maps/thumbs/drycanal_night.jpg</file>
     <file>img/maps/thumbs/west_night.jpg</file>
     <file>img/maps/thumbs/winter.jpg</file>
     <file>img/maps/thumbs/wolfland.jpg</file>

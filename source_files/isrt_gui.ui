@@ -428,10 +428,10 @@ selection-background-color: rgb(216, 216, 216);</string>
                     </font>
                    </property>
                    <property name="toolTip">
-                    <string>Open the ISRT Server Monitor</string>
+                    <string/>
                    </property>
                    <property name="statusTip">
-                    <string>Open the ISRT Server Monitor</string>
+                    <string/>
                    </property>
                    <property name="styleSheet">
                     <string notr="true">background-color: rgb(0, 85, 127);
@@ -469,10 +469,10 @@ color: rgb(255, 255, 255);</string>
                     </font>
                    </property>
                    <property name="toolTip">
-                    <string>Execute query command to the defined server</string>
+                    <string/>
                    </property>
                    <property name="statusTip">
-                    <string>Execute query command to the selected server</string>
+                    <string/>
                    </property>
                    <property name="whatsThis">
                     <string/>

@@ -64,6 +64,7 @@ def selected_map_switch(self):
         var_puins = dsmam_list[16]
         var_ski = dsmam_list[17]
         var_tdm = dsmam_list[18]
+        var_surv = dsmam_list[19]
 
         var_dn = (str(light_day) + str(light_night))
         self.gui.dropdown_select_lighting.clear()
@@ -100,6 +101,8 @@ def selected_map_switch(self):
             self.gui.dropdown_select_gamemode.addItem("Skirmish")
         if var_tdm:
             self.gui.dropdown_select_gamemode.addItem("TeamDeathMatch")
+        if var_surv:
+            self.gui.dropdown_select_gamemode.addItem("Survival")
 
         self.c.execute("select pref_mode from configuration")
         pref_mode_res = self.c.fetchone()

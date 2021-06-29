@@ -102,7 +102,7 @@ class Ui_db_importer_gui(object):
     def retranslateUi(self, db_importer_gui):
         _translate = QtCore.QCoreApplication.translate
         db_importer_gui.setWindowTitle(_translate("db_importer_gui", "DB Importer"))
-        self.label_4.setText(_translate("db_importer_gui", "Server & Map Importer for the Insurgency Sandstorm RCON Tool"))
+        self.label_4.setText(_translate("db_importer_gui", "Server Importer for the Insurgency Sandstorm RCON Tool"))
         self.label.setText(_translate("db_importer_gui", "This the first start of ISRT - if you have a database from another version, you can import the servers now. If you don\'t want to do that now, you may any time later in the Server Manager!"))
         self.label_2.setText(_translate("db_importer_gui", "Step 1 - Select DB (Look for the \"db\" folder in your old ISRT directory)"))
         self.btn_dbi_select_database.setText(_translate("db_importer_gui", "Browse for old Database"))

@@ -40,7 +40,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Server &amp; Map Importer for the Insurgency Sandstorm RCON Tool</string>
+        <string>Server Importer for the Insurgency Sandstorm RCON Tool</string>
        </property>
       </widget>
      </item>

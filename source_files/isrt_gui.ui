@@ -1701,6 +1701,8 @@ color: rgb(47, 47, 47);</string>
                <property name="font">
                 <font>
                  <pointsize>8</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
                 </font>
                </property>
                <property name="mouseTracking">
@@ -2012,8 +2014,9 @@ p, li { white-space: pre-wrap; }
         <widget class="QLabel" name="lbl_update_info">
          <property name="font">
           <font>
-           <weight>75</weight>
-           <bold>true</bold>
+           <pointsize>8</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">

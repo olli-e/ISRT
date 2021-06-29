@@ -15,7 +15,7 @@ import platform
 import random
 import sqlite3
 import sys
-import urllib.request
+
 
 from datetime import datetime
 from pathlib import Path
@@ -264,7 +264,7 @@ if __name__ == "__main__":
     c = conn.cursor()
     # Grep or define start variables
     c.execute(
-        "select startcounter, version, client_id, import, check_updates, no_reminder from configuration")
+        "select startcounter, version, client_id, import from configuration")
     check_startvars = c.fetchall()
     startvars = check_startvars[0]
     conn.commit()
@@ -272,8 +272,6 @@ if __name__ == "__main__":
     current_version = str(startvars[1])
     client_id = startvars[2]
     show_importer = startvars[3]
-    check_updates_ok = startvars[4]
-    no_reminder = startvars[5]
     runcheck = 1
     runlist = []
     # Decide if self-restart is okay at first start and exempted from runcheck
@@ -335,80 +333,7 @@ if __name__ == "__main__":
         mgui = maingui()
         mgui.show()
         conn.close()
-
-        # Check for Updates if configuration allows it
-        if check_updates_ok == 1:
-
-            if running_dev_mode == 1:
-                try:
-                    r = urllib.request.urlopen(
-                    "http://www.isrt.info/version/version_check2.txt")
-                    u = urllib.request.urlopen(
-                    "http://www.isrt.info/version/update_message2.txt")
-                except Exception:
-                    r = None
-                    u = None
-                    new_version = current_version
-            else:
-                try:
-                    r = urllib.request.urlopen(
-                    "http://www.isrt.info/version/version_check2.txt")
-                    u = urllib.request.urlopen(
-                    "http://www.isrt.info/version/update_message.txt")
-                except Exception:
-                    r = None
-                    u = None
-                    new_version = current_version
-
-            if r:
-                for line in r.readlines():
-                    line = line.decode("utf-8")
-                    line = line.strip('\n')
-                    new_version = line
-            if u:
-                for line2 in u.readlines():
-                    line2 = line2.decode("utf-8")
-                    line2 = line2.strip('\n')
-                    new_version_message = line2
-
-
-            if new_version:
-                pass
-            else:
-                new_version = current_version
-
-
-            # If new version available show Messagebox
-            def skip_this_version():
-                installdir2 = Path(__file__).absolute().parent
-                dbfile2 = (str(installdir2 / 'db/isrt_data.db'))
-                conn2 = sqlite3.connect(dbfile2)
-                c2 = conn2.cursor()
-                c2.execute("update configuration set no_reminder=:newno_reminder", {
-                    'newno_reminder': new_version})
-                conn2.commit()
-            def open_website():
-                os.system(
-                    'start %windir%\\explorer.exe "http://www.isrt.info/?page_id=50"')
-   
-            if check_updates_ok == 1 and new_version > current_version and new_version > no_reminder:
-                icondir = Path(__file__).absolute().parent
-                updatemsg = QtWidgets.QMessageBox()
-                updatemsg.setIcon(QtWidgets.QMessageBox.Information)
-                updatemsg.setWindowTitle("ISRT Update Notification")
-                updatemsg.setWindowIcon(QtGui.QIcon(
-                    str(icondir / 'img/isrt.ico')))
-                updatemsg.setText(
-                    f'A new version of ISRT is available\n\nCurrent Version: {current_version}\nLatest Version: {new_version}\n\n{new_version_message}')
-                skip_button = updatemsg.addButton(
-                    "Skip this update!", updatemsg.ActionRole)
-                skip_button.clicked.connect(skip_this_version)
-                download_button = updatemsg.addButton(
-                    "Download", updatemsg.ActionRole)
-                download_button.clicked.connect(open_website)
-                updatemsg.addButton(updatemsg.Ok)
-                updatemsg.exec_()
-
+                
 
         if running_dev_mode == 1:
             if running_dev_mode_dbi == 1:

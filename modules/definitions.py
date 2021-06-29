@@ -11,7 +11,9 @@ Definition of GUI and other basic elements
 import os
 import platform
 import subprocess
-from PyQt5 import QtCore, QtWidgets
+import urllib.request
+from pathlib import Path
+from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QTimer
 from modules import config as conf # pylint: disable=import-error
 import modules.definitions as my_def # pylint: disable=import-error
@@ -135,13 +137,60 @@ def pre_vars(self):
     self.gui.btn_server_delete.setEnabled(False)
     self.gui.btn_server_modify.setEnabled(False)
 
-# Setup Version number and set in About and Main Title
+# Setup Version number and set in Main Title
 def set_version(self):
-    self.c.execute("Select version from configuration")
+    self.c.execute("Select version, check_updates from configuration")
     version_temp = self.c.fetchone()
     self.conn.commit()
     version = ("v" + version_temp[0])
-    self.setWindowTitle(QtCore.QCoreApplication.translate("ISRT_Main_Window", f"ISRT - Insurgency Sandstorm RCON Tool {version}"))
+    current_version = version_temp[0]
+    check_updates_ok = version_temp[1]
+
+    # Check for Updates if configuration allows it
+    if check_updates_ok == 1:
+
+        if self.running_dev_mode == 1:
+            try:
+                r = urllib.request.urlopen(
+                "https://www.isrt.info/version/version_check2.txt")
+            except Exception:
+                r = None
+                new_version = current_version
+        else:
+            try:
+                r = urllib.request.urlopen(
+                "https://www.isrt.info/version/version_check.txt")
+            except Exception:
+                r = None
+                new_version = current_version
+
+        if r:
+            for line in r.readlines():
+                line = line.decode("utf-8")
+                line = line.strip('\n')
+                new_version = line
+
+        if new_version:
+            pass
+        else:
+            new_version = current_version
+
+        # If new version available show Messagebox
+        def open_website():
+            os.system(
+                'start %windir%\\explorer.exe "https://www.isrt.info/?page_id=50"')
+
+        if check_updates_ok == 1 and new_version > current_version:
+
+            self.setWindowTitle(QtCore.QCoreApplication.translate("ISRT_Main_Window", f"ISRT - Insurgency Sandstorm RCON Tool {version}  (Update available)"))
+            self.gui.lbl_update_info.setHidden(False)
+        else:
+            self.setWindowTitle(QtCore.QCoreApplication.translate("ISRT_Main_Window", f"ISRT - Insurgency Sandstorm RCON Tool {version}"))
+            self.gui.lbl_update_info.setHidden(True)
+
+
+
+    
 
 # Open Explorer Backup Window
 def open_explorer(self):

@@ -2008,6 +2008,28 @@ p, li { white-space: pre-wrap; }
          </item>
         </layout>
        </item>
+       <item>
+        <widget class="QLabel" name="lbl_update_info">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>&lt;a href=&quot;https://www.isrt.info/?page_id=50&quot;&gt;Update available - Click to Download!&lt;/a&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="openExternalLinks">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="Tab_Server">
@@ -2026,7 +2048,7 @@ p, li { white-space: pre-wrap; }
                <property name="minimumSize">
                 <size>
                  <width>180</width>
-                 <height>25</height>
+                 <height>22</height>
                 </size>
                </property>
                <property name="font">
@@ -2056,7 +2078,7 @@ p, li { white-space: pre-wrap; }
                <property name="minimumSize">
                 <size>
                  <width>130</width>
-                 <height>25</height>
+                 <height>22</height>
                 </size>
                </property>
                <property name="font">
@@ -2086,7 +2108,7 @@ p, li { white-space: pre-wrap; }
                <property name="minimumSize">
                 <size>
                  <width>60</width>
-                 <height>25</height>
+                 <height>22</height>
                 </size>
                </property>
                <property name="font">
@@ -2116,7 +2138,7 @@ p, li { white-space: pre-wrap; }
                <property name="minimumSize">
                 <size>
                  <width>60</width>
-                 <height>25</height>
+                 <height>22</height>
                 </size>
                </property>
                <property name="font">
@@ -2149,7 +2171,7 @@ p, li { white-space: pre-wrap; }
                <property name="minimumSize">
                 <size>
                  <width>105</width>
-                 <height>25</height>
+                 <height>22</height>
                 </size>
                </property>
                <property name="font">
@@ -2747,9 +2769,6 @@ p, li { white-space: pre-wrap; }
             </widget>
            </item>
           </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_20"/>
          </item>
         </layout>
        </item>

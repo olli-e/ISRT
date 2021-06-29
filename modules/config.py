@@ -350,7 +350,7 @@ def save_it(self):
             msg12.setIcon(QtWidgets.QMessageBox.Critical)
             msg12.setWindowTitle("ISRT Error Message")
             msg12.setText(
-                f"Something went wrong: \n\n {new_btn3_command_var} is no valid RCON command for Button 5! \n\n Please try again!")
+                f"Something went wrong: \n\n {new_btn3_command_var} is no valid RCON command for Button 3! \n\n Please try again!")
             msg12.exec_()
 
 

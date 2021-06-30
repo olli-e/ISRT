@@ -15,7 +15,7 @@ import platform
 import random
 import sqlite3
 import sys
-
+import requests
 
 from datetime import datetime
 from pathlib import Path
@@ -287,30 +287,32 @@ if __name__ == "__main__":
             print("* Running in DEVELOPMENT MODE!!!!! *")
             print("*                                  *")
             print("************************************")
-            client_hash = random.getrandbits(128)
-            FORMAT = '%Y%m%d%H%M%S'
+            client_hash = random.getrandbits(64)
+            FORMAT = '%d%m%y'
             datestamp = datetime.now().strftime(FORMAT)
             client_os = platform.system()
-            client_id_new = ("ISRT_" + current_version + "_" +
-                             client_os + "_" + datestamp + "_" + str(client_hash))
+            client_id_new = (client_os + "_" + current_version + "_" + datestamp + "_" + str(client_hash))
+            
             c.execute("UPDATE configuration SET client_id=:cid",
                       {'cid': str(client_id_new)})
             conn.commit()
             client_id = client_id_new
-
+            register = f'https://www.isrt.info/version/regtest.php?clientid={client_id}'
+            register_post = requests.post(register)
         else:
             # Check if Client ID is already existing
             if client_id == "" or client_id is None:
                 client_hash = random.getrandbits(128)
-                FORMAT = '%Y%m%d%H%M%S'
+                FORMAT = '%d%m%y'
                 datestamp = datetime.now().strftime(FORMAT)
                 client_os = platform.system()
-                client_id_new = ("ISRT_" + current_version + "_" +
-                                 client_os + "_" + datestamp + "_" + str(client_hash))
+                client_id_new = (client_os + "_" + current_version + "_" + datestamp + "_" + str(client_hash))
                 c.execute("update configuration set client_id=:cid",
                           {'cid': str(client_id_new)})
                 conn.commit()
                 client_id = client_id_new
+                register = f'https://www.isrt.info/version/register.php?clientid={client_id}'
+                register_post = requests.post(register)
 
     else:
         for pid in psutil.pids():

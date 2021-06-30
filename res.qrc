@@ -23,6 +23,7 @@
     <file>img/maps/map_views.jpg</file>
   </qresource>
   <qresource prefix="map_thumbs">
+    <file>img/maps/thumbs/hotel_california_night.jpg</file>
     <file>img/maps/thumbs/assault_night.jpg</file>
     <file>img/maps/thumbs/abadhills.jpg</file>
     <file>img/maps/thumbs/abadhills_night.jpg</file>

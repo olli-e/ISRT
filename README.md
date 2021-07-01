@@ -31,5 +31,7 @@ Featuers of the App:
 ![Alt text](img/preview_v1.1_monitor.jpg?raw=true "ISRT Monitor Image")
 
 
+Help me to keep the development running:
+
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?hosted_button_id=RLSPYUNWLYA9Y)
 

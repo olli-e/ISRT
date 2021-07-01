@@ -40,8 +40,8 @@ from bin.isrt_gui import Ui_ISRT_Main_Window
 
 ##################################################################################
 ##################################################################################
-running_dev_mode = 0
-running_dev_mode_dbi = 0
+running_dev_mode = 1
+running_dev_mode_dbi = 1
 ##################################################################################
 ##################################################################################
 
@@ -57,8 +57,8 @@ class dbgui(QtWidgets.QWidget):
         self.dbgui.setupUi(self)
         # Database connection setup
         self.dbdir = Path(__file__).absolute().parent
-        self.conn = sqlite3.connect(str(self.dbdir / 'db/isrt_data.db'))
-        self.c = self.conn.cursor()
+        self.dbconn = sqlite3.connect(str(self.dbdir / 'db/isrt_data.db'))
+        self.c = self.dbconn.cursor()
         self.dbi_path = None
         self.dbgui.btn_dbg_close.clicked.connect(self.close_dbg)
         self.dbgui.btn_dbi_select_database.clicked.connect(
@@ -88,12 +88,13 @@ class dbgui(QtWidgets.QWidget):
                     old_db_version_temp = dbi_result[0]
                     old_db_version = str(old_db_version_temp)
                     connimport.commit()
+                    connimport.close()
                 except Exception:
                     old_db_version = None
                 if old_db_version:
-                    if old_db_version == "0.8" or old_db_version == "0.8.1" or old_db_version == "0.9" or old_db_version == "0.9.1" or old_db_version == "1.0" or old_db_version == "1.0.1" or old_db_version == "1.1":
+                    if old_db_version.startswith("0.8") or old_db_version.startswith("0.9") or old_db_version.startswith("1."):
                         self.c.execute("DELETE FROM server")
-                        self.conn.commit()
+                        self.dbconn.commit()
                         for import_result in dbimport_result:
                             import_id = import_result[0]
                             import_server_alias = import_result[1]
@@ -103,7 +104,7 @@ class dbgui(QtWidgets.QWidget):
                             import_server_rconpw = import_result[5]
                             self.c.execute("INSERT INTO server VALUES (:id, :alias, :ipaddress, :queryport, :rconport, :rconpw)", {
                                            'id': import_id, 'alias': import_server_alias, 'ipaddress': import_server_ip, 'queryport': import_server_queryport, 'rconport': import_server_rconport, 'rconpw': import_server_rconpw})
-                        self.conn.commit()
+                        self.dbconn.commit()
                         msg3 = QtWidgets.QMessageBox()
                         msg3.setWindowIcon(QtGui.QIcon(":/img/img/isrt.ico"))
                         msg3.setIcon(QtWidgets.QMessageBox.Information)
@@ -116,12 +117,12 @@ class dbgui(QtWidgets.QWidget):
                         dbgsetoff = 0
                         self.c.execute("UPDATE configuration SET import=:importval", {
                                        'importval': dbgsetoff})
-                        self.conn.commit()
-                        self.conn.close()
+                        self.dbconn.commit()
+                        self.dbconn.close()
                         restart_program()
                     elif old_db_version == "0.7":
                         self.c.execute("DELETE FROM server")
-                        self.conn.commit()
+                        self.dbconn.commit()
                         id_counter = 1
                         for import_result in dbimport_result:
                             import_id = id_counter
@@ -133,7 +134,7 @@ class dbgui(QtWidgets.QWidget):
                             self.c.execute("INSERT INTO server VALUES (:id, :alias, :ipaddress, :queryport, :rconport, :rconpw)", {
                                            'id': import_id, 'alias': import_server_alias, 'ipaddress': import_server_ip, 'queryport': import_server_queryport, 'rconport': import_server_rconport, 'rconpw': import_server_rconpw})
                             id_counter += 1
-                        self.conn.commit()
+                        self.dbconn.commit()
                         msg4 = QtWidgets.QMessageBox()
                         msg4.setWindowIcon(QtGui.QIcon(":/img/img/isrt.ico"))
                         msg4.setIcon(QtWidgets.QMessageBox.Information)
@@ -146,8 +147,8 @@ class dbgui(QtWidgets.QWidget):
                         dbgsetoff = 0
                         self.c.execute("UPDATE configuration SET import=:importval", {
                                        'importval': dbgsetoff})
-                        self.conn.commit()
-                        self.conn.close()
+                        self.dbconn.commit()
+                        self.dbconn.close()
                         restart_program()
                 else:
                     msg5 = QtWidgets.QMessageBox()
@@ -166,31 +167,31 @@ class dbgui(QtWidgets.QWidget):
                 msg6.setText(
                     "No file selected or wrong file type\nPlease select a database first!")
                 msg6.exec_()
-    # Handle Close per Button
 
+    # Handle Close per Button
     def close_dbg(self):
         self.dbi_path = None
         dbgsetoff = 0
         self.dbdir = Path(__file__).absolute().parent
-        self.conn = sqlite3.connect(str(self.dbdir / 'db/isrt_data.db'))
-        self.c = self.conn.cursor()
+        self.dbconn = sqlite3.connect(str(self.dbdir / 'db/isrt_data.db'))
+        self.c = self.dbconn.cursor()
         self.c.execute("UPDATE configuration SET import=:importval", {
                        'importval': dbgsetoff})
-        self.conn.commit()
-        self.conn.close()
+        self.dbconn.commit()
+        self.dbconn.close()
         self.close()
-    # Handle Close Event
 
+    # Handle Close Event
     def closeEvent(self, event):  # pylint: disable=unused-argument
         self.dbi_path = None
         dbgsetoff = 0
         self.dbdir = Path(__file__).absolute().parent
-        self.conn = sqlite3.connect(str(self.dbdir / 'db/isrt_data.db'))
-        self.c = self.conn.cursor()
+        self.dbconn = sqlite3.connect(str(self.dbdir / 'db/isrt_data.db'))
+        self.c = self.dbconn.cursor()
         self.c.execute("UPDATE configuration SET import=:importval", {
                        'importval': dbgsetoff})
-        self.conn.commit()
-        self.conn.close()
+        self.dbconn.commit()
+        self.dbconn.close()
         self.close()
 
 

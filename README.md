@@ -35,3 +35,8 @@ Help me to keep the development running:
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?hosted_button_id=RLSPYUNWLYA9Y)
 
+In case of trouble or problems, report it or get help here:
+https://www.isrt.info/?page_id=661
+
+Cheers,
+Madman

@@ -3,7 +3,7 @@
 ISRT is a python 3.9/PyQt5/SQLite3-based RCON and Query Tool for Insurgency Sandstorm Server Administrators.
 
 Release Notes for this version:
-- Removed a bug that created "Server Offline" when Mutates is reported true, but not ModList available
+- Removed a bug that created "Server Offline" when Mutators is reported true, but not ModList available
 - Added a couple of comfortability features and removed a couple of bugs that crashed the app or produced disfunctionality
 - Added 37 new custom Maps including old INS 2014 Maps
 - Integrated 67 new Mutators

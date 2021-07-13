@@ -115,10 +115,10 @@ class Updater_GUI(QtWidgets.QWidget):
         self.ugui.updater_progressbar.setValue(30)
         try:
             new_version_available = urllib.request.urlopen(
-            "https://www.isrt.info/version/version_check.txt")
+            "https://www.isrt.info/version/version_check2.txt") # TODO Remove the 2!!!
             self.ugui.updater_progressbar.setValue(40)
             update_text = urllib.request.urlopen(
-            "https://www.isrt.info/version/update_message.txt")
+            "https://www.isrt.info/version/update_message2.txt") # TODO Remove the 2!!!
             self.ugui.updater_progressbar.setValue(50)
             self.ugui.label_output_window_update.append("Loaded available version from Website")
             self.ugui.label_output_window_update.append("Loaded Update Text from Website")

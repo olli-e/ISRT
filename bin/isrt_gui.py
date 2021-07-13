@@ -948,7 +948,7 @@ class Ui_ISRT_Main_Window(object):
         font.setKerning(True)
         self.label_db_console.setFont(font)
         self.label_db_console.setAutoFillBackground(False)
-        self.label_db_console.setStyleSheet("background-image: url(:/img/img/sbck.jpg);\n"
+        self.label_db_console.setStyleSheet("background-image: url(:/img/img/rcon-bck.jpg);\n"
 "background-color: #f0f0f0;\n"
 "background-position: center;\n"
 "background-repeat: no-repeat;\n"
@@ -1574,7 +1574,7 @@ class Ui_ISRT_Main_Window(object):
         font.setKerning(True)
         self.label_db_console_2.setFont(font)
         self.label_db_console_2.setAutoFillBackground(False)
-        self.label_db_console_2.setStyleSheet("background-image: url(:/img/img/mapmgr-bck.jpg);\n"
+        self.label_db_console_2.setStyleSheet("background-image: url(:/img/img/rcon-bck.jpg);\n"
 "background-color: #f0f0f0;\n"
 "background-position: center;\n"
 "background-repeat: no-repeat;")

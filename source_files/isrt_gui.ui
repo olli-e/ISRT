@@ -2743,7 +2743,7 @@ color: rgb(255, 255, 255);</string>
               <bool>false</bool>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-image: url(:/img/img/sbck.jpg);
+              <string notr="true">background-image: url(:/img/img/rcon-bck.jpg);
 background-color: #f0f0f0;
 background-position: center;
 background-repeat: no-repeat;
@@ -4419,7 +4419,7 @@ color: rgb(255, 255, 255);</string>
                   <bool>false</bool>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-image: url(:/img/img/mapmgr-bck.jpg);
+                  <string notr="true">background-image: url(:/img/img/rcon-bck.jpg);
 background-color: #f0f0f0;
 background-position: center;
 background-repeat: no-repeat;</string>

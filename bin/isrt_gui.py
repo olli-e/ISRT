@@ -579,7 +579,7 @@ class Ui_ISRT_Main_Window(object):
         self.line_8.setObjectName("line_8")
         self.verticalLayout_8.addWidget(self.line_8)
         self.tbl_player_output = QtWidgets.QTableWidget(self.Tab_Main)
-        self.tbl_player_output.setMinimumSize(QtCore.QSize(0, 260))
+        self.tbl_player_output.setMinimumSize(QtCore.QSize(0, 300))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(True)
@@ -677,7 +677,7 @@ class Ui_ISRT_Main_Window(object):
         self.label_output_window.setInputMethodHints(QtCore.Qt.ImhNone)
         self.label_output_window.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.label_output_window.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.label_output_window.setLineWidth(1)
+        self.label_output_window.setLineWidth(0)
         self.label_output_window.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.label_output_window.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.label_output_window.setReadOnly(True)
@@ -939,7 +939,7 @@ class Ui_ISRT_Main_Window(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label_db_console.sizePolicy().hasHeightForWidth())
         self.label_db_console.setSizePolicy(sizePolicy)
-        self.label_db_console.setMinimumSize(QtCore.QSize(0, 100))
+        self.label_db_console.setMinimumSize(QtCore.QSize(0, 130))
         self.label_db_console.setMaximumSize(QtCore.QSize(16777215, 166655))
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -948,13 +948,15 @@ class Ui_ISRT_Main_Window(object):
         font.setKerning(True)
         self.label_db_console.setFont(font)
         self.label_db_console.setAutoFillBackground(False)
-        self.label_db_console.setStyleSheet("background-image: url(:/img/img/rcon-bck.jpg);\n"
+        self.label_db_console.setStyleSheet("border-image: url(:/img/img/rcon-bck.jpg);\n"
 "background-color: #f0f0f0;\n"
 "background-position: center;\n"
 "background-repeat: no-repeat;\n"
 "\n"
 "")
         self.label_db_console.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.label_db_console.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.label_db_console.setLineWidth(0)
         self.label_db_console.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.label_db_console.setReadOnly(False)
         self.label_db_console.setObjectName("label_db_console")
@@ -1574,11 +1576,13 @@ class Ui_ISRT_Main_Window(object):
         font.setKerning(True)
         self.label_db_console_2.setFont(font)
         self.label_db_console_2.setAutoFillBackground(False)
-        self.label_db_console_2.setStyleSheet("background-image: url(:/img/img/rcon-bck.jpg);\n"
+        self.label_db_console_2.setStyleSheet("border-image: url(:/img/img/rcon-bck.jpg);\n"
 "background-color: #f0f0f0;\n"
 "background-position: center;\n"
 "background-repeat: no-repeat;")
         self.label_db_console_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.label_db_console_2.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.label_db_console_2.setLineWidth(0)
         self.label_db_console_2.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.label_db_console_2.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.label_db_console_2.setReadOnly(False)

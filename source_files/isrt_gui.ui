@@ -1695,7 +1695,7 @@ color: rgb(47, 47, 47);</string>
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>260</height>
+                 <height>300</height>
                 </size>
                </property>
                <property name="font">
@@ -1975,7 +1975,7 @@ background-repeat: no-repeat;
                 <enum>QFrame::Plain</enum>
                </property>
                <property name="lineWidth">
-                <number>1</number>
+                <number>0</number>
                </property>
                <property name="verticalScrollBarPolicy">
                 <enum>Qt::ScrollBarAsNeeded</enum>
@@ -2716,7 +2716,7 @@ color: rgb(255, 255, 255);</string>
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>100</height>
+               <height>130</height>
               </size>
              </property>
              <property name="maximumSize">
@@ -2743,7 +2743,7 @@ color: rgb(255, 255, 255);</string>
               <bool>false</bool>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-image: url(:/img/img/rcon-bck.jpg);
+              <string notr="true">border-image: url(:/img/img/rcon-bck.jpg);
 background-color: #f0f0f0;
 background-position: center;
 background-repeat: no-repeat;
@@ -2752,6 +2752,12 @@ background-repeat: no-repeat;
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>0</number>
              </property>
              <property name="verticalScrollBarPolicy">
               <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -4419,13 +4425,19 @@ color: rgb(255, 255, 255);</string>
                   <bool>false</bool>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-image: url(:/img/img/rcon-bck.jpg);
+                  <string notr="true">border-image: url(:/img/img/rcon-bck.jpg);
 background-color: #f0f0f0;
 background-position: center;
 background-repeat: no-repeat;</string>
                  </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Plain</enum>
+                 </property>
+                 <property name="lineWidth">
+                  <number>0</number>
                  </property>
                  <property name="verticalScrollBarPolicy">
                   <enum>Qt::ScrollBarAsNeeded</enum>

@@ -1,5 +1,5 @@
 '''
-ISRT - Insurgency Sandstorm RCON Tool; August 2021, Madman
+ISRT - Insurgency Sandstorm RCON Tool; July 2021, Madman
 In case of questions: support@isrt.info
 Website: http://www.isrt.info
 Current Version: v1.2

@@ -106,7 +106,6 @@ def queryserver(self, serverhost, queryport):  # pylint: disable=unused-argument
     self.gui.label_output_window.clear()
     self.server = sq.SourceQuery(serverhost, int(queryport), float(self.timeout))
     self.serverinfo = self.server.get_info()
-
     if self.serverinfo is not False:
         self.serverrules = (self.server.get_rules())
         self.ranked = self.serverrules['RankedServer_b']
@@ -146,14 +145,23 @@ def queryserver(self, serverhost, queryport):  # pylint: disable=unused-argument
         self.gui.le_mods.setToolTip(str(self.mutatorids))
 
         self.gui.le_mods.setCursorPosition(1)
-
+        
         #Creating a list for mutator-IDs to identify installed maps
-        if self.realmods == "true":
+
+        for i in self.serverrules.keys():
+            if i == "ModList_s":
+                self.modlistthere = 1
+                break
+            else:
+                self.modlistthere = 0
+
+        
+        if self.realmods == "true" and self.modlistthere == 1:
             self.mutator_id_list = (
                 self.serverrules['ModList_s'].split(','))
         else:
             self.mutator_id_list = 0
-            
+          
         if self.pwcheck == 0:
             self.gui.le_password.setStyleSheet(
                 "border-image: url(:/img/img/lock-unlocked.png);")
@@ -185,6 +193,8 @@ def queryserver(self, serverhost, queryport):  # pylint: disable=unused-argument
         self.server.disconnect()
     else:
         self.mutator_id_list = 0
+    
+    
 
 
 

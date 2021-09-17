@@ -150,7 +150,7 @@ def map_changer(self):
     elif val_gamemode == "Skirmish":
         val_gamemode = "skirmish"
     elif val_gamemode == "TeamDeathMatch":
-        val_gamemode = "teamdeathmath"
+        val_gamemode = "teamdeathmatch"
 
     if val_map.startswith("Select") or val_map.startswith("--"):
         self.gui.label_output_window.setText(

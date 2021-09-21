@@ -91,8 +91,6 @@ class Updater_GUI(QtWidgets.QWidget):
         # Create variables
         self.update_url = "https://www.isrt.info/version/update/"
         # Create buttons
-        self.ugui.btn_update_check.clicked.connect(self.get_versions)
-        self.ugui.btn_update_backup.clicked.connect(self.create_db_backup)
         self.ugui.btn_update_install.clicked.connect(self.check_running_progs)
         # File and directory setup
         self.installdir = Path(__file__).absolute().parent
@@ -113,22 +111,41 @@ class Updater_GUI(QtWidgets.QWidget):
         self.ugui.lbl_updater_current_version.setText(self.current_version)
         self.ugui.label_output_window_update.append("Loaded current version from DB")
         self.ugui.updater_progressbar.setValue(30)
-        try:
-            new_version_available = urllib.request.urlopen(
-            "https://www.isrt.info/version/version_check2.txt") # TODO Remove the 2!!!
-            self.ugui.updater_progressbar.setValue(40)
-            update_text = urllib.request.urlopen(
-            "https://www.isrt.info/version/update_message2.txt") # TODO Remove the 2!!!
-            self.ugui.updater_progressbar.setValue(50)
-            self.ugui.label_output_window_update.append("Loaded available version from Website")
-            self.ugui.label_output_window_update.append("Loaded Update Text from Website")
-        except Exception:
-            new_version_available = None
-            update_text = "No Update Info vailable"
-            self.ugui.updater_progressbar.setValue(50)
-            err0 = "Unable to load Version and Update Text from Website"
-            err0 = '<span style=\" color: #ff0000;\">%s</span>' % err0
-            self.ugui.label_output_window_update.append(err0)
+
+        if running_dev_mode == 1:
+            try:
+                new_version_available = urllib.request.urlopen(
+                "https://www.isrt.info/version/version_check2.txt")
+                self.ugui.updater_progressbar.setValue(40)
+                update_text = urllib.request.urlopen(
+                "https://www.isrt.info/version/update_message2.txt")
+                self.ugui.updater_progressbar.setValue(50)
+                self.ugui.label_output_window_update.append("Loaded available version from Website")
+                self.ugui.label_output_window_update.append("Loaded Update Text from Website")
+            except Exception:
+                new_version_available = None
+                update_text = "No Update Info vailable"
+                self.ugui.updater_progressbar.setValue(50)
+                err0 = "Unable to load Version and Update Text from Website"
+                err0 = '<span style=\" color: #ff0000;\">%s</span>' % err0
+                self.ugui.label_output_window_update.append(err0)
+        else:
+            try:
+                new_version_available = urllib.request.urlopen(
+                "https://www.isrt.info/version/version_check.txt")
+                self.ugui.updater_progressbar.setValue(40)
+                update_text = urllib.request.urlopen(
+                "https://www.isrt.info/version/update_message.txt")
+                self.ugui.updater_progressbar.setValue(50)
+                self.ugui.label_output_window_update.append("Loaded available version from Website")
+                self.ugui.label_output_window_update.append("Loaded Update Text from Website")
+            except Exception:
+                new_version_available = None
+                update_text = "No Update Info vailable"
+                self.ugui.updater_progressbar.setValue(50)
+                err0 = "Unable to load Version and Update Text from Website"
+                err0 = '<span style=\" color: #ff0000;\">%s</span>' % err0
+                self.ugui.label_output_window_update.append(err0)
 
         if new_version_available:
             self.ugui.updater_progressbar.setValue(60)
@@ -143,6 +160,11 @@ class Updater_GUI(QtWidgets.QWidget):
                 line2 = line2.strip('\n')
                 update_text_public = line2
         self.ugui.updater_progressbar.setValue(80)
+
+        if running_dev_mode == 1:
+            err10000 = "We are still in Dev Mode - ensure to remove it before compiling final!"
+            err10000 = '<span style=\" color: #ff0000;\"><b>%s</b></span>' % err10000
+            self.ugui.label_output_window_update.append(err10000)
 
         self.ugui.lbl_update_text.setText(update_text_public)
         self.ugui.lbl_updater_available_version.setText(self.new_version_available)

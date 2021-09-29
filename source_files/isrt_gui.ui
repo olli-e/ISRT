@@ -270,7 +270,7 @@ selection-background-color: rgb(216, 216, 216);</string>
                       <string/>
                      </property>
                      <property name="placeholderText">
-                      <string>IP-Address of Server</string>
+                      <string>IP-Address/Hostname</string>
                      </property>
                     </widget>
                    </item>
@@ -2102,7 +2102,7 @@ p, li { white-space: pre-wrap; }
                 <string/>
                </property>
                <property name="placeholderText">
-                <string>IP-Address</string>
+                <string>IP-Address/Hostname</string>
                </property>
               </widget>
              </item>

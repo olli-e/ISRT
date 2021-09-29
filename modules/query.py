@@ -24,6 +24,8 @@ def checkandgoquery(self):
     25[0-5]|2[0-5][0-9]|[0-1]?[0-9][0-9]?)\.(
     25[0-5]|2[0-5][0-9]|[0-1]?[0-9][0-9]?)$'''
     val_localhost = "127.0.0.1"
+
+
     if self.gui.entry_ip.text() == val_localhost:
         try:
             qmsg = QtWidgets.QMessageBox()
@@ -60,6 +62,8 @@ def checkandgoquery(self):
             self.gui.le_ping.clear()
             self.gui.le_map.clear()
             self.gui.le_mods.clear()
+
+
     elif re.search(self.regexip, self.gui.entry_ip.text()):
         self.serverhost = self.gui.entry_ip.text()
         try:
@@ -95,36 +99,43 @@ def checkandgoquery(self):
         except ValueError:
             self.gui.label_output_window.setText(self.gui.entry_queryport.text(
             ) + " is no valid Query Port number - please retry!")
+
+
     elif not re.search(self.regexip, self.gui.entry_ip.text()) and '.' in self.gui.entry_ip.text():
         try:
             self.serverhost = socket.gethostbyname(self.gui.entry_ip.text())
             self.gui.label_output_window.setText(
                 "Using IP-Address: " + self.gui.entry_ip.text())
-            try:
-                query.queryserver(self, self.serverhost, self.queryport)
-                if query.queryserver: # pylint: disable=using-constant-test
-                    query.get_listplayers_fancy(self)
-                self.gui.label_output_window.setStyleSheet(
-                    "border-image:url(:/img/img/rcon-bck.jpg);\n")
-            except Exception:
-                self.gui.le_password.setStyleSheet(
-                    "border-image: url(:/img/img/lock-unchecked.png);")
-                self.gui.label_map_view.setStyleSheet(
-                    "border-image: url(:/map_view/img/maps/map_views.jpg)")
-                self.gui.label_output_window.setStyleSheet(
-                    "border-image:url(:/img/img/offline.jpg);\n")
-                self.gui.tbl_player_output.setRowCount(0)
-                self.gui.dropdown_select_travelscenario.clear()
-                self.gui.dropdown_select_gamemode.clear()
-                self.gui.dropdown_select_lighting.clear()
-                self.gui.le_servername.clear()
-                self.gui.le_gamemode.clear()
-                self.gui.le_serverip_port.clear()
-                self.gui.le_vac.clear()
-                self.gui.le_players.clear()
-                self.gui.le_ping.clear()
-                self.gui.le_map.clear()
-                self.gui.le_mods.clear()
+            if self.gui.entry_queryport.text() and 1 <= int(self.gui.entry_queryport.text()) <= 65535:
+                self.queryport = self.gui.entry_queryport.text()
+                try:
+                    query.queryserver(self, self.serverhost, self.queryport)
+                    if query.queryserver: # pylint: disable=using-constant-test
+                        query.get_listplayers_fancy(self)
+                    self.gui.label_output_window.setStyleSheet(
+                        "border-image:url(:/img/img/rcon-bck.jpg);\n")
+                except Exception:
+                    self.gui.le_password.setStyleSheet(
+                        "border-image: url(:/img/img/lock-unchecked.png);")
+                    self.gui.label_map_view.setStyleSheet(
+                        "border-image: url(:/map_view/img/maps/map_views.jpg)")
+                    self.gui.label_output_window.setStyleSheet(
+                        "border-image:url(:/img/img/offline.jpg);\n")
+                    self.gui.tbl_player_output.setRowCount(0)
+                    self.gui.dropdown_select_travelscenario.clear()
+                    self.gui.dropdown_select_gamemode.clear()
+                    self.gui.dropdown_select_lighting.clear()
+                    self.gui.le_servername.clear()
+                    self.gui.le_gamemode.clear()
+                    self.gui.le_serverip_port.clear()
+                    self.gui.le_vac.clear()
+                    self.gui.le_players.clear()
+                    self.gui.le_ping.clear()
+                    self.gui.le_map.clear()
+                    self.gui.le_mods.clear()
+            else:
+                self.gui.label_output_window.setText(self.gui.entry_queryport.text(
+                    ) + " is no valid Query Port number - please retry!")
         except:
             self.gui.label_output_window.setText(
                 self.gui.entry_ip.text() + " could not be resolved - please retry!")
@@ -132,6 +143,8 @@ def checkandgoquery(self):
     else:
         self.gui.label_output_window.setText(
             self.gui.entry_ip.text() + " is no valid IP address or hostname, or could not be resolved - please retry!")
+
+
 
 # Execute Query Command, when called by checkandgoquery()!
 def queryserver(self, serverhost, queryport):  # pylint: disable=unused-argument

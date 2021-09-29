@@ -152,14 +152,17 @@ def server_add(self):
         go_addserver_check = 1
     else:
         self.gui.label_db_console.append(
-            "At least Alias, IP-Adress and Query Port have to contain a value!")
+            "At least Alias, IP-Adress/Hostname and Query Port have to contain a value!")
         go_addserver_check = 0
 
-    if val_ipaddress and (re.search(self.regexip, val_ipaddress)):
+    if val_ipaddress and (re.search(self.regexip, val_ipaddress)) or re.search(self.regexip, val_ipaddress) and '.' in val_ipaddress:
+        go_addserver_ipcheck = 1
+
+    elif not re.search(self.regexip, val_ipaddress) and '.' in val_ipaddress:
         go_addserver_ipcheck = 1
     else:
         self.gui.label_db_console.setText(
-            val_ipaddress + " is no valid IP address - please check and retry!")
+            val_ipaddress + " is no valid IP address or hostname - please check and retry!")
         go_addserver_ipcheck = 0
     if val_queryport and (re.search(self.regexport, val_queryport)):
         go_addserver_qpcheck = 1
@@ -227,7 +230,7 @@ def add_server_directly(self):
     go_addserver_qpcheck = 0
     if asd_transferip and asd_transferqport:
         go_addserver_check = 1
-        if asd_transferip and re.search(self.asd_regextransip, asd_transferip):
+        if asd_transferip and re.search(self.asd_regextransip, asd_transferip) or not re.search(self.asd_regextransip, asd_transferip) and '.' in asd_transferip:
             go_addserver_ipcheck = 1
             if asd_transferqport and re.search(self.asd_regextransport, asd_transferqport):
                 go_addserver_qpcheck = 1
@@ -248,6 +251,10 @@ def add_server_directly(self):
                 self.gui.label_output_window.append(
                     "You entered no valid Query Port - please check and retry!")
                 go_addserver_qpcheck = 0
+        
+        
+        
+        
         else:
             self.gui.label_output_window.append(
                 "You entered no valid IP address - please check and retry!")
@@ -385,6 +392,49 @@ def server_modify(self):
                 else:
                     self.gui.label_db_console.append(
                         val_queryport + " is no valid Query Port - please check and retry!")
+            
+            
+            elif val_ipaddress and not re.search(self.regexip, val_ipaddress) and '.' in val_ipaddress:
+                if val_queryport and re.search(self.regexport, val_queryport):
+                    if val_rconport:
+                        if re.search(self.regexport, val_rconport):
+                            if val_ipaddress and val_queryport and val_alias and val_id:
+                                try:
+                                    self.c.execute("UPDATE server SET alias=:alias, ipaddress=:ipaddress, queryport=:queryport, rconport=:rconport, rconpw=:rconpw WHERE id=:mid", {
+                                                    'alias': val_alias, 'ipaddress': val_ipaddress, 'queryport': val_queryport, 'rconport': val_rconport, 'rconpw': val_rconpw, 'mid': val_id})
+                                    self.conn.commit()
+                                    self.gui.label_db_console.append(
+                                        "Server successfully updated")
+                                except sqlite3.Error as error:
+                                    self.gui.label_db_console.append(
+                                        "Failed to update server in database " + str(error))
+                            else:
+                                self.gui.label_db_console.append(
+                                    "At least Alias, IP-Adress and Query Port have to contain a value!")
+                        else:
+                            self.gui.label_db_console.append(
+                                val_rconport + " is no valid RCON Port - please check and retry!")
+                    else:
+                        if val_ipaddress and val_queryport and val_alias and val_id:
+                            try:
+                                self.c.execute("UPDATE server SET alias=:alias, ipaddress=:ipaddress, queryport=:queryport, rconport=:rconport, rconpw=:rconpw WHERE id=:mid", {
+                                                'alias': val_alias, 'ipaddress': val_ipaddress, 'queryport': val_queryport, 'rconport': val_rconport, 'rconpw': val_rconpw, 'mid': val_id})
+                                self.conn.commit()
+                                self.gui.label_db_console.append(
+                                    "Server successfully updated")
+                            except sqlite3.Error as error:
+                                self.gui.label_db_console.append(
+                                    "Failed to update server in database " + str(error))
+                        else:
+                            self.gui.label_db_console.append(
+                                "At least Alias, IP-Adress and Query Port have to contain a value!")
+                else:
+                    self.gui.label_db_console.append(
+                        val_queryport + " is no valid Query Port - please check and retry!")
+            
+            
+            
+            
             else:
                 self.gui.label_db_console.append(
                     val_ipaddress + " is no valid IP address - please check and retry!")

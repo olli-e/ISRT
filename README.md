@@ -1,15 +1,11 @@
-# ISRT - Insurgency Sandstorm RCon Tool v1.2
+# ISRT - Insurgency Sandstorm RCon Tool v1.3
 
 ISRT is a python 3.9/PyQt5/SQLite3-based RCON and Query Tool for Insurgency Sandstorm Server Administrators.
 
 Release Notes for this version:
-- Removed a bug that created "Server Offline" when Mutates is reported true, but not ModList available
-- Added a couple of comfortability features and removed a couple of bugs that crashed the app or produced disfunctionality
-- Added 37 new custom Maps including old INS 2014 Maps
-- Integrated 67 new Mutators
-- Implemented Gamemode Survival and added corresponding Scenarios from Standard Maps
-- Inserted new scenarios for a lot of updated maps
-- Cleaned up the Main and Monitor App
+- Removed a bug that crashed the app when selecting TeamDeathMatch Gamemode in the dropdown menu
+- Removed a bug with the map manager, when adding a map.
+- Integrated Hostname management – you are now able to use dynamic hostnames, domain names or IP addresses when using ISRT
 
 
 Featuers of the App:
@@ -27,9 +23,9 @@ Featuers of the App:
 - Windows/Linux/MacOS compatible
 - Python 3.9.4, PyQT5, SQLite3 based
 
-![Alt text](img/preview_v1.1_main.jpg?raw=true "ISRT Main Image")
+![Alt text](img/main_v1.3.jpg?raw=true "ISRT Main Image")
 
-![Alt text](img/preview_v1.1_monitor.jpg?raw=true "ISRT Monitor Image")
+![Alt text](img/monitor_v1.3?raw=true "ISRT Monitor Image")
 
 
 Help me to keep the development running:

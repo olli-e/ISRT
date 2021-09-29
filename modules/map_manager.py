@@ -1312,11 +1312,18 @@ def add_new_map(self):
             self.val_map_tdm = self.map_scenario_tdm
             self.val_map_surv = self.map_scenario_surv
             self.val_map_self_added = self.map_self_added
+            self.val_globalday = 0
+            self.val_dusk = 0
+            self.val_dawn = 0
+            self.val_dark = 0
+            self.val_fog = 0
+            self.val_rain = 0
+            self.val_winter = 0
 
         assign_new_map_variables()
 
-        self.c.execute("INSERT INTO map_config VALUES (:map_alias, :map_name, :modid, :day, :night, :map_pic, :checkpointhardcore, :checkpointhardcore_ins, :checkpoint, :checkpoint_ins, :domination, :firefight_east, :firefight_west, :frontline, :outpost, :push, :push_ins, :skirmish, :teamdeathmatch, :teamdeathmatch, :self_added)",
-                        {'map_alias': self.val_map_alias, 'map_name': self.val_map_name, 'modid': self.val_map_modid, 'day': self.val_map_day, 'night': self.val_map_night, 'map_pic': self.val_map_pic, 'checkpointhardcore': self.val_map_cphc, 'checkpointhardcore_ins': self.val_map_cphcins, 'checkpoint': self.val_map_cp, 'checkpoint_ins': self.val_map_cpins, 'domination': self.val_map_dom, 'firefight_east': self.val_map_ffe, 'firefight_west': self.val_map_ffw, 'frontline': self.val_map_fl, 'outpost': self.val_map_op, 'push': self.val_map_pu, 'push_ins': self.val_map_puins, 'skirmish': self.val_map_ski, 'teamdeathmatch': self.val_map_tdm, 'survival': self.val_map_surv, 'self_added': self.val_map_self_added})
+        self.c.execute("INSERT INTO map_config VALUES (:map_alias, :map_name, :modid, :day, :night, :map_pic, :checkpointhardcore, :checkpointhardcore_ins, :checkpoint, :checkpoint_ins, :domination, :firefight_east, :firefight_west, :frontline, :outpost, :push, :push_ins, :skirmish, :teamdeathmatch, :survival, :self_added, :globalday, :dusk, :dawn, :dark, :fog, :rain, :winter)",
+                        {'map_alias': self.val_map_alias, 'map_name': self.val_map_name, 'modid': self.val_map_modid, 'day': self.val_map_day, 'night': self.val_map_night, 'map_pic': self.val_map_pic, 'checkpointhardcore': self.val_map_cphc, 'checkpointhardcore_ins': self.val_map_cphcins, 'checkpoint': self.val_map_cp, 'checkpoint_ins': self.val_map_cpins, 'domination': self.val_map_dom, 'firefight_east': self.val_map_ffe, 'firefight_west': self.val_map_ffw, 'frontline': self.val_map_fl, 'outpost': self.val_map_op, 'push': self.val_map_pu, 'push_ins': self.val_map_puins, 'skirmish': self.val_map_ski, 'teamdeathmatch': self.val_map_tdm, 'survival': self.val_map_surv, 'self_added': self.val_map_self_added, 'globalday': self.val_globalday, 'dusk': self.val_dusk, 'dawn': self.val_dawn, 'dark': self.val_dark, 'fog': self.val_fog, 'rain': self.val_rain, 'winter': self.val_winter})
         self.conn.commit()
 
     # Check for any errors in the above methods and if 0 really add map

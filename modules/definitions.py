@@ -175,7 +175,7 @@ def set_version(self):
         else:
             new_version = current_version
 
-        # If new version available show Messagebox
+        # If new version available show it
         def open_website():
             os.system(
                 'start %windir%\\explorer.exe "https://www.isrt.info/?page_id=50"')
@@ -187,7 +187,9 @@ def set_version(self):
         else:
             self.setWindowTitle(QtCore.QCoreApplication.translate("ISRT_Main_Window", f"ISRT - Insurgency Sandstorm RCON Tool {version}"))
             self.gui.lbl_update_info.setHidden(True)
-
+    else:
+            self.setWindowTitle(QtCore.QCoreApplication.translate("ISRT_Main_Window", f"ISRT - Insurgency Sandstorm RCON Tool {version}"))
+            self.gui.lbl_update_info.setHidden(True)
 
 
     

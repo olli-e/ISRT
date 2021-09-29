@@ -10,7 +10,7 @@ RCON Manager
 ------------------------------------------------------------------'''
 import time
 import re
-import urllib.request
+import socket
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import QTimer
 import modules.rcon as rcon # pylint: disable=import-error
@@ -150,7 +150,7 @@ def map_changer(self):
     elif val_gamemode == "Skirmish":
         val_gamemode = "skirmish"
     elif val_gamemode == "TeamDeathMatch":
-        val_gamemode = "teamdeathmath"
+        val_gamemode = "teamdeathmatch"
 
     if val_map.startswith("Select") or val_map.startswith("--"):
         self.gui.label_output_window.setText(
@@ -417,9 +417,66 @@ def checkandgorcon(self):
                     ) + " is no valid RCON Port number - please retry!")
                     self.gui.progressbar_map_changer.setProperty(
                         "value", 0)
+
+            elif not re.search(self.regexip, self.gui.entry_ip.text()) and '.' in self.gui.entry_ip.text():
+                try:
+                    self.serverhost = socket.gethostbyname(self.gui.entry_ip.text())
+                    self.gui.label_output_window.setText(
+                        "Using IP-Address: " + self.gui.entry_ip.text())
+
+
+                    try:
+                        if self.gui.entry_rconport.text() and 1 <= int(self.gui.entry_rconport.text()) <= 65535:
+                            serverhost = self.serverhost
+                            rconpassword = str(self.gui.entry_rconpw.text())
+                            rconport = int(self.gui.entry_rconport.text())
+                            rconcommand = str(
+                                self.gui.label_rconcommand.text())
+                            if save_command_check == 1 and command_check:
+                                self.c.execute("INSERT INTO cust_commands VALUES (:commands)", {
+                                                'commands': command_check})
+                                self.conn.commit()
+                                custom.refill_cust_dropdown_list(self)
+                            try:
+                                rcon.rconserver(
+                                    self, serverhost, rconpassword,  rconport, rconcommand)
+                                progress_counter = 0
+                                while progress_counter < 101:
+                                    progress_counter += 10
+                                    self.gui.progressbar_map_changer.setProperty(
+                                    "value", progress_counter)
+                                    time.sleep(0.02)
+                                self.gui.progressbar_map_changer.setProperty(
+                                    "value", 0)
+                            except Exception as e:
+                                msg7 = QtWidgets.QMessageBox()
+                                msg7.setWindowIcon(
+                                    QtGui.QIcon(".\\img/isrt.ico"))
+                                msg7.setIcon(QtWidgets.QMessageBox.Critical)
+                                msg7.setWindowTitle("ISRT Error Message")
+                                msg7.setText("We encountered and error: \n\n" + str(
+                                    e) + "\n\nWrong IP, RCON Port, Command or Password?\nThe server may also be down - please check that!")
+                                msg7.exec_()
+                                self.gui.progressbar_map_changer.setProperty(
+                                    "value", 0)
+                        else:
+                            raise ValueError
+                    except ValueError:
+                        self.gui.label_output_window.setText(self.gui.entry_rconport.text(
+                        ) + " is no valid RCON Port number - please retry!")
+                        self.gui.progressbar_map_changer.setProperty(
+                            "value", 0)
+
+
+
+
+                except:
+                    self.gui.label_output_window.setText(
+                        self.gui.entry_ip.text() + " could not be resolved - please retry!")
+
             else:
                 self.gui.label_output_window.setText(
-                    self.gui.entry_ip.text() + " is no valid IP address - please retry!")
+                    self.gui.entry_ip.text() + " is no valid IP address or hostname not resolvable - please retry!")
                 self.gui.progressbar_map_changer.setProperty("value", 0)
         else:
             self.gui.label_output_window.setText("No RCON Password given or no valid RCON command - please retry!")

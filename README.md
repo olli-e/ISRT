@@ -25,7 +25,7 @@ Featuers of the App:
 
 ![Alt text](img/main_v1.3.jpg?raw=true "ISRT Main Image")
 
-![Alt text](img/monitor_v1.3?raw=true "ISRT Monitor Image")
+![Alt text](img/monitor_v1.3.jpg?raw=true "ISRT Monitor Image")
 
 
 Help me to keep the development running:

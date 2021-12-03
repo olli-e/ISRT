@@ -126,6 +126,7 @@ def clear_map_manager(self):
     self.gui.le_mapmgr_scenario_op.setEnabled(True)
     self.gui.le_mapmgr_scenario_puins.setEnabled(True)
     self.gui.le_mapmgr_scenario_surv.setEnabled(True)
+    self.gui.le_mapmgr_scenario_amb.setEnabled(True)
     self.gui.le_mapmgr_alias.setText("")
     self.gui.le_mapmgr_name.setText("")
     self.gui.le_mapmgr_modid.setText("")
@@ -145,6 +146,7 @@ def clear_map_manager(self):
     self.gui.le_mapmgr_scenario_op.setText("")
     self.gui.le_mapmgr_scenario_puins.setText("")
     self.gui.le_mapmgr_scenario_surv.setText("")
+    self.gui.le_mapmgr_scenario_amb.setText("")
     self.gui.le_mapmgr_selected_day_image.setText("")
     self.gui.le_mapmgr_selected_night_image.setText("")
     self.gui.le_mapmgr_scenario_cp.setPlaceholderText(
@@ -171,6 +173,7 @@ def clear_map_manager(self):
     self.gui.le_mapmgr_scenario_puins.setPlaceholderText(
         "Push Scenario Insurgents")
     self.gui.le_mapmgr_scenario_surv.setPlaceholderText("Survival Scenario")
+    self.gui.le_mapmgr_scenario_amb.setPlaceholderText("Ambush Scenario")
     self.gui.le_mapmgr_selected_day_image.setPlaceholderText(
         "Map Image Name Day")
     self.gui.le_mapmgr_selected_night_image.setPlaceholderText(
@@ -201,6 +204,7 @@ def fill_map_manager_conf_tab(self):
         self.gui.le_mapmgr_scenario_op.setEnabled(True)
         self.gui.le_mapmgr_scenario_puins.setEnabled(True)
         self.gui.le_mapmgr_scenario_surv.setEnabled(True)
+        self.gui.le_mapmgr_scenario_amb.setEnabled(True)
         self.gui.le_mapmgr_alias.setText("")
         self.gui.le_mapmgr_name.setText("")
         self.gui.le_mapmgr_modid.setText("")
@@ -220,6 +224,7 @@ def fill_map_manager_conf_tab(self):
         self.gui.le_mapmgr_scenario_op.setText("")
         self.gui.le_mapmgr_scenario_puins.setText("")
         self.gui.le_mapmgr_scenario_surv.setText("")
+        self.gui.le_mapmgr_scenario_amb.setText("")
         self.gui.le_mapmgr_selected_day_image.setText("")
         self.gui.le_mapmgr_selected_night_image.setText("")
         self.gui.le_mapmgr_scenario_cp.setPlaceholderText(
@@ -249,6 +254,7 @@ def fill_map_manager_conf_tab(self):
         self.gui.le_mapmgr_scenario_puins.setPlaceholderText(
             "Push Scenario Insurgents")
         self.gui.le_mapmgr_scenario_surv.setPlaceholderText("Survival Scenario")
+        self.gui.le_mapmgr_scenario_amb.setPlaceholderText("Ambush Scenario")
         self.gui.le_mapmgr_selected_day_image.setPlaceholderText(
             "Map Image Name Day")
         self.gui.le_mapmgr_selected_night_image.setPlaceholderText(
@@ -288,7 +294,8 @@ def fill_map_manager_conf_tab(self):
         self.map_scenario_ski = self.map_configuration[17]
         self.map_scenario_tdm = self.map_configuration[18]
         self.map_scenario_surv = self.map_configuration[19]
-        self.map_self_added = self.map_configuration[20]
+        self.map_scenario_amb = self.map_configuration[20]
+        self.map_self_added = self.map_configuration[21]
         self.gui.le_mapmgr_alias.setText(self.map_alias)
         self.gui.le_mapmgr_name.setText(self.map_name)
 
@@ -306,6 +313,7 @@ def fill_map_manager_conf_tab(self):
         self.gui.le_mapmgr_scenario_op.setEnabled(True)
         self.gui.le_mapmgr_scenario_puins.setEnabled(True)
         self.gui.le_mapmgr_scenario_surv.setEnabled(True)
+        self.gui.le_mapmgr_scenario_amb.setEnabled(True)
         self.gui.btn_mapmgr_delete.setEnabled(True)
 
         if self.map_self_added == 0:
@@ -477,6 +485,11 @@ def fill_map_manager_conf_tab(self):
             self.gui.le_mapmgr_scenario_tdm.setText(self.map_scenario_tdm)
         else:
             self.gui.le_mapmgr_scenario_tdm.setPlaceholderText("N/A")
+
+        if self.map_scenario_amb:
+            self.gui.le_mapmgr_scenario_amb.setText(self.map_scenario_amb)
+        else:
+            self.gui.le_mapmgr_scenario_amb.setPlaceholderText("N/A")
     # Set the configuration in case the called map is a Standard map
 
     def set_map_mgr_conf_std():
@@ -503,7 +516,8 @@ def fill_map_manager_conf_tab(self):
         self.map_scenario_ski = self.map_configuration[17]
         self.map_scenario_tdm = self.map_configuration[18]
         self.map_scenario_surv = self.map_configuration[19]
-        self.map_self_added = self.map_configuration[20]
+        self.map_scenario_amb = self.map_configuration[20]
+        self.map_self_added = self.map_configuration[21]
 
         self.gui.le_mapmgr_scenario_cp.setEnabled(False)
         self.gui.le_mapmgr_scenario_cphc.setEnabled(False)
@@ -519,6 +533,7 @@ def fill_map_manager_conf_tab(self):
         self.gui.le_mapmgr_scenario_op.setEnabled(False)
         self.gui.le_mapmgr_scenario_puins.setEnabled(False)
         self.gui.le_mapmgr_scenario_surv.setEnabled(False)
+        self.gui.le_mapmgr_scenario_amb.setEnabled(False)
 
         if self.map_self_added == 0:
             self.gui.btn_mapmgr_delete.setEnabled(False)
@@ -630,6 +645,12 @@ def fill_map_manager_conf_tab(self):
         else:
             self.gui.le_mapmgr_scenario_surv.setPlaceholderText("N/A")
 
+        if self.map_scenario_amb:
+            self.gui.le_mapmgr_scenario_amb.setText(
+                self.map_scenario_amb)
+        else:
+            self.gui.le_mapmgr_scenario_amb.setPlaceholderText("N/A")
+
         if self.map_scenario_ski:
             self.gui.le_mapmgr_scenario_ski.setText(self.map_scenario_ski)
         else:
@@ -667,6 +688,7 @@ def fill_map_manager_conf_tab(self):
     self.gui.le_mapmgr_scenario_op.setCursorPosition(1)
     self.gui.le_mapmgr_scenario_puins.setCursorPosition(1)
     self.gui.le_mapmgr_scenario_surv.setCursorPosition(1)
+    self.gui.le_mapmgr_scenario_amb.setCursorPosition(1)
 
 # Clear the map image
 def clear_map_image(self, scenario):
@@ -764,6 +786,7 @@ def save_existing_map(self):
         self.val_map_ski = self.gui.le_mapmgr_scenario_ski.text()
         self.val_map_surv = self.gui.le_mapmgr_scenario_surv.text()
         self.val_map_tdm = self.gui.le_mapmgr_scenario_tdm.text()
+        self.val_map_amb = self.gui.le_mapmgr_scenario_amb.text()
 
     def check_if_map_info_complete_change():
         if (self.gui.le_mapmgr_scenario_cp.text() == "" and # pylint: disable=too-many-boolean-expressions
@@ -779,7 +802,8 @@ def save_existing_map(self):
             self.gui.le_mapmgr_scenario_pu.text() == "" and
             self.gui.le_mapmgr_scenario_puins.text() == "" and
             self.gui.le_mapmgr_scenario_surv.text() == "" and
-            self.gui.le_mapmgr_scenario_ski.text() == ""):
+            self.gui.le_mapmgr_scenario_ski.text() == "" and 
+            self.gui.le_mapmgr_scenario_amb.text() == ""):
             self.gui.label_db_console_2.append(
                 "You have to provide at least one map scenario!")
             self.check_val_update_map_error += 161
@@ -799,12 +823,12 @@ def save_existing_map(self):
     def update_changed_map_vars():
         if self.map_self_added == 1:
             self.day_pic_name = (self.val_map_chg_name + ".jpg")
-            self.c.execute("UPDATE map_config SET map_name=:map_name, modid=:modid, day=:day, night=:night, map_pic=:map_pic, checkpointhardcore=:checkpointhardcore, checkpointhardcore_ins=:checkpointhardcore_ins, checkpoint=:checkpoint, checkpoint_ins=:checkpoint_ins, domination=:domination, firefight_east=:firefight_east, firefight_west=:firefight_west, frontline=:frontline, outpost=:outpost, push=:push, push_ins=:push_ins, skirmish=:skirmish, teamdeathmatch=:teamdeathmatch, survival=:survival WHERE map_alias=:map_alias",
-                            {'map_alias': self.val_map_alias, 'map_name': self.val_map_chg_name, 'modid': self.val_map_chg_modid, 'day': self.map_day, 'night': self.map_night, 'map_pic': self.day_pic_name, 'checkpointhardcore': self.val_map_cphc, 'checkpointhardcore_ins': self.val_map_cphcins, 'checkpoint': self.val_map_cp, 'checkpoint_ins': self.val_map_cpins, 'domination': self.val_map_dom, 'firefight_east': self.val_map_ffe, 'firefight_west': self.val_map_ffw, 'frontline': self.val_map_fl, 'outpost': self.val_map_op, 'push': self.val_map_pu, 'push_ins': self.val_map_puins, 'skirmish': self.val_map_ski, 'teamdeathmatch': self.val_map_tdm, 'survival': self.val_map_surv})
+            self.c.execute("UPDATE map_config SET map_name=:map_name, modid=:modid, day=:day, night=:night, map_pic=:map_pic, checkpointhardcore=:checkpointhardcore, checkpointhardcore_ins=:checkpointhardcore_ins, checkpoint=:checkpoint, checkpoint_ins=:checkpoint_ins, domination=:domination, firefight_east=:firefight_east, firefight_west=:firefight_west, frontline=:frontline, outpost=:outpost, push=:push, push_ins=:push_ins, skirmish=:skirmish, teamdeathmatch=:teamdeathmatch, survival=:survival, ambush=:ambush WHERE map_alias=:map_alias",
+                            {'map_alias': self.val_map_alias, 'map_name': self.val_map_chg_name, 'modid': self.val_map_chg_modid, 'day': self.map_day, 'night': self.map_night, 'map_pic': self.day_pic_name, 'checkpointhardcore': self.val_map_cphc, 'checkpointhardcore_ins': self.val_map_cphcins, 'checkpoint': self.val_map_cp, 'checkpoint_ins': self.val_map_cpins, 'domination': self.val_map_dom, 'firefight_east': self.val_map_ffe, 'firefight_west': self.val_map_ffw, 'frontline': self.val_map_fl, 'outpost': self.val_map_op, 'push': self.val_map_pu, 'push_ins': self.val_map_puins, 'skirmish': self.val_map_ski, 'teamdeathmatch': self.val_map_tdm, 'survival': self.val_map_surv, 'ambush': self.val_map_amb})
             self.conn.commit()
         else:
-            self.c.execute("UPDATE map_config SET map_name=:map_name, modid=:modid, day=:day, night=:night, checkpointhardcore=:checkpointhardcore, checkpointhardcore_ins=:checkpointhardcore_ins, checkpoint=:checkpoint, checkpoint_ins=:checkpoint_ins, domination=:domination, firefight_east=:firefight_east, firefight_west=:firefight_west, frontline=:frontline, outpost=:outpost, push=:push, push_ins=:push_ins, skirmish=:skirmish, teamdeathmatch=:teamdeathmatch, survival=:survival WHERE map_alias=:map_alias",
-                            {'map_alias': self.val_map_alias, 'map_name': self.val_map_chg_name, 'modid': self.val_map_chg_modid, 'day': self.map_day, 'night': self.map_night, 'checkpointhardcore': self.val_map_cphc, 'checkpointhardcore_ins': self.val_map_cphcins, 'checkpoint': self.val_map_cp, 'checkpoint_ins': self.val_map_cpins, 'domination': self.val_map_dom, 'firefight_east': self.val_map_ffe, 'firefight_west': self.val_map_ffw, 'frontline': self.val_map_fl, 'outpost': self.val_map_op, 'push': self.val_map_pu, 'push_ins': self.val_map_puins, 'skirmish': self.val_map_ski, 'teamdeathmatch': self.val_map_tdm, 'survival': self.val_map_surv})
+            self.c.execute("UPDATE map_config SET map_name=:map_name, modid=:modid, day=:day, night=:night, checkpointhardcore=:checkpointhardcore, checkpointhardcore_ins=:checkpointhardcore_ins, checkpoint=:checkpoint, checkpoint_ins=:checkpoint_ins, domination=:domination, firefight_east=:firefight_east, firefight_west=:firefight_west, frontline=:frontline, outpost=:outpost, push=:push, push_ins=:push_ins, skirmish=:skirmish, teamdeathmatch=:teamdeathmatch, survival=:survival, ambush=:ambush WHERE map_alias=:map_alias",
+                            {'map_alias': self.val_map_alias, 'map_name': self.val_map_chg_name, 'modid': self.val_map_chg_modid, 'day': self.map_day, 'night': self.map_night, 'checkpointhardcore': self.val_map_cphc, 'checkpointhardcore_ins': self.val_map_cphcins, 'checkpoint': self.val_map_cp, 'checkpoint_ins': self.val_map_cpins, 'domination': self.val_map_dom, 'firefight_east': self.val_map_ffe, 'firefight_west': self.val_map_ffw, 'frontline': self.val_map_fl, 'outpost': self.val_map_op, 'push': self.val_map_pu, 'push_ins': self.val_map_puins, 'skirmish': self.val_map_ski, 'teamdeathmatch': self.val_map_tdm, 'survival': self.val_map_surv, 'ambush': self.val_map_amb})
             self.conn.commit()
 
     # Check for any errors in the above methods and if 0 really add map
@@ -1049,6 +1073,7 @@ def add_new_map(self):
         self.map_scenario_ski = self.gui.le_mapmgr_scenario_ski.text()
         self.map_scenario_tdm = self.gui.le_mapmgr_scenario_tdm.text()
         self.map_scenario_surv = self.gui.le_mapmgr_scenario_surv.text()
+        self.map_scenario_amb = self.gui.le_mapmgr_scenario_amb.text()
         self.map_self_added = 1
 
         self.map_day_temp = self.gui.chkbox_mapmgr_day.isChecked()
@@ -1105,6 +1130,8 @@ def add_new_map(self):
             re.search(r"\s", self.map_scenario_surv))
         res_check_blanks_tdm = bool(
             re.search(r"\s", self.map_scenario_tdm))
+        res_check_blanks_amb = bool(
+            re.search(r"\s", self.map_scenario_amb))
 
         if res_check_blanks_cp is True:
             self.gui.label_db_console_2.append(
@@ -1161,6 +1188,10 @@ def add_new_map(self):
         if res_check_blanks_tdm is True:
             self.gui.label_db_console_2.append(
                 "The map scenario for Team Death Match contains a blank space - remove it and try again!")
+            self.check_val_add_map_error = 613
+        if res_check_blanks_amb is True:
+            self.gui.label_db_console_2.append(
+                "The map scenario for Ambush contains a blank space - remove it and try again!")
             self.check_val_add_map_error = 613
 
     # Check if all required information has been entered
@@ -1223,7 +1254,9 @@ def add_new_map(self):
             self.gui.le_mapmgr_scenario_pu.text() == "" and
             self.gui.le_mapmgr_scenario_puins.text() == "" and
             self.gui.le_mapmgr_scenario_surv.text() == "" and
-                self.gui.le_mapmgr_scenario_ski.text() == ""):
+            self.gui.le_mapmgr_scenario_ski.text() == "" and 
+            self.gui.le_mapmgr_scenario_amb.text() == ""):
+
             self.gui.label_db_console_2.append(
                 "You have to provide at least one map scenario!")
             self.check_val_add_map_error += 161
@@ -1311,6 +1344,7 @@ def add_new_map(self):
             self.val_map_ski = self.map_scenario_ski
             self.val_map_tdm = self.map_scenario_tdm
             self.val_map_surv = self.map_scenario_surv
+            self.val_map_amb = self.map_scenario_amb
             self.val_map_self_added = self.map_self_added
             self.val_globalday = 0
             self.val_dusk = 0
@@ -1322,8 +1356,8 @@ def add_new_map(self):
 
         assign_new_map_variables()
 
-        self.c.execute("INSERT INTO map_config VALUES (:map_alias, :map_name, :modid, :day, :night, :map_pic, :checkpointhardcore, :checkpointhardcore_ins, :checkpoint, :checkpoint_ins, :domination, :firefight_east, :firefight_west, :frontline, :outpost, :push, :push_ins, :skirmish, :teamdeathmatch, :survival, :self_added, :globalday, :dusk, :dawn, :dark, :fog, :rain, :winter)",
-                        {'map_alias': self.val_map_alias, 'map_name': self.val_map_name, 'modid': self.val_map_modid, 'day': self.val_map_day, 'night': self.val_map_night, 'map_pic': self.val_map_pic, 'checkpointhardcore': self.val_map_cphc, 'checkpointhardcore_ins': self.val_map_cphcins, 'checkpoint': self.val_map_cp, 'checkpoint_ins': self.val_map_cpins, 'domination': self.val_map_dom, 'firefight_east': self.val_map_ffe, 'firefight_west': self.val_map_ffw, 'frontline': self.val_map_fl, 'outpost': self.val_map_op, 'push': self.val_map_pu, 'push_ins': self.val_map_puins, 'skirmish': self.val_map_ski, 'teamdeathmatch': self.val_map_tdm, 'survival': self.val_map_surv, 'self_added': self.val_map_self_added, 'globalday': self.val_globalday, 'dusk': self.val_dusk, 'dawn': self.val_dawn, 'dark': self.val_dark, 'fog': self.val_fog, 'rain': self.val_rain, 'winter': self.val_winter})
+        self.c.execute("INSERT INTO map_config VALUES (:map_alias, :map_name, :modid, :day, :night, :map_pic, :checkpointhardcore, :checkpointhardcore_ins, :checkpoint, :checkpoint_ins, :domination, :firefight_east, :firefight_west, :frontline, :outpost, :push, :push_ins, :skirmish, :teamdeathmatch, :survival, :ambush, :self_added, :globalday, :dusk, :dawn, :dark, :fog, :rain, :winter)",
+                        {'map_alias': self.val_map_alias, 'map_name': self.val_map_name, 'modid': self.val_map_modid, 'day': self.val_map_day, 'night': self.val_map_night, 'map_pic': self.val_map_pic, 'checkpointhardcore': self.val_map_cphc, 'checkpointhardcore_ins': self.val_map_cphcins, 'checkpoint': self.val_map_cp, 'checkpoint_ins': self.val_map_cpins, 'domination': self.val_map_dom, 'firefight_east': self.val_map_ffe, 'firefight_west': self.val_map_ffw, 'frontline': self.val_map_fl, 'outpost': self.val_map_op, 'push': self.val_map_pu, 'push_ins': self.val_map_puins, 'skirmish': self.val_map_ski, 'teamdeathmatch': self.val_map_tdm, 'survival': self.val_map_surv, 'ambush': self.val_map_amb, 'self_added': self.val_map_self_added, 'globalday': self.val_globalday, 'dusk': self.val_dusk, 'dawn': self.val_dawn, 'dark': self.val_dark, 'fog': self.val_fog, 'rain': self.val_rain, 'winter': self.val_winter})
         self.conn.commit()
 
     # Check for any errors in the above methods and if 0 really add map

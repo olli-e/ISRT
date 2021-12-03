@@ -200,7 +200,7 @@ def map_changer(self):
 
             rcon.checkandgorcon(self)
             waittimer = QTimer()
-            waittimer.singleShot(4000, lambda: query.checkandgoquery(self))
+            waittimer.singleShot(5000, lambda: query.checkandgoquery(self))
             waittimer.start()
 
             self.gui.btn_mutator_preset_1.setChecked(False)
@@ -262,7 +262,7 @@ def kick(self):
                 rcon.direct_rcon_command(self, saycommand)
             self.username_kick_ban = ""
             waittimer = QTimer()
-            waittimer.singleShot(1000, lambda: query.checkandgoquery(self))
+            waittimer.singleShot(5000, lambda: query.checkandgoquery(self))
             waittimer.start()
         else:
             self.gui.label_output_window.setText(
@@ -296,7 +296,7 @@ def ban(self):
                 rcon.direct_rcon_command(self, saycommand)
             self.username_kick_ban = ""
             waittimer = QTimer()
-            waittimer.singleShot(1000, lambda: query.checkandgoquery(self))
+            waittimer.singleShot(5000, lambda: query.checkandgoquery(self))
             waittimer.start()
         else:
             self.gui.label_output_window.setText(
@@ -322,7 +322,7 @@ def permban(self):
                 rcon.direct_rcon_command(self, saycommand)
             self.username_kick_ban = ""
             waittimer = QTimer()
-            waittimer.singleShot(1000, lambda: query.checkandgoquery(self))
+            waittimer.singleShot(5000, lambda: query.checkandgoquery(self))
             waittimer.start()
         else:
             self.gui.label_output_window.setText(
@@ -343,7 +343,7 @@ def unban(self):
             rcon.direct_rcon_command(self, saycommand)
             unbanid = ""
             waittimer = QTimer()
-            waittimer.singleShot(1000, lambda: query.checkandgoquery(self))
+            waittimer.singleShot(5000, lambda: query.checkandgoquery(self))
             waittimer.start()
         else:
             self.gui.label_output_window.setText(

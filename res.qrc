@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="img">
+    <file>img/maps/thumbs/gap_night.jpg</file>
+    <file>img/maps/thumbs/gap.jpg</file>
     <file>img/maps/thumbs/drycanal.jpg</file>
     <file>img/ausrufe-20.png</file>
     <file>img/day.jpg</file>

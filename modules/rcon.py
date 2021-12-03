@@ -200,7 +200,7 @@ def map_changer(self):
 
             rcon.checkandgorcon(self)
             waittimer = QTimer()
-            waittimer.singleShot(2000, lambda: query.checkandgoquery(self))
+            waittimer.singleShot(4000, lambda: query.checkandgoquery(self))
             waittimer.start()
 
             self.gui.btn_mutator_preset_1.setChecked(False)

@@ -68,6 +68,7 @@ def selected_map_switch(self):
         var_amb = dsmam_list[20]
 
         var_dn = (str(light_day) + str(light_night))
+
         self.gui.dropdown_select_lighting.clear()
         self.gui.dropdown_select_gamemode.clear()
         if var_dn == "10":

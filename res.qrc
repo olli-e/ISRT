@@ -1,8 +1,5 @@
 <RCC>
   <qresource prefix="img">
-    <file>img/maps/thumbs/gap_night.jpg</file>
-    <file>img/maps/thumbs/gap.jpg</file>
-    <file>img/maps/thumbs/drycanal.jpg</file>
     <file>img/ausrufe-20.png</file>
     <file>img/day.jpg</file>
     <file>img/night.jpg</file>
@@ -19,6 +16,8 @@
     <file>img/maps/map_views.jpg</file>
   </qresource>
   <qresource prefix="map_thumbs">
+    <file>img/maps/thumbs/gap_night.jpg</file>
+    <file>img/maps/thumbs/gap.jpg</file>
     <file>img/maps/thumbs/hotel_california_night.jpg</file>
     <file>img/maps/thumbs/bridges.jpg</file>
     <file>img/maps/thumbs/bridges_night.jpg</file>
@@ -44,6 +43,8 @@
     <file>img/maps/thumbs/complex_facility.jpg</file>
     <file>img/maps/thumbs/compound.jpg</file>
     <file>img/maps/thumbs/compound_night.jpg</file>
+    <file>img/maps/thumbs/drycanal.jpg</file>
+    <file>img/maps/thumbs/drycanal_night.jpg</file>
     <file>img/maps/thumbs/courtyard.jpg</file>
     <file>img/maps/thumbs/cqb_prs.jpg</file>
     <file>img/maps/thumbs/cqb_prs_night.jpg</file>

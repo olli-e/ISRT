@@ -65,8 +65,10 @@ def selected_map_switch(self):
         var_ski = dsmam_list[17]
         var_tdm = dsmam_list[18]
         var_surv = dsmam_list[19]
+        var_amb = dsmam_list[20]
 
         var_dn = (str(light_day) + str(light_night))
+
         self.gui.dropdown_select_lighting.clear()
         self.gui.dropdown_select_gamemode.clear()
         if var_dn == "10":
@@ -103,6 +105,8 @@ def selected_map_switch(self):
             self.gui.dropdown_select_gamemode.addItem("TeamDeathMatch")
         if var_surv:
             self.gui.dropdown_select_gamemode.addItem("Survival")
+        if var_amb:
+            self.gui.dropdown_select_gamemode.addItem("Ambush")
 
         self.c.execute("select pref_mode from configuration")
         pref_mode_res = self.c.fetchone()
@@ -151,6 +155,8 @@ def map_changer(self):
         val_gamemode = "skirmish"
     elif val_gamemode == "TeamDeathMatch":
         val_gamemode = "teamdeathmatch"
+    elif val_gamemode == "Ambush":
+        val_gamemode = "ambush"
 
     if val_map.startswith("Select") or val_map.startswith("--"):
         self.gui.label_output_window.setText(
@@ -194,7 +200,7 @@ def map_changer(self):
 
             rcon.checkandgorcon(self)
             waittimer = QTimer()
-            waittimer.singleShot(2000, lambda: query.checkandgoquery(self))
+            waittimer.singleShot(5000, lambda: query.checkandgoquery(self))
             waittimer.start()
 
             self.gui.btn_mutator_preset_1.setChecked(False)
@@ -256,7 +262,7 @@ def kick(self):
                 rcon.direct_rcon_command(self, saycommand)
             self.username_kick_ban = ""
             waittimer = QTimer()
-            waittimer.singleShot(1000, lambda: query.checkandgoquery(self))
+            waittimer.singleShot(5000, lambda: query.checkandgoquery(self))
             waittimer.start()
         else:
             self.gui.label_output_window.setText(
@@ -290,7 +296,7 @@ def ban(self):
                 rcon.direct_rcon_command(self, saycommand)
             self.username_kick_ban = ""
             waittimer = QTimer()
-            waittimer.singleShot(1000, lambda: query.checkandgoquery(self))
+            waittimer.singleShot(5000, lambda: query.checkandgoquery(self))
             waittimer.start()
         else:
             self.gui.label_output_window.setText(
@@ -316,7 +322,7 @@ def permban(self):
                 rcon.direct_rcon_command(self, saycommand)
             self.username_kick_ban = ""
             waittimer = QTimer()
-            waittimer.singleShot(1000, lambda: query.checkandgoquery(self))
+            waittimer.singleShot(5000, lambda: query.checkandgoquery(self))
             waittimer.start()
         else:
             self.gui.label_output_window.setText(
@@ -337,7 +343,7 @@ def unban(self):
             rcon.direct_rcon_command(self, saycommand)
             unbanid = ""
             waittimer = QTimer()
-            waittimer.singleShot(1000, lambda: query.checkandgoquery(self))
+            waittimer.singleShot(5000, lambda: query.checkandgoquery(self))
             waittimer.start()
         else:
             self.gui.label_output_window.setText(

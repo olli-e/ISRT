@@ -2,7 +2,7 @@
 ISRT - Insurgency Sandstorm RCON Tool; August 2021, Madman
 In case of questions: support@isrt.info
 Website: http://www.isrt.info
-Current Version: v1.3
+Current Version: v1.4
 Database: ./db/isrt_data.db
 Monitor: ./isrt_monitor.py/exe
 This is open Source, you may use, copy, modify it as you wish, but you may not create anything from or with my code,
@@ -74,6 +74,14 @@ class dbgui(QtWidgets.QWidget):
                 self, 'Select Database', db_select_directory, '*.db',)
             self.dbgui.label_dbi_selected_db.setText(self.dbi_path[0])
         elif db_action == 'replace_db':
+            server.create_db_backup()
+            msg13 = QtWidgets.QMessageBox()
+            msg13.setWindowIcon(QtGui.QIcon(":/img/img/isrt.ico"))
+            msg13.setIcon(QtWidgets.QMessageBox.Information)
+            msg13.setWindowTitle("ISRT DB Backup created")
+            msg13.setText(
+                "I created a backup of your existing \nRestarting ISRT!")
+            msg13.exec_()
             if self.dbi_path and self.dbi_path[0].endswith(".db"):
                 # Database connection setup for Importing
                 dbimportdir = self.dbi_path[0]

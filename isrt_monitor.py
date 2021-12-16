@@ -8,6 +8,7 @@ Module element of ISRT
 ------------------------------------------------------------------
 ISRT Monitor
 ------------------------------------------------------------------'''
+from re import X
 import sys
 import sqlite3
 from pathlib import Path
@@ -84,10 +85,10 @@ class mongui(QtWidgets.QWidget):
         self.dbdir = Path(__file__).absolute().parent
         self.conn = sqlite3.connect(str(self.dbdir / 'db/isrt_data.db'))
         self.c = self.conn.cursor()
-        self.c.execute("select mon_width, mon_height, high_ping, show_gm, show_pn, show_ip, timer from configuration")
+        self.c.execute("select mon_width, mon_height, high_ping, show_gm, show_pn, show_ip, timer, mon_pos_left, mon_pos_top from configuration")
         self.conn.commit()
         self.mon_conf = self.c.fetchone()
-        self.setGeometry(150, 150, self.mon_conf[0], self.mon_conf[1])
+        self.setGeometry(self.mon_conf[7], self.mon_conf[8], self.mon_conf[0], self.mon_conf[1])
         self.high_ping = self.mon_conf[2]
         self.show_gamemode = self.mon_conf[3]
         self.show_playernames = self.mon_conf[4]
@@ -321,10 +322,20 @@ class mongui(QtWidgets.QWidget):
             self.mogui.tbl_server_overview.setItem(self.counter, 0, item66)
 
     def closeEvent(self, event): # pylint: disable=unused-argument
-        mon_width = self.width()
-        mon_height = self.height()
+        
+        screen = str(self.geometry())
+        screen2 = screen.rsplit('(')
+        screen3 = screen2[1]
+        screen4 = screen3.split(')')
+        screen5 = screen4[0]
+        screen6 = screen5.rsplit(', ')
+        pos_left = screen6[0]
+        pos_top = screen6[1]
+        mon_width = screen6[2]
+        mon_height = screen6[3]
         self.c.execute("UPDATE configuration set blocker=0")
-        self.c.execute("update configuration set mon_width=:mon_width, mon_height=:mon_height", {'mon_width': mon_width, 'mon_height': mon_height})
+        self.c.execute("update configuration set mon_width=:mon_width, mon_height=:mon_height, mon_pos_left=:mon_pos_left, mon_pos_top=:mon_pos_top", {'mon_width': mon_width, 'mon_height': mon_height, 'mon_pos_left': pos_left, 'mon_pos_top': pos_top})
+        
         self.conn.commit()
         self.conn.close()
         self.close()

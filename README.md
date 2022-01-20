@@ -23,8 +23,8 @@ General Features:
 <li>Python 3, PyQT5, SQLite3</li>
   <br/>
 Screenshot Dashboard:  
-![ISRT Dashboard](https://raw.githubusercontent.com/olli-e/ISRT/main/img/isrt_v1.4.jpg)
+![ISRT Dashboard](https://raw.githubusercontent.com/olli-e/ISRT/main/img/isrt_v1.4.jpg)  
   
 Screenshot Monitor:  
-![ISRT Monitor](https://raw.githubusercontent.com/olli-e/ISRT/main/img/monitor_v1.3.jpg)
+![ISRT Monitor](https://raw.githubusercontent.com/olli-e/ISRT/main/img/monitor_v1.3.jpg)  
   <br/>  

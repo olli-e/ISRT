@@ -22,4 +22,4 @@ General Features:
 <li>All OS compatible</li>
 <li>Python 3, PyQT5, SQLite3</li>
 
-<img="img/isrt_v1.4.jpg>
+![ISRT Dashboard](<img="https://github.com/olli-e/ISRT/img/isrt_v1.4.jpg>

@@ -2,6 +2,12 @@
 
 ISRT is a python 3.9/PyQt5/SQLite3-based RCON and Query Tool for Insurgency Sandstorm Server Administrators.
 
+Release Infos:
+1. Included map gap
+2. Integrated gamemode Ambush
+3. Added saving of window and size position for the ISRT Monitor
+
+General Features:
 <li>Integrated 130 custom maps</li>
 <li>204 Mutators available</li>
 <li>Fast and simple RCON usage</li>
@@ -16,5 +22,3 @@ ISRT is a python 3.9/PyQt5/SQLite3-based RCON and Query Tool for Insurgency Sand
 <li>All OS compatible</li>
 <li>Python 3, PyQT5, SQLite3</li>
 
-Cheers,
-Madman

@@ -1,7 +1,6 @@
 '''
 ISRT - Insurgency Sandstorm RCON Tool
-In case of questions: support@isrt.info
-Website: http://www.isrt.info
+Website: https://github.com/olli-e/ISRT/releases
 This is open Source, you may use, copy, modify it as you wish, but you may not create anything from or with my code,
 that will earn you money - no selling of any kind of stuff with my code, not even parts of it!
 Module element of ISRT

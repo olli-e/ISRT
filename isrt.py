@@ -1,8 +1,7 @@
 '''
 ISRT - Insurgency Sandstorm RCON Tool; August 2021, Madman
-In case of questions: support@isrt.info
-Website: http://www.isrt.info
-Current Version: v1.4
+Website: https://github.com/olli-e/ISRT/releases
+Current Version: v1.5
 Database: ./db/isrt_data.db
 Monitor: ./isrt_monitor.py/exe
 This is open Source, you may use, copy, modify it as you wish, but you may not create anything from or with my code,
@@ -40,7 +39,7 @@ from bin.isrt_gui import Ui_ISRT_Main_Window
 
 ##################################################################################
 ##################################################################################
-running_dev_mode = 0
+running_dev_mode = 1
 running_dev_mode_dbi = 0
 ##################################################################################
 ##################################################################################
@@ -306,8 +305,6 @@ if __name__ == "__main__":
                       {'cid': str(client_id_new)})
             conn.commit()
             client_id = client_id_new
-            register = f'https://www.isrt.info/version/regtest.php?clientid={client_id}'
-            register_post = requests.post(register)
         else:
             # Check if Client ID is already existing
             if client_id == "" or client_id is None:
@@ -320,8 +317,7 @@ if __name__ == "__main__":
                           {'cid': str(client_id_new)})
                 conn.commit()
                 client_id = client_id_new
-                register = f'https://www.isrt.info/version/register.php?clientid={client_id}'
-                register_post = requests.post(register)
+
 
     else:
         for pid in psutil.pids():

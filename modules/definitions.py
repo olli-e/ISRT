@@ -1,7 +1,6 @@
 '''
 ISRT - Insurgency Sandstorm RCON Tool
-In case of questions: support@isrt.info
-Website: http://www.isrt.info
+Website: https://github.com/olli-e/ISRT/releases
 This is open Source, you may use, copy, modify it as you wish, but you may not create anything from or with my code,
 that will earn you money - no selling of any kind of stuff with my code, not even parts of it!
 Module element of ISRT
@@ -149,20 +148,12 @@ def set_version(self):
     # Check for Updates if configuration allows it
     if check_updates_ok == 1:
 
-        if self.running_dev_mode == 1:
-            try:
-                r = urllib.request.urlopen(
-                "https://www.isrt.info/version/version_check2.txt")
-            except Exception:
-                r = None
-                new_version = current_version
-        else:
-            try:
-                r = urllib.request.urlopen(
-                "https://www.isrt.info/version/version_check.txt")
-            except Exception:
-                r = None
-                new_version = current_version
+        try:
+            r = urllib.request.urlopen(
+            "https://raw.githubusercontent.com/olli-e/ISRT/v1.5_Final/update_indicator/version.txt")
+        except Exception:
+            r = None
+            new_version = current_version
 
         if r:
             for line in r.readlines():
@@ -178,7 +169,7 @@ def set_version(self):
         # If new version available show it
         def open_website():
             os.system(
-                'start %windir%\\explorer.exe "https://www.isrt.info/?page_id=50"')
+                'start %windir%\\explorer.exe "https://github.com/olli-e/ISRT/releases"')
 
         if check_updates_ok == 1 and new_version > current_version:
 

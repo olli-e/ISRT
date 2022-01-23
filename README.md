@@ -1,14 +1,13 @@
-# ISRT - Insurgency Sandstorm RCon Tool v1.4 released on 16th of December 2021
+# ISRT - Insurgency Sandstorm RCon Tool v1.5 released on XXth of Februrary 2022
 
-ISRT is a python 3.9/PyQt5/SQLite3-based RCON and Query Tool for Insurgency Sandstorm Server Administrators.
+ISRT is a python 3.9/PyQt5/SQLite3-based RCON and Query Tool for Insurgency Sandstorm Server Administrators. Currently I do not further develop the softwre, as it has proven to be stable and working without any major flaws.
 
 Release Infos:
-1. Included map gap
-2. Integrated gamemode Ambush
-3. Added saving of window and size position for the ISRT Monitor
+1. Cleaned up Code and removed a tiny error in Main program
+2. Removed links to my old website www.isrt.info
 
 General Features:
-<li>Integrated 130 custom maps</li>
+<li>Integrated 131 custom maps</li>
 <li>204 Mutators available</li>
 <li>Fast and simple RCON usage</li>
 <li>Full Query implemented</li>
@@ -24,8 +23,8 @@ General Features:
 
   <br><br/>  
 Screenshot Dashboard:  
-![ISRT Dashboard](https://raw.githubusercontent.com/olli-e/ISRT/main/img/isrt_v1.4.jpg)  
+![ISRT Dashboard](https://raw.githubusercontent.com/olli-e/ISRT/main/img/isrt_v1.5.jpg)  
   
 Screenshot Monitor:  
-![ISRT Monitor](https://raw.githubusercontent.com/olli-e/ISRT/main/img/monitor_v1.3.jpg)  
+![ISRT Monitor](https://raw.githubusercontent.com/olli-e/ISRT/main/img/monitor_v1.5.jpg)  
   <br><br/>  
